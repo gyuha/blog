@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://gyuha.github.io/"
 languageCode = "ko-kr"
 title = "Gyuha Blog"
 theme = "beautifulhugo"
@@ -43,30 +43,12 @@ pygmentsCodefencesGuessSyntax = true
 #  desc = "Hexagon"
 
 [Author]
-  name = "Some Person"
-  website = "yourwebsite.com"
-  email = "youremail@domain.com"
-  facebook = "username"
-  googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
-  github = "username"
-  gitlab = "username"
-  bitbucket = "username"
-  twitter = "username"
-  reddit = "username"
-  linkedin = "username"
-  xing = "username"
-  stackoverflow = "users/XXXXXXX/username"
-  snapchat = "username"
-  instagram = "username"
-  youtube = "user/username" # or channel/channelname
-  soundcloud = "username"
-  spotify = "username"
-  bandcamp = "username"
-  itchio = "username"
-  vk = "username"
-  paypal = "username"
-  telegram = "username"
-  500px = "username"
+  name = "신규하"
+  website = "https://gyuha.github.io"
+  facebook = "gyuha.shin"
+  github = "gyuha"
+  gitlab = "nicegyuha"
+  twitter = "gyuha"
 
 [[menu.main]]
     name = "Blog"
