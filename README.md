@@ -8,6 +8,11 @@
 ```bash
 sudo apt install hugo
 ```
+### 새글 쓰기
+
+```bash
+hugo new post/[글제목].md
+```
 
 
 ## 서버 실행하기
