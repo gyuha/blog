@@ -1,0 +1,74 @@
+# Content
+- id: dateFormat
+  translation: "2006년 1월 2일"
+- id: shortdateFormat
+  translation: "Jan 2, 2006 15:04:05"
+- id: postedOnDate
+  translation: "Posted on {{ .Count }}"
+- id: lastModified
+  translation: "(Last modified on {{ .Count }})"
+- id: translationsLabel
+  translation: "다른 언어: "
+- id: translationsSeparator
+  translation: ", "
+- id: readMore
+  translation: "더 읽기"
+- id: olderPosts
+  translation: "이전글"
+- id: newerPosts
+  translation: "새글"
+- id: previousPost
+  translation: "이전글"
+- id: nextPost
+  translation: "다음글"
+- id: readTime
+  translation: "분"
+- id: words
+  translation: "단어"
+
+
+# 404 page
+- id: pageNotFound
+  translation: "이런.. 이 페이지가 없네요. 다른주소를 확인 하세요.. (404 error)"
+
+# Footer
+- id: poweredBy # Accepts HTML
+  translation: '<a href="http://gohugo.io">Hugo v{{ .Hugo.Version }}</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>'
+
+# Navigation
+- id: toggleNavigation
+  translation: "네비게이션 끄고켜기"
+- id: languageSwitcherLabel
+  translation: "언어"
+- id: gcseLabelShort
+  translation: "검색"
+- id: gcseLabelLong
+  translation: "검색 {{ .Site.Title }}"
+- id: gcseClose
+  translation: "닫기"
+
+# Staticman
+- id: noComment
+  translation: "댓글 없음"
+- id: oneComment
+  translation: "댓글"
+- id: moreComment
+  translation: "댓글"
+- id: useMarkdown
+  translation: "마크다운 문법을 쓸수 있습니다"
+- id: yourName
+  translation: "이름"
+- id: yourEmail
+  translation: "이메일 주소"
+- id: yourWebsite
+  translation: "웹사이트"
+
+# Delayed Disqus
+- id: show
+  translation: "보기"
+- id: comments
+  translation: "댓글" 
+
+# Related posts
+- id: seeAlso
+  translation: "이전 글"
