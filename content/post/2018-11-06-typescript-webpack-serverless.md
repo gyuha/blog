@@ -190,3 +190,5 @@ sls deploy
 
 
 
+예제 코드는 [serverless-typescript-webpack](https://github.com/gyuha/serverless-typescript-webpack)에서 볼 수 있습니다.
+
