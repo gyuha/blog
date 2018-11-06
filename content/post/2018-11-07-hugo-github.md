@@ -2,6 +2,7 @@
 title: "Hugo를 사용한 Github 블로그.."
 date: 2018-11-07T00:20:56+09:00
 draft: true
+tags: [go,blog,github]
 ---
 
 ## hugo 설치 하기
