@@ -20,7 +20,7 @@ deploy:
 	git commit -m $(COMMIT_MESSAGE)
 
 	# Push source and build repos.
-	git push origin master
+	git push
 
 	# Come Back up to the Project Root
 	cd ..
