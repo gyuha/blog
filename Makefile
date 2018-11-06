@@ -19,7 +19,7 @@ deploy:
 	# Build the project.
 	$(HUGO) -D
 
-	cd public
+	cd ./public
 	# Add changes to git.
 	git add .
 	git commit -m $(COMMIT_MESSAGE)
