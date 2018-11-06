@@ -8,18 +8,43 @@
 ```bash
 sudo apt install hugo
 ```
+
+
 ### 새글 쓰기
+
+```bash
+make new title=[글제목]
+```
+
+또는
 
 ```bash
 hugo new post/[글제목].md
 ```
 
 
+
 ## 서버 실행하기
+
+```bash
+make run
+```
+
+또는
 
 ```bash
 hugo server
 ```
+
+
+
+# 서버 배포하기
+
+```bash
+make deploy
+```
+
+
 
 ## 사용중인 theme
 
