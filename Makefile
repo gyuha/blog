@@ -5,6 +5,11 @@ COMMIT_MESSAGE = "rebuilding site $(shell date +%Y-%m-%d)"
 run:
 	$(HUGO) server -D
 
+clone:
+	rm -rf public
+	git clone https://github.com/gyuha/gyuha.github.io.git
+	mv gyuha.github.io public
+
 new:
 	$(HUGO) new post/$(shell date +%Y-%m-%d)-$(title).md
 
