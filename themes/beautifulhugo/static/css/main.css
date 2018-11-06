@@ -1,7 +1,8 @@
 /* --- General --- */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Noto Sans KR', sans-serif, 'Times New Roman', serif;
   font-size: 18px;
   color: #404040;
   position: relative;

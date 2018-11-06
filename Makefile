@@ -19,14 +19,4 @@ deploy:
 	# Build the project.
 	$(HUGO) -D
 
-	cd ./public
-	# Add changes to git.
-	git add .
-	git commit -m $(COMMIT_MESSAGE)
-
-	# Push source and build repos.
-	git push
-
-	# Come Back up to the Project Root
-	cd ..
-
+	cd ./public && git add . && git commit -m $(COMMIT_MESSAGE) && git push
