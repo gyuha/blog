@@ -33,7 +33,7 @@ typescript에 필요한 내용을 설치 합니다. 그리고 `tsconfig.json`파
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node"
-  }, 
+  },
   "exclude": [
     "node_modules"
   ]
@@ -75,7 +75,7 @@ module.exports = {
 
 ## Express 기본 제작
 
-`src/server.ts`파일을 아래와 같이 작성 합니다.
+`src/index.ts`파일을 아래와 같이 작성 합니다.
 
 ```typescript
 import * as bodyParser from "body-parser";
