@@ -33,7 +33,7 @@ make run
 또는
 
 ```bash
-hugo server
+hugo server -D
 ```
 
 
