@@ -1,7 +1,8 @@
 ---
-title: "2018 11 13 Express Typescript Webpack"
+title: "Express Typescript Webpack"
 date: 2018-11-13T23:11:37+09:00
 draft: true
+tags: [webpack,typescript,express,node]
 ---
 
 # Express with typescript and webpack
