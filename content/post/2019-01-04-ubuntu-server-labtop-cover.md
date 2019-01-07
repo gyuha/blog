@@ -1,5 +1,5 @@
 ---
-title: "2019 01 04 Ubuntu Server Labtop Cover"
+title: "우분투 노트북 서버 사용시 커버를 덮어도 잠들지 않도록 하기"
 date: 2019-01-04T10:23:04+09:00
 draft: true
 tag: [ubuntu,laptop,server]
