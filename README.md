@@ -1,5 +1,11 @@
 # Hugo Blog
 
+## Project Cone
+
+```bash
+git submodule add https://github.com/gyuha/blog.git
+```
+
 ## Hugo 설치 하기
 
 - [Hugo Install and Use Themes](https://gohugo.io/themes/installing-and-using-themes/)
