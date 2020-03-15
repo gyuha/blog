@@ -30,21 +30,8 @@ paginate = 7
   wordCount = true
   useHLJS = true
   socialShare = true
-  delayDisqus = true
   showRelatedPosts = true
   gcse = "005985772651516842402:vl-thbjw_8a" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
-
-#[[Params.bigimg]]
-#  src = "img/triangle.jpg"
-#  desc = "Triangle"
-#[[Params.bigimg]]
-#  src = "img/sphere.jpg"
-#  desc = "Sphere"
-#  # position: see values of CSS background-position.
-#  position = "center top"
-#[[Params.bigimg]]
-#  src = "img/hexagon.jpg"
-#  desc = "Hexagon"
 
 [Author]
   name = "신규하"
@@ -53,19 +40,3 @@ paginate = 7
   github = "gyuha"
   gitlab = "nicegyuha"
   twitter = "gyuha"
-
-[[menu.main]]
-    name = "Blog"
-    url = ""
-    weight = 1
-
-# [[menu.main]]
-#     name = "About"
-#     url = "page/about/"
-#     weight = 3
-
-[[menu.main]]
-    name = "Tags"
-    url = "tags"
-    weight = 3
-

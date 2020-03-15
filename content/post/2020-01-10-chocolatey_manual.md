@@ -14,7 +14,7 @@ chocolate를 설치 하려면 관리자 권한 cmd나 PowerShell을 실행해서
 
 ## cmd 사용시
 
-```batch
+```bash
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 ```
 
@@ -22,7 +22,7 @@ chocolate를 설치 하려면 관리자 권한 cmd나 PowerShell을 실행해서
 
 ## powershell 사용시
 
-```batch
+```bash
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
@@ -36,7 +36,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 또는 cmd에서 `search` 나  `list` 명령어로 검색을 할 수 있습니다. 
 
-```batch
+```bash
 > choco search googlechrome
 Chocolatey v0.10.15
 GoogleChrome 79.0.3945.117 [Approved] Downloads cached for licensed users
@@ -49,7 +49,7 @@ vivaldi.install 2.10.1745.23
 
 여기서 정확하게 필요한 패키지만을 보기 위해서는 `-e` 또는 `--exact` 옵션을 넣어 줘야 합니다.
 
-```batch
+```bash
 > choco search googlechrome -e
 Chocolatey v0.10.15
 GoogleChrome 79.0.3945.117 [Approved] Downloads cached for licensed users
@@ -66,7 +66,7 @@ GoogleChrome 79.0.3945.117 [Approved] Downloads cached for licensed users
 
 그런데 `info` 명령어 search에서 -e 옵션이 붙은 것처럼 동작을 하게 됩니다.
 
-```batch
+```bash
 > choco info googlechrome
 Chocolatey v0.10.15
 GoogleChrome 79.0.3945.117 [Approved] Downloads cached for licensed users
@@ -77,7 +77,7 @@ GoogleChrome 79.0.3945.117 [Approved] Downloads cached for licensed users
 
 또는
 
-```batch
+```bash
 > choco search googlechrome -ev
 Chocolatey v0.10.15
 GoogleChrome 79.0.3945.117 [Approved] Downloads cached for licensed users
@@ -94,7 +94,7 @@ GoogleChrome 79.0.3945.117 [Approved] Downloads cached for licensed users
 
 `install` 명령을 이용해서 설치하고 싶은 패키지를 아래와 같이 설치 합니다.
 
-```batch
+```bash
 > choco install bandizip
 Chocolatey v0.10.15
 Installing the following packages:
@@ -110,7 +110,7 @@ Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint):
 
 설치 시 자동으로 y를 누르고 싶다면 `-y` 옵션을 넣어 주면 됩니다. 그리고 강제로 설치하고 싶다면 `-f`를 넣어 주면 됩니다.
 
-```batch
+```bash
 > choco install -yf bandizip
 ```
 
@@ -118,7 +118,7 @@ Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint):
 
 혹시 특정 버전을 설치하고 싶다면 `--version` 옵션을 이용해서 해당 버전을 설치 할 수 있습니다.
 
-```batch
+```bash
 choco install bandizip --version=6.24
 ```
 
@@ -128,7 +128,7 @@ choco install bandizip --version=6.24
 
 chocolatey는 설치된 패키지도 `uninstall` 명령어를 이용해서 편하게 삭제가 가능 합니다.
 
-```batch
+```bash
 > choco uninstall bandizip
 Chocolatey v0.10.15
 Uninstalling the following packages:
@@ -141,7 +141,7 @@ Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint):
 
 `y`키를 누르기 귀찮다면 설치 할 때와 같이 `-yf`를 누르시면 바로 삭제가 가능 합니다.
 
-```batch
+```bash
 > choco uninstall -yf bandizip
 ```
 
@@ -151,7 +151,7 @@ Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint):
 
 `search` 또는 `list`명령로 확인 가능 합니다. 뒤에 `-l` 옵션을 주면 로컬에 설치된 패키지의 목록을 출력 해 줍니다.
 
-```batch
+```bash
 > choco search -l
 bandizip 6.25
 ... 생략
@@ -162,7 +162,7 @@ zeal.install 0.6.1
 
 또는 `clist` 명령어를 사용해서도 조회가 가능 합니다.
 
-```batch
+```bash
 > clist -l
 ```
 
@@ -174,13 +174,13 @@ zeal.install 0.6.1
 
 `upgrade` 명령어를 통해서 패키지를  최신 버전으로 업데이트가 가능 합니다.
 
-```batch
+```bash
 > choco upgrade bandizip
 ```
 
 혹시, choco를 통해서 설치한 프로그램을 모두 업데이트 하고 싶다면 패키지 이름 대신 `all`을 넣어 주면 됩니다.
 
-```batch
+```bash
 > choco upgrade all
 ```
 
@@ -192,7 +192,7 @@ zeal.install 0.6.1
 
 그리고, 뒷 부분에 설치하고 싶은 패키지를  넣어 주시면 됩니다.
 
-```batch
+```bash
 @echo off
 CLS
 ECHO **************************************
