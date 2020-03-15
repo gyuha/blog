@@ -2,6 +2,7 @@
 title: "윈도우용 패키지 매니저 Chocolatey 사용법"
 date: 2020-01-10T03:03:39+09:00
 draft: true
+categories: [utillity]
 tag: [windows,package,manager, choco]
 ---
 

@@ -1,8 +1,9 @@
 baseURL = "https://gyuha.github.io/"
-languageCode = "ko-kr"
+languageCode = "ko-KR"
 title = "Gyuha Blog"
-theme = "beautifulhugo"
+theme = "hugo-hello-programmer-theme"
 
+DefaultContentLanguage = "kr"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
 pygmentsUseClasses = true
@@ -11,9 +12,12 @@ pygmentsCodefencesGuessSyntax = true
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
 disqusShortname = "gyuha-blog"
-#googleAnalytics = "XXX"
+googleAnalytics = "UA-128878421-1"
+paginate = 7
+
 
 [Params]
+  description = "Gyuha blog"
 #  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
   subtitle = "개발 하면서 기록하는 생활의 기록..."
   logo = "img/avatar-icon.png"

@@ -2,6 +2,7 @@
 title: "Typescript Webpack Serverless 구성하기"
 date: 2018-11-06T18:29:07+09:00
 draft: true
+categories: [typescript]
 tags: [typescript,serverless,webpack,node,lambda]
 ---
 
