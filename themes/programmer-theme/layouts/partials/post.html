@@ -1,0 +1,96 @@
+<div class="post">
+  <div class="post-title">
+    <a href="{{ .Permalink }}">
+      <img src="{{ "/images/post-title-icon.png" | relURL }}" />
+      <div class="post-meta">
+        <time>{{ i18n "postDatetime" .Date }}</time>
+        <h1>{{ .Title }}</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">{{ i18n "postToc" }}</span>
+    {{ .TableOfContents }}
+  </div>
+  <section class="post-content">
+    {{ .Content }}
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u={{ .Permalink }}&t={{ .Title }}"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url={{ .Permalink }}&title={{ .Title }}"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url={{ .Permalink }}"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      {{ i18n "postAuthorPrefix" }}
+      {{ with.Params.author }}
+      {{ . }}
+      {{ else }}
+      <a href="mailto:{{ .Site.Author.email }}">{{ .Site.Author.name }}</a>
+      {{ end }}
+      {{ i18n "postAuthorPostfix" }}
+      <span class="highlight">{{ i18n "postDatetime" .Date }}</span> 
+      {{ i18n "postDatetimePostfix" }}
+    </div>
+    <div class="desc">
+      {{ if isset .Params "categories" }}
+      <div class="desc">
+        <span class="fixed-desc">_{{ i18n "menuCategories" }}</span>
+        {{ $baseUrl := .Site.BaseURL }}
+        {{ range.Params.categories }}
+        <a href="{{ $baseUrl }}/categories/{{ . | urlize }}">#{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+      <div class="desc">
+        <span class="fixed-desc">_{{ i18n "menuTags" }}</span>
+        {{ with.Params.tags }}
+        {{ range . }}
+        <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{ . }}</a>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>  
+  {{ if not .Site.BuildDrafts }}
+  <div class="post-comment">    
+    {{ template "_internal/disqus.html" . }}    
+  </div>
+  {{ end }}
+  <div class="recommend-articles">
+    {{ i18n "postRecommendArticles"}}
+    <ul>
+      {{ if .Prev }}
+      <li>
+        <a href="{{ .Prev.Permalink }}" rel="prev">
+          <span>{{ .Prev.Title }}</span>
+        </a>
+      </li>
+      {{ end }}
+      {{ if .Next }}
+      <li>
+        <a href="{{ .Next.Permalink }}" rel="next">
+          <span>{{ .Next.Title }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
