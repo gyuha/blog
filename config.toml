@@ -1,7 +1,7 @@
 baseURL = "https://gyuha.github.io/"
 languageCode = "ko-KR"
 title = "Gyuha Blog"
-theme = "programmer-theme"
+theme = "hago"
 
 DefaultContentLanguage = "kr"
 metaDataFormat = "yaml"

@@ -1,0 +1,30 @@
+{{ partial "header" . }}
+
+<div class="categories">
+  <h1>CATEGORIES</h1>
+  <p>{{ i18n "categoriesDescription" }}</p>
+  <ul>
+    {{ $baseurl := .Site.BaseURL }}
+    {{ $data := .Data }}
+    {{ range $key,$value := .Data.Terms.Alphabetical }}
+    <li>
+      <span class="title">
+        <a href="{{ $baseurl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">
+          <i class="fa fa-angle-right icon" aria-hidden="true"></i>
+          {{ upper $value.Name }} ({{ $value.Count }}{{ i18n "categoriesCount" }})
+        </a>
+      </span>
+      <span class="links">
+        {{ range first 1 $value.WeightedPages }}
+        <a href="{{ .Permalink }}">
+          <small>{{ .Date.Format "2006-01-02" }}</small>
+          <span class="recent-title">{{ .Name }}</span>
+        </a>
+        {{ end }}
+      </span>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+
+{{ partial "footer" . }}
