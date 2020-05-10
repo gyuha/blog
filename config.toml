@@ -19,7 +19,7 @@ paginate = 7
 [Params]
   description = "Gyuha blog"
 #  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
-  subtitle = "개발 하면서 기록하는 생활의 기록..."
+  subtitle = "생활의 기록..."
   logo = "img/avatar-icon.png"
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"

@@ -15,7 +15,7 @@ paginate = 7
 
 [Params]
   description = "Gyuha blog"
-  subtitle = "개발 하면서 기록하는 생활의 기록..."
+  subtitle = "생활의 기록..."
   logo = "img/avatar-icon.png"
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"

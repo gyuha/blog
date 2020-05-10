@@ -5,7 +5,7 @@
 
 /* :: Import Fonts */
 
-@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Work+Sans:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Noto+Sans+KR:300,400,500,600,700");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js");
 
 /* :: Import All CSS */
@@ -23,8 +23,8 @@ body {
   font-family: $worksans-fonts;
 }
 
-.ubuntu-fonts {
-  font-family: $ubuntu-fonts;
+.monospace-fonts {
+  font-family: $monospace-fonts;
 }
 
 h1,
@@ -50,11 +50,11 @@ a {
   outline: none;
   font-size: 14px;
   font-weight: 400;
-  font-family: $ubuntu-fonts;
+  font-family: $monospace-fonts;
   color: $text-color;
   &:hover,
   &:focus {
-    font-family: $ubuntu-fonts;
+    font-family: $monospace-fonts;
     @include trans-duration(500ms);
     text-decoration: none;
     outline: none;
@@ -334,7 +334,7 @@ img {
   }
 }
 
-.world-btn {
+.round-btn {
   position: relative;
   z-index: 1;
   padding: 0 25px;
@@ -369,6 +369,11 @@ img {
     border-color: $color-white;
     @include trans-duration(500ms);
     height: 55px;
+    .navbar-brand {
+      img {
+        max-height: 20px;
+      }
+    }
     .navbar-nav {
       margin-right: 50px;
       .nav-link {
@@ -391,6 +396,16 @@ img {
         margin-right: 30px;
       }
     }
+    .navbar-collapse {
+      @media #{$breakpoint-md} {
+        background-color: $heading-color;
+        padding-bottom: 30px;
+      }
+      @media #{$breakpoint-xs} {
+        background-color: $heading-color;
+        padding-bottom: 30px;
+      }
+    }
   }
   &.sticky {
     background-color: $color-dark;
@@ -407,7 +422,7 @@ img {
   cursor: pointer;
 }
 
-#worldNav {
+#blog-nav {
   @media #{$breakpoint-md} {
     background-color: $color-dark;
     padding: 30px;
@@ -425,87 +440,37 @@ img {
   border-radius: 3px;
 }
 
-/* :: Hero Slides Area CSS */
-
-.hero-area {
+/* Top image area */
+.top-area {
   position: relative;
-  z-index: 1;
-  .hero-slides {
-    position: relative;
-    z-index: 10;
-    .single-hero-slide {
-      height: 600px;
-      position: relative;
-      z-index: 1;
-      @media #{$breakpoint-md} {
-        height: 450px;
-      }
-      @media #{$breakpoint-xs} {
-        height: 400px;
-      }
-    }
-  }
-  .hero-post-area {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
+
+  .top-video {
     width: 100%;
-    z-index: 200;
-  }
-  .hero-post-slide {
-    .single-slide {
-      .post-number {
-        @include flex(0 0 80px);
-        min-width: 80px;
-        p {
-          width: 55px;
-          height: 55px;
-          border: 5px solid;
-          border-color: $text-color;
-          margin-right: 25px;
-          border-radius: 50%;
-          margin-bottom: 0;
-          text-align: center;
-          line-height: 45px;
-          font-size: 24px;
-          font-family: $ubuntu-fonts;
-          font-weight: 700;
-        }
-      }
-      .post-title {
-        a {
-          margin-bottom: 0;
-          font-size: 14px;
-          font-weight: 700;
-          color: $text-color;
-        }
-      }
+    height: 360px;
+    position: relative;
+    overflow: hidden;
+    .video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      min-width: 100%;
+      height: auto;
+      min-height: 100%;
+      transform: translateX(-50%) translateY(-50%);
+      z-index: -1;
     }
-    .center {
-      .single-slide {
-        .post-number {
-          p {
-            border: 5px solid;
-            border-top-color: $blue-color;
-            border-bottom-color: $blue-color;
-            border-left-color: $text-color;
-            border-right-color: $blue-color;
-          }
-        }
-        .post-title {
-          a {
-            color: $color-white;
-            font-weight: 700;
-          }
-        }
-      }
+
+    .video-message {
+      margin-top: 3em;
+      font-size: 3em;
+      color: $color-white;
     }
   }
 }
 
 /* Blog Content Area CSS */
-
-.world-catagory-area {
+.catagory-area {
   .nav-tabs {
     padding: 10px 0;
     border-bottom: 2px solid $bg-gray;
@@ -514,7 +479,7 @@ img {
       color: $heading-color;
       margin-bottom: 0;
       margin-right: auto;
-      font-family: $ubuntu-fonts;
+      font-family: $monospace-fonts;
       font-weight: 700;
     }
     .nav-link {
@@ -837,7 +802,7 @@ img {
       color: $heading-color;
       margin-bottom: 0;
       margin-right: auto;
-      font-family: $ubuntu-fonts;
+      font-family: $monospace-fonts;
       font-weight: 700;
       padding: 10px 0;
       border-bottom: 2px solid $bg-gray;
@@ -859,7 +824,7 @@ img {
     color: $heading-color;
     margin-bottom: 0;
     margin-right: auto;
-    font-family: $ubuntu-fonts;
+    font-family: $monospace-fonts;
     font-weight: 700;
     padding: 12px 0;
     border-bottom: 2px solid $bg-gray;
@@ -969,7 +934,7 @@ img {
       line-height: 1.8;
       margin-bottom: 30px;
       color: $text-color;
-      font-family: $ubuntu-fonts;
+      font-family: $monospace-fonts;
     }
     blockquote {
       border-left: 2px solid;
@@ -1051,12 +1016,12 @@ img {
     font-size: 18px;
     color: $heading-color;
     margin-bottom: 0;
-    font-family: $ubuntu-fonts;
+    font-family: $monospace-fonts;
     font-weight: 700;
     margin-bottom: 30px;
   }
   button {
-    &.world-btn {
+    &.round-btn {
       border-color: $blue-color;
       background-color: $blue-color;
       color: $color-white;
@@ -1095,7 +1060,7 @@ img {
     left: 0;
     top: 5px;
     transition: 0.5s ease all;
-    font-family: $ubuntu-fonts;
+    font-family: $monospace-fonts;
   }
   .bar {
     position: relative;
@@ -1444,7 +1409,7 @@ textarea:focus ~ .highlight {
 
 .footer-area {
   background-color: $footer-color;
-  padding: 70px 0;
+  padding: 30px 0;
   position: relative;
   z-index: 1;
   .footer-single-widget {
@@ -1469,7 +1434,7 @@ textarea:focus ~ .highlight {
     }
     h5 {
       font-size: 18px;
-      font-family: $ubuntu-fonts;
+      font-family: $monospace-fonts;
       margin-bottom: 20px;
       font-weight: 700;
       color: $color-white;
@@ -1487,7 +1452,7 @@ textarea:focus ~ .highlight {
         color: #959595;
         font-size: 14px;
         padding: 0 5px;
-        font-family: $ubuntu-fonts;
+        font-family: $monospace-fonts;
       }
       button {
         position: absolute;

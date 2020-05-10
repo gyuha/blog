@@ -1,7 +1,7 @@
 /* Variables */
 /* mixin */
 /* :: Import Fonts */
-@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Work+Sans:300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Noto+Sans+KR:300,400,500,600,700");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js");
 /* :: Import All CSS */
 @import url("/vendor/bootstrap/bootstrap.min.css");
@@ -13,9 +13,9 @@
   padding: 0; }
 
 body {
-  font-family: "Work Sans", sans-serif; }
+  font-family: "Noto Sans KR", sans-serif; }
 
-.ubuntu-fonts {
+.monospace-fonts {
   font-family: "Ubuntu", sans-serif; }
 
 h1,
@@ -287,7 +287,7 @@ img {
     content: "";
     background-color: rgba(0, 0, 0, 0.7); }
 
-.world-btn {
+.round-btn {
   position: relative;
   z-index: 1;
   padding: 0 25px;
@@ -298,7 +298,7 @@ img {
   font-size: 14px;
   border-radius: 50px;
   line-height: 32px; }
-  .world-btn:hover, .world-btn:focus {
+  .round-btn:hover, .round-btn:focus {
     border-color: #0000ff;
     background-color: #0000ff;
     color: #ffffff; }
@@ -320,6 +320,8 @@ img {
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
     height: 55px; }
+    .header-area .navbar .navbar-brand img {
+      max-height: 20px; }
     .header-area .navbar .navbar-nav {
       margin-right: 50px; }
       .header-area .navbar .navbar-nav .nav-link {
@@ -335,6 +337,14 @@ img {
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .header-area .navbar .navbar-nav {
           margin-right: 30px; } }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .header-area .navbar .navbar-collapse {
+        background-color: #000000;
+        padding-bottom: 30px; } }
+    @media only screen and (max-width: 767px) {
+      .header-area .navbar .navbar-collapse {
+        background-color: #000000;
+        padding-bottom: 30px; } }
   .header-area.sticky {
     background-color: #000000;
     margin-top: 0;
@@ -347,12 +357,12 @@ img {
   cursor: pointer; }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  #worldNav {
+  #blog-nav {
     background-color: #000000;
     padding: 30px; } }
 
 @media only screen and (max-width: 767px) {
-  #worldNav {
+  #blog-nav {
     background-color: #000000;
     padding: 15px 15px 30px 15px; } }
 
@@ -362,85 +372,52 @@ img {
   padding-top: 5px;
   border-radius: 3px; }
 
-/* :: Hero Slides Area CSS */
-.hero-area {
-  position: relative;
-  z-index: 1; }
-  .hero-area .hero-slides {
-    position: relative;
-    z-index: 10; }
-    .hero-area .hero-slides .single-hero-slide {
-      height: 600px;
-      position: relative;
-      z-index: 1; }
-      @media only screen and (min-width: 768px) and (max-width: 991px) {
-        .hero-area .hero-slides .single-hero-slide {
-          height: 450px; } }
-      @media only screen and (max-width: 767px) {
-        .hero-area .hero-slides .single-hero-slide {
-          height: 400px; } }
-  .hero-area .hero-post-area {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
+/* Top image area */
+.top-area {
+  position: relative; }
+  .top-area .top-video {
     width: 100%;
-    z-index: 200; }
-  .hero-area .hero-post-slide .single-slide .post-number {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 80px;
-    flex: 0 0 80px;
-    min-width: 80px; }
-    .hero-area .hero-post-slide .single-slide .post-number p {
-      width: 55px;
-      height: 55px;
-      border: 5px solid;
-      border-color: #8d8d8d;
-      margin-right: 25px;
-      border-radius: 50%;
-      margin-bottom: 0;
-      text-align: center;
-      line-height: 45px;
-      font-size: 24px;
-      font-family: "Ubuntu", sans-serif;
-      font-weight: 700; }
-  .hero-area .hero-post-slide .single-slide .post-title a {
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #8d8d8d; }
-  .hero-area .hero-post-slide .center .single-slide .post-number p {
-    border: 5px solid;
-    border-top-color: #0000ff;
-    border-bottom-color: #0000ff;
-    border-left-color: #8d8d8d;
-    border-right-color: #0000ff; }
-  .hero-area .hero-post-slide .center .single-slide .post-title a {
-    color: #ffffff;
-    font-weight: 700; }
+    height: 360px;
+    position: relative;
+    overflow: hidden; }
+    .top-area .top-video .video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      min-width: 100%;
+      height: auto;
+      min-height: 100%;
+      transform: translateX(-50%) translateY(-50%);
+      z-index: -1; }
+    .top-area .top-video .video-message {
+      margin-top: 3em;
+      font-size: 3em;
+      color: #ffffff; }
 
 /* Blog Content Area CSS */
-.world-catagory-area .nav-tabs {
+.catagory-area .nav-tabs {
   padding: 10px 0;
   border-bottom: 2px solid #f1f1f1; }
-  .world-catagory-area .nav-tabs .title {
+  .catagory-area .nav-tabs .title {
     font-size: 18px;
     color: #000000;
     margin-bottom: 0;
     margin-right: auto;
     font-family: "Ubuntu", sans-serif;
     font-weight: 700; }
-  .world-catagory-area .nav-tabs .nav-link {
+  .catagory-area .nav-tabs .nav-link {
     padding: 0 1em;
     position: relative;
     z-index: 1; }
-    .world-catagory-area .nav-tabs .nav-link:hover, .world-catagory-area .nav-tabs .nav-link:focus {
+    .catagory-area .nav-tabs .nav-link:hover, .catagory-area .nav-tabs .nav-link:focus {
       color: #000000;
       border: 1px solid transparent;
       font-weight: 400; }
-    .world-catagory-area .nav-tabs .nav-link.active {
+    .catagory-area .nav-tabs .nav-link.active {
       color: #000000;
       border: 1px solid transparent; }
-      .world-catagory-area .nav-tabs .nav-link.active:after {
+      .catagory-area .nav-tabs .nav-link.active:after {
         position: absolute;
         left: 15px;
         bottom: -17px;
@@ -450,34 +427,34 @@ img {
         height: 2px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); }
         @media only screen and (min-width: 992px) and (max-width: 1199px) {
-          .world-catagory-area .nav-tabs .nav-link.active:after {
+          .catagory-area .nav-tabs .nav-link.active:after {
             width: calc(100% - 10px);
             left: 5px; } }
         @media only screen and (min-width: 768px) and (max-width: 991px) {
-          .world-catagory-area .nav-tabs .nav-link.active:after {
+          .catagory-area .nav-tabs .nav-link.active:after {
             width: calc(100% - 10px);
             left: 5px; } }
         @media only screen and (max-width: 767px) {
-          .world-catagory-area .nav-tabs .nav-link.active:after {
+          .catagory-area .nav-tabs .nav-link.active:after {
             display: none; } }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .world-catagory-area .nav-tabs .nav-link {
+      .catagory-area .nav-tabs .nav-link {
         padding: 0 5px; } }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .world-catagory-area .nav-tabs .nav-link {
+      .catagory-area .nav-tabs .nav-link {
         padding: 0 5px; } }
     @media only screen and (max-width: 767px) {
-      .world-catagory-area .nav-tabs .nav-link {
+      .catagory-area .nav-tabs .nav-link {
         padding: 0 5px; } }
-  .world-catagory-area .nav-tabs .nav-item.show .nav-link {
+  .catagory-area .nav-tabs .nav-item.show .nav-link {
     border: 1px solid transparent; }
-  .world-catagory-area .nav-tabs .nav-item .dropdown-menu {
+  .catagory-area .nav-tabs .nav-item .dropdown-menu {
     margin-top: 15px;
     border-radius: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     border: none; }
 
-.world-catagory-area .tab-content {
+.catagory-area .tab-content {
   padding-top: 30px; }
 
 .single-blog-post {
@@ -895,8 +872,8 @@ img {
     font-family: "Ubuntu", sans-serif;
     font-weight: 700;
     margin-bottom: 30px; }
-  .contact-form button.world-btn,
-  .post-a-comment-area button.world-btn {
+  .contact-form button.round-btn,
+  .post-a-comment-area button.round-btn {
     border-color: #0000ff;
     background-color: #0000ff;
     color: #ffffff;
@@ -1227,7 +1204,7 @@ textarea:focus ~ .highlight {
 /* Footer Area CSS */
 .footer-area {
   background-color: #161616;
-  padding: 70px 0;
+  padding: 30px 0;
   position: relative;
   z-index: 1; }
   .footer-area .footer-single-widget .copywrite-text p {
