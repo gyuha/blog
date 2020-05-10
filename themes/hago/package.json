@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run sass",
-    "sass": "node-sass --watch scss/styles.scss static/css/styles.css"
+    "sass": "node-sass --watch scss/style.scss static/css/style.css"
   },
   "keywords": [],
   "author": "",

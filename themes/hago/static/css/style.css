@@ -12,13 +12,9 @@
 /* mixin */
 /* :: Import Fonts */
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Work+Sans:300,400,500,600,700");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js");
 /* :: Import All CSS */
-@import url(/css/bootstrap.min.css);
-@import url(/css/animate.css);
-@import url(/css/owl.carousel.css);
-@import url(/css/magnific-popup.css);
-@import url(/css/font-awesome.min.css);
-@import url(/css/themify-icons.css);
+
 /* :: Base CSS */
 * {
   margin: 0;
