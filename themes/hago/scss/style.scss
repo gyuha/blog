@@ -1,14 +1,3 @@
-/* [ -- Master Stylesheet -- ]
-
-------------------------------------------------------
-:: Template Name: World - Blog &amp; Magazine Template
-:: Author: Colorlib
-:: Author URL: https://colorlib.com
-:: Version: 1.0.0
-:: Created: March 21, 2018
-:: Last Updated: March 21, 2018
--------------------------------------------------- */
-
 @import "theme_color";
 @import "variables";
 @import "mixin";
@@ -20,13 +9,9 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js");
 
 /* :: Import All CSS */
-
-@import "/css/bootstrap.min.css";
-@import "/css/animate.css";
-@import "/css/owl.carousel.css";
-@import "/css/magnific-popup.css";
-@import "/css/font-awesome.min.css";
-@import "/css/themify-icons.css";
+@import url("/vendor/bootstrap/bootstrap.min.css");
+@import url("/vendor/magnific-popup/magnific-popup.css");
+@import url("/vendor/wow/animate.css");
 
 /* :: Base CSS */
 * {

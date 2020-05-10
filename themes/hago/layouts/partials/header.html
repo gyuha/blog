@@ -1,82 +1,128 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Title }} {{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ $.Site.Params.description}} '{{ .Title }}'{{ i18n "menuOgDescPostfix" }}{{ end }}">
-  <meta property="og:title" content="{{ .Title }}">
-  {{ if .IsPage }}
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02" }}">
-  {{ else }}
-  <meta property="og:type" content="website">
-  {{ end }}
-  <meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ $.Site.Params.description}} '{{ .Title }}'{{ i18n "menuOgDescPostfix" }}{{ end }}">
-  <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:site_name" content="{{ .Site.Title }}">
-  {{ if .Params.cover }}
-  <meta property="og:image" content="{{ .Params.cover | absURL }}">
-  {{ else }}
-  <meta property="og:image" content="{{ "images/thumbnail.png" | absURL }}">
-  {{ end }}
-  {{ range .Params.tags }}
-  <meta property="og:tags" content="{{ . }}">
-  {{ end }}
-  <link rel="icon" href="{{ "/favicon.ico" | relURL }}" type="image/x-icon">
-  <link rel="canonical" href="{{ .Permalink }}">
-  {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end -}}
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="{{ "/css/styles.css" | relURL }}">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  {{ if not .Site.BuildDrafts }}
-  {{ if .Site.GoogleAnalytics }}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ .Site.GoogleAnalytics }}');
-  </script>
-  {{ end }}
-  {{ end }}
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="{{ "/" | relURL }}">
-        <img src="{{ "/images/logo.png" | relURL }}" height="34px" />
-      </a>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>World - Blog &amp; Magazine Template</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+      <div class="preload-content">
+        <div id="world-load"></div>
+      </div>
     </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> {{ i18n "menuBurgerTitle" }}
-      </button>
+    <!-- Preloader End -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="navbar navbar-expand-lg">
+              <!-- Logo -->
+              <a class="navbar-brand" href="index.html"
+                ><img src="img/core-img/logo.png" alt="Logo"
+              /></a>
+              <!-- Navbar Toggler -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#worldNav"
+                aria-controls="worldNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- Navbar -->
+              <div class="collapse navbar-collapse" id="worldNav">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#"
+                      >Home <span class="sr-only">(current)</span></a
+                    >
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      >Pages</a
+                    >
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="index.html">Home</a>
+                      <a class="dropdown-item" href="catagory.html">Catagory</a>
+                      <a class="dropdown-item" href="single-blog.html"
+                        >Single Blog</a
+                      >
+                      <a class="dropdown-item" href="regular-page.html"
+                        >Regular Page</a
+                      >
+                      <a class="dropdown-item" href="contact.html">Contact</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Gadgets</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Lifestyle</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Video</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                  </li>
+                </ul>
+                <!-- Search Form  -->
+                <div id="search-wrapper">
+                  <form action="#">
+                    <input
+                      type="text"
+                      id="search"
+                      placeholder="Search something..."
+                    />
+                    <div id="close-icon"></div>
+                    <input class="d-none" type="submit" value="" />
+                  </form>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area">
+
+      <!-- Hero Slides Area -->
+      <div class="hero-slides">
+          <!-- Single Slide -->
+          <div class="single-hero-slide bg-img background-overlay" style="background-image: url(img/blog-img/bg2.jpg);"></div>
+      </div>
     </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="{{ "/" | relURL }}">#{{ .Site.Title }}</a></li>
-        <li><a href="{{ "/categories" | relURL }}">#{{ i18n "menuCategories" }}</a></li>
-        <li><a href="{{ "/tags" | relURL }}">#{{ i18n "menuTags" }}</a></li>
-        <!--
-        <li><a href="{{ "/projects" | relURL }}">#{{ i18n "menuProjects" }}</a></li>        
-        -->
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="{{ i18n "menuSearchKeyword" }}" value="">
-    </div>
-  </div>
-  <div class="container">    
+    <div class="main-content-wrapper section-padding-100">
+      <div class="container">

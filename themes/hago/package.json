@@ -4,7 +4,7 @@
   "description": "Hago is a simple blog theme.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run sass",
+    "start": "hugo server -D",
     "sass": "node-sass --watch scss/style.scss static/css/style.css"
   },
   "keywords": [],
