@@ -2,9 +2,11 @@
 <html lang="{{ .Site.LanguageCode }}">
   {{- partial "head.html" . -}}
   <body>
-    {{- partial "header.html" . -}}
-    <div id="content">
-      {{- block "main" . }}{{- end }}
+    {{- partial "header.html" . -}} {{- partial "titleBar.html" . -}}
+    <div class="main-content-wrapper section-padding-25">
+      <div class="container">
+        {{- block "main" . }}{{- end }}
+      </div>
     </div>
     {{- partial "footer.html" . -}}
   </body>

@@ -5,15 +5,9 @@ theme = "hago"
 
 DefaultContentLanguage = "kr"
 metaDataFormat = "yaml"
-pygmentsStyle = "trac"
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
-#pygmentsUseClassic = true
-#pygmentOptions = "linenos=inline"
 disqusShortname = "gyuha-blog"
 googleAnalytics = "UA-128878421-1"
-paginate = 7
+paginate = 5
 
 
 [Params]

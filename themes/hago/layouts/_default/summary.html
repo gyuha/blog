@@ -1,0 +1,23 @@
+<article class="post">
+  <div class="post-title">
+    <a href="{{ .Permalink }}" title="{{ .Title }}">
+      <img src="{{ "/images/post-title-icon.png" | relURL }}" />
+      <div class="post-meta">
+        <time>{{ i18n "postDatetime" .Date }}</time>
+        <h1>{{ .Title }}</h1>
+      </div>
+    </a>
+  </div>
+  {{ if .Params.cover }}
+  <div class="cover-image">
+    <a href="{{ .Permalink }}" title="{{ .Title }}">
+      <img src="{{ .Params.cover }}" />
+    </a>
+  </div>
+  {{ end }}
+  <div class="post-summary">
+    {{ .Summary }} {{ if .Truncated }}
+    <a href="{{ .RelPermalink }}" class="summary-more">{{ i18n "postReadMore" }}</a>
+    {{ end }}
+  </div>
+</article>

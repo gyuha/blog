@@ -1,9 +1,11 @@
 HUGO = hugo
 COMMIT_MESSAGE = "rebuilding site $(shell date +%Y-%m-%d)"
 
-
 run:
 	$(HUGO) server -D
+
+dev:
+	$(HUGO) server -D --disableFastRender
 
 clone:
 	rm -rf public
