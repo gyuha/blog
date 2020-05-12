@@ -11,7 +11,7 @@ tags: [vscode, vue, typescript, eslint, tslint]
 ![vscode-vue](/img/2020-04-19-vue-typescript-eslint/vscode-vue.jpg)
 
 기존에 사용하던 [TSLint가 더이상 지원](https://www.npmjs.com/package/tslint)을 받지 못 하게 되면서, ESlint로 넘어가야 상태가 되었습니다.
-
+<!--more-->
 여기서는 Vue 프로젝트를 생성하면서 ESlint와 Prettier를 사용하는 세팅을 간단하게 설정하려고 합니다. 사용하는 툴은 vscode입니다.
 
 `vue create myproject` 형태로 기본 프로젝트를 선택 합니다.

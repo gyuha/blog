@@ -5,9 +5,8 @@ draft: true
 categories: [os]
 ---
 
-
-
 먼저 기존에 설치된 openssh를 삭제하고 다시 설치해야 합니다.
+<!--more-->
 
 그리고, sshd_config에서 port를 22번 말고 다른 포트로 변경해 줘야 합니다.
 

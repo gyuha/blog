@@ -6,7 +6,8 @@ categories: [javascript]
 tags: [webpack,typescript,express,node]
 ---
 
-# Express with typescript and webpack
+express를 타입스크립트롤 시작하는 방법을 설명합니다.
+<!--more-->
 
 ## 기본 패키지 설정
 package.json 파일을 만들어 줍니다.

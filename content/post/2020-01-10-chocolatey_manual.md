@@ -7,8 +7,9 @@ tag: [windows,package,manager, choco]
 ---
 
 Chocolatey는 윈도우용 패키지 매니저로, 설치하려는 윈도우용 소프트웨어를 일일이 웹사이트에서 찾아서 설치할 필요 없이 간단하게 커맨드 만으로 윈도우용 소프트웨어를 설치 할 수 있게 해 줍니다.
+<!--more-->
 
-# Chocolatey 설치
+## Chocolatey 설치
 
 chocolate를 설치 하려면 관리자 권한 cmd나 PowerShell을 실행해서 설치를 해 줘야 합니다.
 
@@ -28,7 +29,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 
 
-# 패키지  찾기
+## 패키지  찾기
 
 아래 웹페이지에 접속해서 검색하시면 됩니다.
 
@@ -60,7 +61,7 @@ GoogleChrome 79.0.3945.117 [Approved] Downloads cached for licensed users
 
 
 
-# 패키지 상세 정보 보기
+## 패키지 상세 정보 보기
 
 `info` 명령어을 사요하거나 search에서 `-v`옵션을 추가해 주면 됩니다. 
 
@@ -90,7 +91,7 @@ GoogleChrome 79.0.3945.117 [Approved] Downloads cached for licensed users
 
 
 
-# 패키지 설치 하기
+## 패키지 설치 하기
 
 `install` 명령을 이용해서 설치하고 싶은 패키지를 아래와 같이 설치 합니다.
 
@@ -124,7 +125,7 @@ choco install bandizip --version=6.24
 
 
 
-# 패키지 삭제 하기
+## 패키지 삭제 하기
 
 chocolatey는 설치된 패키지도 `uninstall` 명령어를 이용해서 편하게 삭제가 가능 합니다.
 
@@ -147,7 +148,7 @@ Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint):
 
 
 
-# choco로 설치된 패키지 목록 확인하기
+## choco로 설치된 패키지 목록 확인하기
 
 `search` 또는 `list`명령로 확인 가능 합니다. 뒤에 `-l` 옵션을 주면 로컬에 설치된 패키지의 목록을 출력 해 줍니다.
 
@@ -170,7 +171,7 @@ zeal.install 0.6.1
 
 
 
-# 패키지 업데이트 하기
+## 패키지 업데이트 하기
 
 `upgrade` 명령어를 통해서 패키지를  최신 버전으로 업데이트가 가능 합니다.
 
@@ -186,7 +187,7 @@ zeal.install 0.6.1
 
 
 
-# chocolatey 설치부터 패키지 설치까지 한방 스크립트
+## chocolatey 설치부터 패키지 설치까지 한방 스크립트
 
 `choco_install.bat`라는 파일을 만들고 아래의 내용을 복사해서 넣어 주세요.
 

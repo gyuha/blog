@@ -7,13 +7,8 @@ tags: [typescript,serverless,webpack,node,lambda]
 ---
 
 
-
-# Serverless & Webpack & Typescript 구성하기
-
 serverless에서 webpack을 이용해서 typescript를 구성해 보면서 작업 하던걸 기록 해 둡니다.
-
-
-
+<!--more-->
 
 
 ## 기본 환경 구성

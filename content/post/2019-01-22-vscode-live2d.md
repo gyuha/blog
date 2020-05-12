@@ -6,9 +6,9 @@ categories: [utillity]
 tags: [vscode, live2d]
 ---
 
-# VSCode에서 Live2d 캐릭터 띄우기..
 
 먼저 띄운 화면을 보고 가시죠~
+<!--more-->
 
 캐릭터 얼굴이 마우스 움직이는 방향으로 움직입니다.
 

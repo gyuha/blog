@@ -16,7 +16,7 @@
   </div>
   {{ end }}
   <div class="post-summary">
-    {{ .Summary }} {{ if .Truncated }}
+    {{ .Summary | plainify | safeHTML }} {{ if .Truncated }}
     <a href="{{ .RelPermalink }}" class="summary-more">{{ i18n "postReadMore" }}</a>
     {{ end }}
   </div>

@@ -6,8 +6,6 @@ categories: [system]
 tag: [kvm,kimchi,ubuntu,setting]
 ---
 
-# 우분투 18.04에서 kimchi 설치 하기
-
 ## Bridge Network 설치하기
 
 전 kvm을 개발로 쓰면서 bridge network 형태로 자주 사용해서 먼저 bridge network를 설정 해 줍니다.

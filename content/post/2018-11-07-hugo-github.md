@@ -9,6 +9,7 @@ tags: [go,blog,github]
 ## hugo 설치 하기
 
 - [Install Hugo](https://gohugo.io/getting-started/installing/)를 보고 하면 됩니다.
+<!--more-->
 
 전 ubuntu를 쓰고 있는 관계로.. 간단하게..
 

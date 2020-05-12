@@ -6,6 +6,9 @@ categories: [javascript]
 tag: [javascript, array]
 ---
 
+자바스크립트의 배열을 메서드를 정리해 봅니다.
+<!--more-->
+
 # Array 추가/삭제  
 
 ## Array.push()  

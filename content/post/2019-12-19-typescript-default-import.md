@@ -7,6 +7,7 @@ tags: [javascript,typescript]
 ---
 
 express를 import하면 아래와 같이 import 했을 겁니다.
+<!--more-->
 
 ```javascript
 import * as Express from 'express';
