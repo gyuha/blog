@@ -2,7 +2,7 @@
 <!-- posts -->
 {{ range .Paginator.Pages }}
 <!-- summary -->
-{{ .Render "summary"}} {{ end }} {{ partial "pagination.html"}}
+{{ .Render "summary"}} {{ end }} {{ partial "pagination.html" . }}
 <!-- posts end -->
 {{ end }} {{ define "side" }}
 <!-- category -->
