@@ -1,11 +1,11 @@
 {{ define "main" }}
 <!-- posts -->
-{{ range .Paginator.Pages }} {{ .Render "summary"}}
-<hr class="summary-sep" />
-{{ end }}
+{{ range .Paginator.Pages }}
+<!-- summary -->
+{{ .Render "summary"}} {{ end }} {{ partial "pagination.html"}}
 <!-- posts end -->
 {{ end }} {{ define "side" }}
 <!-- category -->
-{{- partial "sideCategory.html" . -}}
+{{ partial "side_category.html" . }}
 <!-- tags -->
-{{- partial "sideTags.html" . -}} {{ end }}
+{{ partial "side_tags.html" . }} {{ end }}

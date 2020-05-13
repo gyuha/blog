@@ -1,0 +1,14 @@
+{{- $tags := .Site.Taxonomies.tags }} {{- if gt (len $tags) 0 }}
+<div class="sidebar-widget-area">
+  <h5 class="title">{{ i18n "menuTags" }}</h5>
+  <div class="widget-content">
+    <ul class="widget__list">
+      {{- range $name, $taxonomy := $tags }} {{- with $.Site.GetPage (printf "/tags/%s" $name) }}
+      <li class="widget__item">
+        <a class="widget__link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{- end }} {{- end }}
+    </ul>
+  </div>
+</div>
+{{- end }}

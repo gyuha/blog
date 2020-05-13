@@ -2,10 +2,10 @@
 <!-- posts -->
 {{ range .Paginator.Pages }} {{ .Render "summary"}}
 <hr class="summary-sep" />
-{{ end }}
+{{ partial "pagination.html"}} {{ end }}
 <!-- posts end -->
 {{ end }} {{ define "side" }}
 <!-- category -->
-{{- partial "sideCategory.html" . -}}
+{{- partial "side_category.html" . -}}
 <!-- tags -->
-{{- partial "sideTags.html" . -}} {{ end }}
+{{- partial "side_tags.html" . -}} {{ end }}
