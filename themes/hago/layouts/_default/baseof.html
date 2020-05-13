@@ -5,9 +5,20 @@
     {{- partial "header.html" . -}} {{- partial "titleBar.html" . -}}
     <div class="main-content-wrapper section-padding-25">
       <div class="container">
-        {{- block "main" . }}{{- end }}
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-8">
+            {{- block "main" . }}{{- end }}
+          </div>
+
+          <div class="col-12 col-md-8 col-lg-4">
+            <div class="post-sidebar-area">
+              {{- block "side" . }}{{- end }}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
     {{- partial "footer.html" . -}}
   </body>
 </html>

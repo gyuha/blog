@@ -1,50 +1,11 @@
 {{ define "main" }}
-<div class="row justify-content-center">
-  <div class="col-12 col-lg-8">
-    <div class="post-content-area mb-100">
-      {{ range .Paginator.Pages }} {{ .Render "summary"}}
-      <hr class="summary-sep" />
-      {{ end }}
-    </div>
-  </div>
-  <div class="col-12 col-md-8 col-lg-4">
-    <div class="post-sidebar-area">
-      <!-- Categories -->
-      <div class="sidebar-widget-area">
-        <h5 class="title">{{ i18n "menuCategories" }}</h5>
-        <div class="widget-content">
-          <p>The mango is perfect in that it is always yellow and if it’s not, I don’t want to hear about it. The mango’s only flaw, and it’s a minor one, is the effort it sometimes takes to undress the mango, carve it up in a way that makes sense, and find its way to the mouth.</p>
-        </div>
-      </div>
-      <!-- Tags -->
-      <div class="sidebar-widget-area">
-        <h5 class="title">{{ i18n "menuTags" }}</h5>
-        <div class="widget-content">
-          <div class="social-area d-flex justify-content-between">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-pinterest"></i></a>
-            <a href="#"><i class="fab fa-vimeo"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-google"></i></a>
-          </div>
-        </div>
-      </div>
-      <!-- Share -->
-      <div class="sidebar-widget-area">
-        <h5 class="title">{{ i18n "menuTags" }}</h5>
-        <div class="widget-content">
-          <div class="social-area d-flex justify-content-between">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-pinterest"></i></a>
-            <a href="#"><i class="fab fa-vimeo"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-google"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- posts -->
+{{ range .Paginator.Pages }} {{ .Render "summary"}}
+<hr class="summary-sep" />
 {{ end }}
+<!-- posts end -->
+{{ end }} {{ define "side" }}
+<!-- category -->
+{{- partial "sideCategory.html" . -}}
+<!-- tags -->
+{{- partial "sideTags.html" . -}} {{ end }}

@@ -1,0 +1,22 @@
+<div class="sidebar-widget-area">
+  <h5 class="title">{{ i18n "menuCategories" }}</h5>
+  <div class="widget-content">
+    <ul>
+      {{ $baseurl := .Site.BaseURL }} {{ $data := .Data }} {{ range $key,$value := .Site.Taxonomies.Categories }}
+      <p>
+        <a href="{{ $baseurl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">
+          <i class="fa fa-angle-right icon" aria-hidden="true"></i>
+          {{ upper $value.Name }} ({{ $value.Count }}{{ i18n "categoriesCount" }})
+        </a>
+      </p>
+
+      {{ end }}
+      <li></li>
+    </ul>
+    <ul>
+      {{ range (.GetTerms "tags") }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+</div>

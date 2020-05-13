@@ -6,7 +6,7 @@ categories: [typescript]
 tags: [vscode, vue, typescript, eslint, tslint]
 ---
 
-# Vue 프로젝트 생성하기
+## Vue 프로젝트 생성하기
 
 ![vscode-vue](/img/2020-04-19-vue-typescript-eslint/vscode-vue.jpg)
 
@@ -63,7 +63,7 @@ tags: [vscode, vue, typescript, eslint, tslint]
 ```
 그리고 위와 같이 `vscode`를 실행 해 줍니다.
 
-# VSCode 설정하기
+## VSCode 설정하기
 
 만약 VSCode에는 아래와 같은 확장 프로그램을 설치가 되어 있지 않으면 설치를 해 줍니다.
 
@@ -109,7 +109,7 @@ tags: [vscode, vue, typescript, eslint, tslint]
 
 
 
-# 참고
+## 참고
 
 * [Setup Prettier and ESLint for Typescript](https://www.anthonygonzales.dev/blog/setup-eslint-prettier-with-typescript.html)
 * https://prettier.io/

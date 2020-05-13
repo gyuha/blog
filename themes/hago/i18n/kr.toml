@@ -10,6 +10,9 @@ other = "태그"
 [menuProjects]
 other = "프로젝트"
 
+[menuRecents]
+other = "최근글"
+
 [menuBurgerTitle]
 other = "메뉴"
 

@@ -838,10 +838,17 @@ img {
     border-bottom: 2px solid $bg-gray;
     padding-left: 30px;
   }
+
+  .side-post-title {
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+
   .widget-content {
-    padding: 30px 0 30px 30px;
+    padding: 8px 0 30px 20px;
     @media #{$breakpoint-xs} {
-      padding: 30px 0 30px 15px;
+      padding: 8px 0 30px 15px;
     }
     .social-area {
       a {

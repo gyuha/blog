@@ -12,4 +12,8 @@
   </div>
 </div>
 
-{{ end }}
+{{ end }} {{ define "side" }}
+<!-- recents-->
+{{- partial "sideRecent.html" . -}}
+<!-- category -->
+{{- partial "sideCategory.html" . -}} {{ end }}

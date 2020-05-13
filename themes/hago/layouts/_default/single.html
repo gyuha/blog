@@ -1,1 +1,7 @@
-{{ define "main" }} {{ partial "post.html" . }} {{ end }}
+{{ define "main" }}
+<!-- post -->
+{{ partial "post.html" . }} {{ end }} {{ define "side" }}
+<!-- TOC -->
+{{- partial "sideToc.html" . -}}
+<!-- category -->
+{{- partial "sideTags.html" . -}} {{ end }}
