@@ -1,6 +1,6 @@
 baseURL = "https://gyuha.github.io/"
 languageCode = "ko-KR"
-title = "Gyuha Blog"
+title = "신규하 블로그"
 theme = "hago"
 
 DefaultContentLanguage = "kr"
@@ -13,7 +13,7 @@ paginate = 4
 [Params]
   description = "Gyuha blog"
 #  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
-  subtitle = "기록 보관소"
+  subtitle = "개발 기록 보관소"
   logo = "img/avatar-icon.png"
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"

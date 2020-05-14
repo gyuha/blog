@@ -50,7 +50,7 @@ a {
     outline: none;
     font-size: 14px;
     font-weight: 400;
-    color: #0000ff; }
+    color: #666; }
 
 #preloader {
   display: -webkit-box;
@@ -237,7 +237,7 @@ img {
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms; }
   #scrollUp:hover {
-    background-color: #0000ff; }
+    background-color: #666; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     #scrollUp {
       bottom: 30px;
@@ -302,8 +302,8 @@ img {
   border-radius: 50px;
   line-height: 32px; }
   .round-btn:hover, .round-btn:focus {
-    border-color: #0000ff;
-    background-color: #0000ff;
+    border-color: #666;
+    background-color: #666;
     color: #ffffff; }
 
 /* :: Header Area CSS */
@@ -380,7 +380,7 @@ img {
   position: relative; }
   .top-area .top-video {
     width: 100%;
-    height: 360px;
+    min-height: 360px;
     position: relative;
     overflow: hidden; }
     .top-area .top-video .video {
@@ -393,10 +393,25 @@ img {
       min-height: 100%;
       transform: translateX(-50%) translateY(-50%);
       z-index: -1; }
-    .top-area .top-video .video-message {
-      margin-top: 3em;
-      font-size: 3em;
-      color: #ffffff; }
+    .top-area .top-video .container {
+      margin-top: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px; }
+      .top-area .top-video .container .title-message {
+        min-height: 80px;
+        text-align: center; }
+      .top-area .top-video .container h1 {
+        display: block;
+        font-size: 2em;
+        color: #fff; }
+      .top-area .top-video .container h2 {
+        display: block;
+        font-size: 1.5em;
+        color: #999; }
+  .top-area .top-video-small {
+    min-height: 150px; }
 
 .post-summary {
   overflow: hidden; }
@@ -428,7 +443,7 @@ img {
         left: 15px;
         bottom: -17px;
         content: "";
-        background-color: #0000ff;
+        background-color: #666;
         width: calc(100% - 30px);
         height: 2px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); }
@@ -485,12 +500,12 @@ img {
         background-color: #ffffff;
         text-transform: uppercase;
         font-size: 10px;
-        color: #0000ff;
+        color: #666;
         font-weight: 500;
         line-height: 20px;
         letter-spacing: 0.75px; }
         .single-blog-post .post-thumbnail .post-cta a:hover, .single-blog-post .post-thumbnail .post-cta a:focus {
-          background-color: #0000ff;
+          background-color: #666;
           color: #ffffff; }
     .single-blog-post .post-thumbnail .video-btn {
       width: 36px;
@@ -510,7 +525,7 @@ img {
         line-height: 36px; }
       .single-blog-post .post-thumbnail .video-btn:hover i,
       .single-blog-post .post-thumbnail .video-btn:focus i {
-        color: #0000ff; }
+        color: #666; }
   .single-blog-post .post-content {
     padding: 20px 30px; }
     .single-blog-post .post-content .headline h5 {
@@ -590,12 +605,12 @@ img {
       background-color: #ffffff;
       text-transform: uppercase;
       font-size: 10px;
-      color: #0000ff;
+      color: #666;
       font-weight: 500;
       line-height: 20px;
       letter-spacing: 0.75px; }
       .single-blog-post.post-style-3 .post-content .post-tag a:hover, .single-blog-post.post-style-3 .post-content .post-tag a:focus {
-        background-color: #0000ff;
+        background-color: #666;
         color: #ffffff; }
     .single-blog-post.post-style-3 .post-content .headline h5 {
       font-size: 18px;
@@ -681,9 +696,9 @@ img {
     .catagory-slider2 .owl-nav .owl-prev:focus,
     .catagory-slider2 .owl-nav .owl-next:hover,
     .catagory-slider2 .owl-nav .owl-next:focus {
-      border-color: #0000ff;
+      border-color: #666;
       color: #ffffff;
-      background-color: #0000ff; }
+      background-color: #666; }
   .catagory-slider .owl-nav .owl-prev,
   .catagory-slider2 .owl-nav .owl-prev {
     margin-right: 15px; }
@@ -765,12 +780,12 @@ img {
     background-color: #ffffff;
     text-transform: uppercase;
     font-size: 10px;
-    color: #0000ff;
+    color: #666;
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0.75px; }
     .single-blog-title .post-cta a:hover, .single-blog-title .post-cta a:focus {
-      background-color: #0000ff;
+      background-color: #666;
       color: #ffffff; }
 
 .single-blog-title h3 {
@@ -811,7 +826,7 @@ img {
     font-family: "Ubuntu", sans-serif; }
   .single-blog-content .post-content blockquote {
     border-left: 2px solid;
-    border-color: #0000ff;
+    border-color: #666;
     padding-left: 30px; }
     .single-blog-content .post-content blockquote h6 {
       margin-bottom: 10px;
@@ -884,8 +899,8 @@ img {
     margin-bottom: 30px; }
   .contact-form button.round-btn,
   .post-a-comment-area button.round-btn {
-    border-color: #0000ff;
-    background-color: #0000ff;
+    border-color: #666;
+    background-color: #666;
     color: #ffffff;
     margin-top: 40px; }
 
@@ -928,7 +943,7 @@ img {
       width: 0;
       bottom: 1px;
       position: absolute;
-      background-color: #0000ff;
+      background-color: #666;
       transition: 0.5s ease all; }
     .group .bar:before {
       left: 50%; }
@@ -952,7 +967,7 @@ input:valid ~ label,
 textarea:valid ~ label {
   top: -15px;
   font-size: 12px;
-  color: #0000ff; }
+  color: #666; }
 
 input:focus ~ .bar:before,
 textarea:focus ~ .bar:before,
@@ -968,21 +983,21 @@ textarea:focus ~ .highlight {
 /* Animations */
 @-webkit-keyframes inputHighlighter {
   from {
-    background-color: #0000ff; }
+    background-color: #666; }
   to {
     width: 0;
     background-color: transparent; } }
 
 @-moz-keyframes inputHighlighter {
   from {
-    background-color: #0000ff; }
+    background-color: #666; }
   to {
     width: 0;
     background-color: transparent; } }
 
 @keyframes inputHighlighter {
   from {
-    background-color: #0000ff; }
+    background-color: #666; }
   to {
     width: 0;
     background-color: transparent; } }

@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="categories">
-  <h1>CATEGORIES</h1>
+  <h1>{{ i18n "menuCategories" }}</h1>
   <p>{{ i18n "categoriesDescription" }}</p>
   <ul>
     {{ $baseurl := .Site.BaseURL }} {{ $data := .Data }} {{ range $key,$value := .Data.Terms.Alphabetical }}

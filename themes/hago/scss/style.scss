@@ -450,7 +450,7 @@ img {
 
   .top-video {
     width: 100%;
-    height: 360px;
+    min-height: 360px;
     position: relative;
     overflow: hidden;
     .video {
@@ -465,11 +465,31 @@ img {
       z-index: -1;
     }
 
-    .video-message {
-      margin-top: 3em;
-      font-size: 3em;
-      color: $color-white;
+    .container {
+      margin-top: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      .title-message {
+        min-height: 80px;
+        text-align: center;
+      }
+      h1 {
+        display: block;
+        font-size: 2em;
+        color: $color-title-h1;
+      }
+      h2 {
+        display: block;
+        font-size: 1.5em;
+        color: $color-title-h2;
+      }
     }
+  }
+
+  .top-video-small {
+    min-height: 150px;
   }
 }
 
