@@ -44,13 +44,8 @@ a {
   color: #8d8d8d; }
   a:hover, a:focus {
     font-family: "Ubuntu", sans-serif;
-    -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
     text-decoration: none;
-    outline: none;
-    font-size: 14px;
-    font-weight: 400;
-    color: #666; }
+    color: #8d8d8d; }
 
 #preloader {
   display: -webkit-box;
@@ -237,7 +232,7 @@ img {
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms; }
   #scrollUp:hover {
-    background-color: #666; }
+    background-color: #8d8d8d; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     #scrollUp {
       bottom: 30px;

@@ -1,5 +1,8 @@
 <div class="sidebar-widget-area">
-  <h5 class="title">{{ i18n "menuRecents" }}</h5>
+  <h5 class="title">
+    <i class="fa fa-business-time"></i>
+    {{ i18n "menuRecents" }}
+  </h5>
   <div class="widget-content">
     {{- $recent := where .Site.RegularPages "Section" "in" (.Site.Params.postSections | default (slice "post")) }} {{- $recent_num := (.Site.Params.widgets.recent_num | default 6) }} {{- if $recent }}
     <div class="widget-recent widget">

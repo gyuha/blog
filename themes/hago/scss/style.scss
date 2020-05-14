@@ -55,12 +55,8 @@ a {
   &:hover,
   &:focus {
     font-family: $monospace-fonts;
-    @include trans-duration(500ms);
     text-decoration: none;
-    outline: none;
-    font-size: 14px;
-    font-weight: 400;
-    color: $blue-color;
+    color: $hover-color;
   }
 }
 

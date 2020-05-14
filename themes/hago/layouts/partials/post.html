@@ -40,7 +40,7 @@
     </div>
   </div>
 </div>
-{{ if not .Site.BuildDrafts }}
+{{ if .Site.DisqusShortname }}
 <div class="post-comment">
   {{ template "_internal/disqus.html" . }}
 </div>
