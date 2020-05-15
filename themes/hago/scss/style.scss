@@ -414,6 +414,10 @@ img {
 
 .post-sidebar-area {
   border-left: 2px solid $bg-gray;
+  &.sticky {
+    position: fixed;
+    margin-top: -157px;
+  }
 }
 
 .sidebar-widget-area {

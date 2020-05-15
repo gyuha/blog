@@ -356,6 +356,9 @@ img {
 
 .post-sidebar-area {
   border-left: 2px solid #f1f1f1; }
+  .post-sidebar-area.sticky {
+    position: fixed;
+    margin-top: -157px; }
 
 .sidebar-widget-area {
   position: relative;

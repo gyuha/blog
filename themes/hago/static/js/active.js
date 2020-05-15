@@ -29,6 +29,13 @@
         } else {
             $('.header-area').removeClass('sticky');
         }
+        if ($('#post-toc').length > 0) {
+            if ($window.scrollTop() > 157) {
+                $('.post-sidebar-area').addClass('sticky');
+            } else {
+                $('.post-sidebar-area').removeClass('sticky');
+            }
+        }
     });
 
     // :: Tooltip Active Code
