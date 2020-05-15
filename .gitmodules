@@ -1,0 +1,3 @@
+[submodule "themes/hago"]
+	path = themes/hago
+	url = https://github.com/gyuha/hago.git
