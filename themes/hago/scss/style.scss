@@ -845,3 +845,16 @@ img {
     }
   }
 }
+
+nav {
+  .page-link {
+    color: $text-color;
+    &:hover {
+      color: $text-color;
+    }
+  }
+  .page-item.active .page-link {
+    border-color: $page-color;
+    background-color: $page-color;
+  }
+}

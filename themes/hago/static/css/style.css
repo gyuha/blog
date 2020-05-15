@@ -707,3 +707,12 @@ img {
     color: #ddd; }
     .tag-list .tag a {
       font-size: 1.3em; }
+
+nav .page-link {
+  color: #555; }
+  nav .page-link:hover {
+    color: #555; }
+
+nav .page-item.active .page-link {
+  border-color: #999;
+  background-color: #999; }
