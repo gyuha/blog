@@ -656,9 +656,15 @@ img {
   margin-top: 1em;
   margin-bottom: 3em; }
   .post-content h2 {
-    padding-top: 1em;
+    margin-top: 1.7em;
     padding-bottom: 0.1em;
     border-bottom: solid 3px #ddd; }
+  .post-content h2:before,
+  .post-content h3:before {
+    display: block;
+    content: " ";
+    height: 75px;
+    margin: -75px 0 0; }
   .post-content p {
     font-size: 1.1em;
     color: #555;
