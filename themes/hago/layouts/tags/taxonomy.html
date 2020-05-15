@@ -1,5 +1,8 @@
 {{ define "main" }}
-<h1>{{ i18n "menu_tags" }}: {{ .Title }}</h1>
+<h1>
+  <i class="fa fa-tag"></i>
+  {{ i18n "menu_tags" }}: {{ .Title }}
+</h1>
 <!-- posts -->
 {{ range .Paginator.Pages }}
 <!-- summary -->

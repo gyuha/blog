@@ -1,13 +1,16 @@
 {{ define "main" }}
 <div class="categories">
-  <h1>{{ i18n "menu_categories" }}</h1>
+  <h1>
+    <i class="far fa-folder-open"></i>
+    {{ i18n "menu_categories" }}
+  </h1>
   <p>{{ i18n "categories_description" }}</p>
   <ul>
     {{ $baseurl := .Site.BaseURL }} {{ $data := .Data }} {{ range $key,$value := .Data.Terms.Alphabetical }}
     <li>
       <span class="title">
         <a href="{{ $baseurl }}{{ $data.Plural }}/{{ $value.Name | urlize }}">
-          <i class="fa fa-angle-right icon" aria-hidden="true"></i>
+          <i class="far fa-folder" aria-hidden="true"></i>
           {{ upper $value.Name }} ({{ $value.Count }}{{ i18n "categories_count" }})
         </a>
       </span>
