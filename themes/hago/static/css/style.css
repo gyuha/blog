@@ -716,3 +716,11 @@ nav .page-link {
 nav .page-item.active .page-link {
   border-color: #999;
   background-color: #999; }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #sidebar {
+    display: none; } }
+
+@media only screen and (max-width: 767px) {
+  #sidebar {
+    display: none; } }

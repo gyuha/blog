@@ -858,3 +858,12 @@ nav {
     background-color: $page-color;
   }
 }
+
+#sidebar {
+  @media #{$breakpoint-md} {
+    display: none;
+  }
+  @media #{$breakpoint-xs} {
+    display: none;
+  }
+}
