@@ -696,3 +696,14 @@ img {
   .recommend-articles ul li {
     margin-left: 1.5em;
     list-style: disc; }
+
+.tag-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .tag-list .tag {
+    margin: 0.3em;
+    padding-right: 2em;
+    color: #ddd; }
+    .tag-list .tag a {
+      font-size: 1.3em; }

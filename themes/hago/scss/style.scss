@@ -830,3 +830,18 @@ img {
     list-style: disc;
   }
 }
+
+.tag-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .tag {
+    margin: 0.3em;
+    padding-right: 2em;
+    color: #ddd;
+    a {
+      font-size: 1.3em;
+    }
+  }
+}
