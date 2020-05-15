@@ -3,7 +3,7 @@ title: "윈도우용 패키지 매니저 Chocolatey 사용법"
 date: 2020-01-10T03:03:39+09:00
 draft: true
 categories: [utillity]
-tag: [windows,package,manager, choco]
+tags: [windows,package,manager, choco]
 ---
 
 Chocolatey는 윈도우용 패키지 매니저로, 설치하려는 윈도우용 소프트웨어를 일일이 웹사이트에서 찾아서 설치할 필요 없이 간단하게 커맨드 만으로 윈도우용 소프트웨어를 설치 할 수 있게 해 줍니다.

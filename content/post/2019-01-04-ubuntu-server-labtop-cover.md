@@ -3,7 +3,7 @@ title: "우분투 노트북 서버 사용시 커버를 덮어도 잠들지 않�
 date: 2019-01-04T10:23:04+09:00
 draft: true
 categories: [system]
-tag: [ubuntu,laptop,server]
+tags: [ubuntu,laptop,server]
 ---
 
 먼저 터미널에서 아래와 같은 파일을 열어 줍니다.

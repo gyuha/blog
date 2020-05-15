@@ -1,4 +1,7 @@
 # Menu
+- id: menu_blog
+  translation: "블로그"
+
 - id: menu_categories
   translation: "카테고리"
 

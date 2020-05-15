@@ -3,7 +3,7 @@ title: "Ubuntu 18.04에서 netplan을 사용한 static ip 설정"
 date: 2019-01-04T10:30:30+09:00
 draft: true
 categories: [system]
-tag: [ubuntu,18.04,setting]
+tags: [ubuntu,setting]
 ---
 
 17.10부터 네트워크 인터페이스 설정이 `netplan`이라는 새로운 네트워크 설정이 생겼다. 기존에 인터페이스 설정(/etc/network/interfaces)보다는 간결해 보입니다. 

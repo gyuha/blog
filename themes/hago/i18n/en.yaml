@@ -1,4 +1,7 @@
 # Menu
+- id: menu_blog
+  translation: "Blog"
+
 - id: menu_categories
   translation: "Categories"
 

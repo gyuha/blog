@@ -9,36 +9,24 @@
   <!-- Content -->
   {{ .Content }}
 </section>
-<div class="share">
-  <a href="//www.facebook.com/sharer.php?src=bm&u={{ .Permalink }}&t={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-facebook"></i></a>
-  <a href="//twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-twitter"></i></a>
-  <a href="//getpocket.com/edit?url={{ .Permalink }}&title={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-get-pocket"></i></a>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    {{ if isset .Params "categories" }}
-    <div class="desc">
-      <span class="fixed-desc">_{{ i18n "menu_categories" }}</span>
-      {{ $baseUrl := .Site.BaseURL }} {{ range.Params.categories }}
-      <a href="{{ $baseUrl }}/categories/{{ . | urlize }}">#{{ . }}</a>
-      {{ end }}
-    </div>
-    {{ end }}
-    <div class="desc">
-      <span class="fixed-desc">_{{ i18n "menu_tags" }}</span>
-      {{ with.Params.tags }} {{ range . }}
-      <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{ . }}</a>
-      {{ end }} {{ end }}
-    </div>
-  </div>
-</div>
-{{ if and (not .Site.BuildDrafts) (.Site.DisqusShortname) }}
+<time>
+  <i class="far fa-clock"></i>
+  {{ i18n "post_date_time" .Date }}
+</time>
+{{ $baseUrl := .Site.BaseURL }} {{ range.Params.categories }}
+<i class="far fa-folder"></i>
+<a href="{{ $baseUrl }}/categories/{{ . | urlize }}">{{ . }}</a>
+{{ end }} {{ if and (not .Site.BuildDrafts) (.Site.DisqusShortname) }}
 <div class="post-comment">
   {{ template "_internal/disqus.html" . }}
 </div>
 {{ end }}
+
+<hr class="summary-sep" />
 <div class="recommend-articles">
-  {{ i18n "post_recommend_articles"}}
+  <h3>
+    {{ i18n "post_recommend_articles"}}
+  </h3>
   <ul>
     {{ if .Prev }}
     <li>
@@ -55,4 +43,3 @@
     {{ end }}
   </ul>
 </div>
-<hr class="summary-sep" />

@@ -224,14 +224,16 @@ img {
     height: 55px;
     .navbar-brand {
       img {
-        max-height: 20px;
+        max-height: 27px;
       }
     }
     .navbar-nav {
       margin-right: 50px;
       .nav-link {
         padding: 0.5em 1em;
-        font-weight: 500;
+        font-size: 1em;
+        font-weight: 700;
+        color: $color-nav-bar-text;
         &:hover,
         &:focus {
           color: $color-white;
@@ -435,6 +437,7 @@ img {
     white-space: nowrap;
     overflow: hidden !important;
     text-overflow: ellipsis;
+    margin-bottom: 0.2em;
   }
 
   .widget-content {
@@ -738,6 +741,7 @@ img {
 
 /* Footer Area CSS */
 .footer-area {
+  margin-top: 3em;
   background-color: $footer-color;
   padding: 30px 0;
   position: relative;
@@ -746,60 +750,6 @@ img {
     .copywrite-text {
       p {
         margin-bottom: 0;
-        margin-top: 30px;
-      }
-    }
-    .footer-menu {
-      @include flex-wrap(wrap);
-      li {
-        @include flex(0 0 33.3333%);
-        min-width: 33.3333%;
-        a {
-          padding: 7.5px 5px;
-          display: block;
-        }
-      }
-      @media #{$breakpoint-xs} {
-        margin: 50px 0;
-      }
-    }
-    h5 {
-      font-size: 18px;
-      font-family: $monospace-fonts;
-      margin-bottom: 20px;
-      font-weight: 700;
-      color: $color-white;
-    }
-    form {
-      position: relative;
-      z-index: 1;
-      input[type="email"] {
-        width: 100%;
-        height: 35px;
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid;
-        border-color: #959595;
-        color: #959595;
-        font-size: 14px;
-        padding: 0 5px;
-        font-family: $monospace-fonts;
-      }
-      button {
-        position: absolute;
-        height: 35px;
-        top: 0;
-        right: 5px;
-        z-index: 10;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        width: 50px;
-        text-align: right;
-        i {
-          font-size: 14px;
-          color: #959595;
-        }
       }
     }
   }
@@ -828,10 +778,18 @@ img {
     color: $text-color;
     line-height: 1.2em;
     margin-left: 0.2em;
+    code {
+      border: solid #ddd 1px;
+      background-color: #f1f1f1;
+      border-radius: 3px;
+      padding-left: 3px;
+      padding-right: 3px;
+      margin-left: 3px;
+      margin-right: 3px;
+    }
   }
 
   a {
-    font-size: 1.1em;
     color: $text-link-color;
     line-height: 1.2em;
   }
@@ -862,5 +820,13 @@ img {
     padding: 2em;
     font-family: $monospace-fonts;
     font-size: 1em;
+  }
+}
+
+.recommend-articles {
+  margin-bottom: 4em;
+  ul li {
+    margin-left: 1.5em;
+    list-style: disc;
   }
 }
