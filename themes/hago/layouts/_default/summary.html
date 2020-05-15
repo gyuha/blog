@@ -3,7 +3,7 @@
     <a href="{{ .Permalink }}" title="{{ .Title }}">
       <img src="{{ "/images/post-title-icon.png" | relURL }}" />
       <div class="post-meta">
-        <time>{{ i18n "postDatetime" .Date }}</time>
+        <time>{{ i18n "post_date_time" .Date }}</time>
         <h2>{{ .Title }}</h2>
       </div>
     </a>
@@ -17,7 +17,8 @@
   {{ end }}
   <div class="post-summary">
     {{ .Summary | plainify | safeHTML }} {{ if .Truncated }}
-    <a href="{{ .RelPermalink }}" class="summary-more">{{ i18n "postReadMore" }}</a>
+    <a href="{{ .RelPermalink }}" class="summary-more">{{ i18n "post_read_more" }}</a>
     {{ end }}
   </div>
+  <div class="post-summary-footer"></div>
 </article>

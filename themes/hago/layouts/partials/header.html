@@ -27,18 +27,19 @@
                 <a class="nav-link" href='{{ "/" | relURL }}'>{{ .Site.Title }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href='{{ "/categories" | relURL }}'>{{ i18n "menuCategories" }}</a>
+                <a class="nav-link" href='{{ "/categories" | relURL }}'>{{ i18n "menu_categories" }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href='{{ "/tags" | relURL }}'>{{ i18n "menuTags" }}</a>
+                <a class="nav-link" href='{{ "/tags" | relURL }}'>{{ i18n "menu_tags" }}</a>
               </li>
             </ul>
             <!-- Search Form  -->
             <div id="search-wrapper">
-              <form action="#">
-                <input type="text" id="search" placeholder="{{ i18n "menuSearchKeyword" }}" />
+              <form action="https://google.com/search">
+                <input type="text" name="q" id="search" placeholder="{{ i18n "menu_search_keyword" }}" />
                 <div id="close-icon"></div>
                 <input class="d-none" type="submit" value="" />
+                <input type="hidden" name="sitesearch" value="{{ .Site.BaseURL }}" />
               </form>
             </div>
           </div>

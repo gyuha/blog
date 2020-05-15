@@ -1,9 +1,9 @@
 {{- $categories := .Site.Taxonomies.categories }} {{- if gt (len $categories) 0 }}
 <div class="sidebar-widget-area">
-  <h5 class="title">
+  <div class="title">
     <i class="fa fa-list"></i>
-    {{ i18n "menuCategories" }}
-  </h5>
+    {{ i18n "menu_categories" }}
+  </div>
   <div class="widget-content">
     <ul class="widget__list">
       {{- range $name, $taxonomy := $categories }} {{- with $.Site.GetPage (printf "/categories/%s" $name) }}

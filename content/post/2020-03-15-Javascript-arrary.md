@@ -9,9 +9,9 @@ tag: [javascript, array]
 자바스크립트의 배열을 메서드를 정리해 봅니다.
 <!--more-->
 
-# Array 추가/삭제  
+## Array 추가/삭제  
 
-## Array.push()  
+### Array.push()  
 
 배열의 마지막 요소를 추가해 줍니다.   
 
@@ -27,7 +27,7 @@ console.log(number_arr);  // [ 1, 2, 3, 4, 5, 6 ]
 
 
 
-## Array.unshift()  
+### Array.unshift()  
 
 배열의 가장 첫번째 요소를 추가해 줍니다.  
 
@@ -43,7 +43,7 @@ console.log(number_arr);  // [ 6, 1, 2, 3, 4, 5 ]
 
 
 
-## Array.pop()  
+### Array.pop()  
 
 배열의 가장 마지막 요소를 삭제 합니다.  
 
@@ -61,7 +61,7 @@ console.log(pop);  // 5
 
 
 
-## Array.shift()  
+### Array.shift()  
 
 배열에서 가장 첫번째 요소를 삭제합니다.  
 
@@ -79,7 +79,7 @@ console.log(shift);  // 1
 
 
 
-## Array.slice()   
+### Array.slice()   
 
 기존 배열은 변하지 않고, 해당 요소를 반환 합니다. 
 
@@ -101,7 +101,7 @@ console.log(sp);  // [3, 4, 5]
 
 
 
-## Array.splice()   
+### Array.splice()   
 
 지정한 위치의 배열을 삭제 합니다.  
 
@@ -125,7 +125,7 @@ console.log(sp2); // undefined : 0개를 삭제해서 값이 없습니다.
 
 
 
-## Array.concat()  
+### Array.concat()  
 
 배열을 합쳐 줍니다.  
 
@@ -146,7 +146,7 @@ console.log(combine); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 
-## Array.of()  
+### Array.of()  
 
 함수의 인수로 새 인스터스 배열을 만들어 줍니다.  
 
@@ -164,9 +164,9 @@ console.log(ch); // ["짜장", "짬뽕"]
 
 
 
-# Array 반복  
+## Array 반복  
 
-## Array.forEach()  
+### Array.forEach()  
 
 배열의 요소를 순차적으로 반복해 줍니다.  
 
@@ -200,7 +200,7 @@ vl.forEach((e, i) => {
 
 
 
-## Array.values()  
+### Array.values()  
 
 배열의 요소를 새로운 반복형 객체로 만들어 줍니다.  
 
@@ -239,7 +239,7 @@ console.log(iterator.next().value);  // undefined : 위에서 모두 반복해�
 
 
 
-## Array.entries()  
+### Array.entries()  
 
 배열의 요소를 키(key)와 값(value)로 짝지어진 반복형 객체로 만들어 줍니다.  
 
@@ -259,9 +259,9 @@ for (let i of iterator) {
 
 
 
-# Array 찾기  
+## Array 찾기  
 
-## Array.some()  
+### Array.some()  
 
 배열중에서 요소가 조건식에 맞는게 1개라도 있으면 true를 반환합니다.  
 
@@ -277,7 +277,7 @@ console.log([2, 5, 8, 1, 4].some((e) => e > 9));
 
 
 
-## Array.every()  
+### Array.every()  
 
 배열의 요소가 모두 조건식에 맞아야 true를 반환합니다.  
 
@@ -293,7 +293,7 @@ console.log([2, 5, 8, 1, 4].every((e) => e > 4));
 
 
 
-## Array.find()  
+### Array.find()  
 
 배열에서 조건식에 맞는 첫번째 요소를 반환합니다.  
 
@@ -321,7 +321,7 @@ console.log([2, 5, 8, 1, 4].find((e, i) => e > 3  && i < 2));
 
 
 
-## Array.findIndex()  
+### Array.findIndex()  
 
 배열에서 조건식에 맞는 첫번째 요소의 인덱스를 반환합니다.  
 
@@ -337,7 +337,7 @@ console.log([2, 5, 8, 1, 4].findIndex((e) => e > 4));
 
 
 
-## Array.filter()  
+### Array.filter()  
 
 배열에서 조건식에 맞는 요소들을 배열로 반환합니다.  
 
@@ -355,7 +355,7 @@ console.log([2, 5, 8, 1, 4].filter((e) => e > 4));
 
 
 
-## Array.indexOf()  
+### Array.indexOf()  
 
 배열에서 요소의 위치를 찾는다. 찾을수가 없으면 -1을 반환합니다.  
 
@@ -377,9 +377,9 @@ console.log([2, 1, 8, 1, 4].indexOf(1, 3));
 
 
 
-# Array 변환하기  
+## Array 변환하기  
 
-## Array.fill()  
+### Array.fill()  
 
 배열을 요소를 채워 줍니다.  
 
@@ -423,7 +423,7 @@ console.log(arr);
 
 
 
-## Array.copyWithin()  
+### Array.copyWithin()  
 
 지정한 위치에 값을 복사해서 넣어 줍니다.  
 
