@@ -5,7 +5,7 @@ theme = "hago"
 
 DefaultContentLanguage = "kr"
 metaDataFormat = "yaml"
-disqusShortname = "yourshortname"
+disqusShortname = "gyuha-blog"
 googleAnalytics = "UA-128878421-1"
 paginate = 4
 

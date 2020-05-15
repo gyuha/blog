@@ -16,7 +16,7 @@
 {{ $baseUrl := .Site.BaseURL }} {{ range.Params.categories }}
 <i class="far fa-folder"></i>
 <a href="{{ $baseUrl }}/categories/{{ . | urlize }}">{{ . }}</a>
-{{ end }} {{ if and (not .Site.BuildDrafts) (.Site.DisqusShortname) }}
+{{ end }} {{ if (.Site.DisqusShortname) }}
 <div class="post-comment">
   {{ template "_internal/disqus.html" . }}
 </div>
