@@ -12,25 +12,11 @@ paginate = 4
 
 [Params]
   description = "Gyuha blog"
-#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
   subtitle = "개발 기록 보관소"
   logo = "/img/logo-title.png"
   favicon = "/favicon.ico"
-  dateFormat = "January 2, 2006"
-  commit = false
-  rss = true
   comments = true
-  readingTime = true
-  wordCount = true
-  useHLJS = true
-  socialShare = true
-  showRelatedPosts = true
-  gcse = "005985772651516842402:vl-thbjw_8a" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
 [Author]
   name = "신규하"
   website = "https://gyuha.github.io"
-  facebook = "gyuha.shin"
-  github = "gyuha"
-  gitlab = "nicegyuha"
-  twitter = "gyuha"
