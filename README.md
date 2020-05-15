@@ -3,7 +3,11 @@
 ## Project Cone
 
 ```bash
-git submodule add https://github.com/gyuha/blog.git
+git clone https://github.com/gyuha/blog.git
+cd blog
+git submodule init
+git submodule update
+git submodule foreach git checkout master
 ```
 
 ## Hugo 설치 하기
