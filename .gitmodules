@@ -2,3 +2,6 @@
 	path = public
 	url = https://github.com/gyuha/gyuha.github.io.git
 	branch = master
+[submodule "blog"]
+	path = blog
+	url = https://github.com/gyuha/blog.git
