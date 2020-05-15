@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kvm on 신규하 블로그</title>
+    <link>https://gyuha.github.io/tags/kvm/</link>
+    <description>Recent content in kvm on 신규하 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Fri, 04 Jan 2019 17:04:32 +0900</lastBuildDate>
+    
+	<atom:link href="https://gyuha.github.io/tags/kvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>우분투 18.04에서 kimchi 설치 하기</title>
+      <link>https://gyuha.github.io/post/2019-01-04-ubuntu-1804-kimchi-install/</link>
+      <pubDate>Fri, 04 Jan 2019 17:04:32 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/post/2019-01-04-ubuntu-1804-kimchi-install/</guid>
+      <description>Bridge Network 설치하기 전 kvm을 개발로 쓰면서 bridge network 형태로 자주 사용해서 먼저 bridge network를 설정 해 줍니다.
+kimchi를 설치 이후에 설정으로 추가해 주면&amp;hellip; 문제가 발생하면서 네트워크가 불능이 되어 버립니다.
+그래서 미리 설정을 해 줍니다.
+먼저 bridge-utils를 설치 해 줍니다.
+sudo apt install bridge-utils 그리고, /etc/netplan/50-cloud-init.yaml을 수정해 줍니다.
+sudo vi /etc/netplan/50-cloud-init.yaml 아래와 같이 입력 합니다.
+network: ethernets: enp3s0: dhcp4: false bridges: br0: interfaces: - enp3s0 dhcp4: false addresses: - 192.168.1.200/24 gateway4: 192.</description>
+    </item>
+    
+  </channel>
+</rss>

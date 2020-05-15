@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko-KR"><head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Gyuha blog 'Typescript Webpack Serverless 구성하기'" />
+  <title>Typescript Webpack Serverless 구성하기  | 신규하 블로그</title>
+  <meta property="og:title" content="Typescript Webpack Serverless 구성하기" />
+  
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="2018-11-06"> 
+  <meta property="og:url" content="https://gyuha.github.io/post/2018-11-06-typescript-webpack-serverless/" />
+  <meta property="og:site_name" content="신규하 블로그" />
+   <meta property="og:image" content="https://gyuha.github.io/images/thumbnail.png">  
+  <meta property="og:tags" content="typescript" />
+  
+  <meta property="og:tags" content="serverless" />
+  
+  <meta property="og:tags" content="webpack" />
+  
+  <meta property="og:tags" content="node" />
+  
+  <meta property="og:tags" content="lambda" />
+  
+
+  
+  <link rel="icon" href="/favicon.ico" />
+
+  
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div id="preloader">
+  <div class="preload-content">
+    <div id="loading-progress"></div>
+  </div>
+</div>
+
+
+
+<header class="header-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg">
+          
+          <a class="navbar-brand" href='/'>
+            <img src="/img/logo-title.png" alt="Logo" />
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href='/'>블로그</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='/categories'>카테고리</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='/tags'>태그</a>
+              </li>
+            </ul>
+            
+            <div id="search-wrapper">
+              <form action="https://google.com/search">
+                <input type="text" name="q" id="search" placeholder="검색어" />
+                <div id="close-icon"></div>
+                <input class="d-none" type="submit" value="" />
+                <input type="hidden" name="sitesearch" value="https://gyuha.github.io/" />
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="top-area">
+  <div class="top-video top-video-small ">
+    <video preload="preload" class="video" autoplay="autoplay" loop="loop" muted>
+      <source src="/video/bg.webp" type="video/webp" />
+      <source src="/video/bg.mp4" type="video/mp4" />
+    </video>
+    <div class="container">
+      <div class="title-message">
+        
+        <a href="https://gyuha.github.io/post/2018-11-06-typescript-webpack-serverless/">
+          <h1>
+            Typescript Webpack Serverless 구성하기
+          </h1>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+
+<div class="post-title">
+  <a href="https://gyuha.github.io/post/2018-11-06-typescript-webpack-serverless/">
+    <div class="post-meta">
+      <time></time>
+    </div>
+  </a>
+</div>
+<section class="post-content">
+  
+  <p>serverless에서 webpack을 이용해서 typescript를 구성해 보면서 작업 하던걸 기록 해 둡니다.</p>
+<h2 id="기본-환경-구성">기본 환경 구성</h2>
+<p>기본적으로 <code>node.js</code>가 설치 되어 있어야 합니다.</p>
+<p>serverless를 설치 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install -g serverless
+</code></pre></div><p>그리고, 프로젝트를 생성해 줍니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ serverless create -t aws-nodejs -p hello-lambda
+Serverless: Generating boilerplate...
+Serverless: Generating boilerplate in <span style="color:#e6db74">&#34;/home/gyuha/workspace/hello-lambda&#34;</span>
+ _______                             __
+|   _   .-----.----.--.--.-----.----|  .-----.-----.-----.
+|   |___|  -__|   _|  |  |  -__|   _|  |  -__|__ --|__ --|
+|____   |_____|__|  <span style="color:#ae81ff">\_</span>__/|_____|__| |__|_____|_____|_____|
+|   |   |             The Serverless Application Framework
+|       |                           serverless.com, v1.32.0
+ -------<span style="color:#960050;background-color:#1e0010">&#39;</span>
+
+Serverless: Successfully generated boilerplate <span style="color:#66d9ef">for</span> template: <span style="color:#e6db74">&#34;aws-nodejs&#34;</span>
+$ cd hello-lambda
+</code></pre></div><p><code>npm init</code>으로 <code>package.jon</code>을 설정해 주고 필요한 패키지를 설치 해 줍니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm init
+$ npm install --save-dev serverless-webpack serverless-offline ts-loader typescript webpack
+</code></pre></div><h2 id="severless-설정하기">Severless 설정하기</h2>
+<p><code>serverless.yml</code> 파일을 아래와 같이 편집 해 줍니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">service: aws-nodejs # NOTE</span>: update this with your service name
+
+<span style="color:#66d9ef">provider</span>:
+  <span style="color:#66d9ef">name</span>: aws
+  <span style="color:#66d9ef">runtime</span>: nodejs8<span style="color:#ae81ff">.10</span>
+  <span style="color:#66d9ef">stage</span>: dev
+  <span style="color:#66d9ef">region</span>: ap-northeast<span style="color:#ae81ff">-2</span>
+
+<span style="color:#66d9ef">plugins</span>:
+  - serverless-webpack
+  - serverless-offline
+
+<span style="color:#66d9ef">functions</span>:
+  <span style="color:#66d9ef">hello</span>:
+    <span style="color:#66d9ef">handler</span>: src/server.hello
+    <span style="color:#66d9ef">events</span>:
+     - <span style="color:#66d9ef">http</span>:
+         <span style="color:#66d9ef">path</span>: hello
+         <span style="color:#66d9ef">method</span>: get
+
+</code></pre></div><p>여기서, 주 된 내용은 plugins의 추가와 functions에서 events의 추가 입니다.</p>
+<h2 id="typescript과-webpack-설정하기">Typescript과 Webpack 설정하기</h2>
+<p><code>tsconfig.json</code> 파일을 만들고 아래와 같이 입력해 줍니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;compilerOptions&#34;</span>: {
+      <span style="color:#f92672">&#34;module&#34;</span>: <span style="color:#e6db74">&#34;commonjs&#34;</span>,
+      <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;es6&#34;</span>,
+      <span style="color:#f92672">&#34;sourceMap&#34;</span>: <span style="color:#66d9ef">true</span>
+    },
+    <span style="color:#f92672">&#34;exclude&#34;</span>: [
+      <span style="color:#e6db74">&#34;node_modules&#34;</span>
+    ]
+  }
+</code></pre></div><p>```webpack.copnfg.js` 파일을 만들고 아래와 같이 입력해 줍니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">const</span> <span style="color:#960050;background-color:#1e0010">path</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#960050;background-color:#1e0010">require(</span><span style="color:#e6db74">&#34;path&#34;</span><span style="color:#960050;background-color:#1e0010">);</span>
+
+<span style="color:#960050;background-color:#1e0010">module.exports</span> <span style="color:#960050;background-color:#1e0010">=</span> {
+  <span style="color:#960050;background-color:#1e0010">entry:</span> <span style="color:#960050;background-color:#1e0010">path.join(__dirname,</span> <span style="color:#f92672">&#34;src/server.ts&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>,
+  <span style="color:#960050;background-color:#1e0010">output:</span> <span style="color:#960050;background-color:#1e0010">{</span>
+    <span style="color:#960050;background-color:#1e0010">libraryTarget:</span> <span style="color:#f92672">&#34;commonjs&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">filename:</span> <span style="color:#f92672">&#34;src/server.js&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">path:</span> <span style="color:#960050;background-color:#1e0010">path.resolve(__dirname,</span> <span style="color:#f92672">&#34;dist&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+  }<span style="color:#960050;background-color:#1e0010">,</span>
+  <span style="color:#960050;background-color:#1e0010">module:</span> {
+    <span style="color:#960050;background-color:#1e0010">rules:</span> <span style="color:#960050;background-color:#1e0010">[</span>
+      <span style="color:#960050;background-color:#1e0010">{</span>
+        <span style="color:#960050;background-color:#1e0010">test:</span> <span style="color:#960050;background-color:#1e0010">/\.tsx?$/,</span>
+        <span style="color:#960050;background-color:#1e0010">loader:</span> <span style="color:#f92672">&#34;ts-loader&#34;</span>,
+        <span style="color:#960050;background-color:#1e0010">exclude:</span> <span style="color:#960050;background-color:#1e0010">/node_modules/</span>
+      }
+    <span style="color:#960050;background-color:#1e0010">]</span>
+  <span style="color:#960050;background-color:#1e0010">},</span>
+  <span style="color:#960050;background-color:#1e0010">resolve:</span> {
+    <span style="color:#960050;background-color:#1e0010">extensions:</span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#f92672">&#34;.tsx&#34;</span>, <span style="color:#f92672">&#34;.ts&#34;</span>, <span style="color:#f92672">&#34;.js&#34;</span><span style="color:#960050;background-color:#1e0010">]</span>
+  }
+<span style="color:#960050;background-color:#1e0010">};</span>
+
+</code></pre></div><h2 id="소스-작성-해-주기">소스 작성 해 주기</h2>
+<p><code>src/server.ts</code> 파일을 생성하고 아래과 같이 입력 해 줍니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">SomeResponse</span> {
+  <span style="color:#a6e22e">statusCode</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">body</span>: <span style="color:#66d9ef">string</span>;
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#a6e22e">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">hello</span> (<span style="color:#a6e22e">event</span>: <span style="color:#66d9ef">any</span>, <span style="color:#a6e22e">context</span>: <span style="color:#66d9ef">any</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span>: <span style="color:#66d9ef">SomeResponse</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">statusCode</span>: <span style="color:#66d9ef">200</span>,
+    <span style="color:#a6e22e">body</span>: <span style="color:#66d9ef">JSON.stringify</span>({
+      <span style="color:#a6e22e">message</span>: <span style="color:#66d9ef">Math.floor</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span>)
+    })
+  };
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">response</span>
+};
+</code></pre></div><p>여기까지 완료 하면.. 기본 실행이 구성 됩니다.</p>
+<h2 id="오프라인-실행하기">오프라인 실행하기</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sls offline
+</code></pre></div><h2 id="배포-하기">배포 하기</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sls deploy
+</code></pre></div><hr>
+<p>예제 코드는 <a href="https://github.com/gyuha/serverless-typescript-webpack">serverless-typescript-webpack</a>에서 볼 수 있습니다.</p>
+</section>
+<time>
+  <i class="far fa-clock"></i>
+  2018년 11월 06일 18시 29분
+</time>
+ 
+<i class="far fa-folder"></i>
+<a href="https://gyuha.github.io//categories/typescript">typescript</a>
+ 
+
+<hr class="summary-sep" />
+<div class="recommend-articles">
+  <h3>
+    추천 글
+  </h3>
+  <ul>
+    
+    <li>
+      <a href="https://gyuha.github.io/page/about/" rel="prev">
+        <span>About me</span>
+      </a>
+    </li>
+     
+    <li>
+      <a href="https://gyuha.github.io/post/2018-11-07-hugo-github/" rel="next">
+        <span>Hugo를 사용한 Github 블로그..</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+ 
+        </div>
+
+        <div id="sidebar" class="col-12 col-md-8 col-lg-4">
+          <div class="post-sidebar-area">
+<div id="post-toc" class="sidebar-widget-area">
+  <div class="title">
+    <i class="fa fa-list"></i>
+    목차
+  </div>
+  <div class="widget-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#기본-환경-구성">기본 환경 구성</a></li>
+    <li><a href="#severless-설정하기">Severless 설정하기</a></li>
+    <li><a href="#typescript과-webpack-설정하기">Typescript과 Webpack 설정하기</a></li>
+    <li><a href="#소스-작성-해-주기">소스 작성 해 주기</a></li>
+    <li><a href="#오프라인-실행하기">오프라인 실행하기</a></li>
+    <li><a href="#배포-하기">배포 하기</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+<div class="sidebar-widget-area">
+  <div class="title">
+    <i class="fa fa-tag"></i>
+    태그
+  </div>
+  <div class="widget-content">
+     
+    <a href="https://gyuha.github.io/tags/typescript" class="badge badge-secondary">typescript</a>
+    <a href="https://gyuha.github.io/tags/serverless" class="badge badge-secondary">serverless</a>
+    <a href="https://gyuha.github.io/tags/webpack" class="badge badge-secondary">webpack</a>
+    <a href="https://gyuha.github.io/tags/node" class="badge badge-secondary">node</a>
+    <a href="https://gyuha.github.io/tags/lambda" class="badge badge-secondary">lambda</a>
+  </div>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+<footer class="footer-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="footer-single-widget">
+          <div class="copywrite-text mt-30">
+            <p>
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              All rights reserved
+            </p>
+            <p>made with by Gyuha</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="/vendor/jquery-2.2.4.min.js"></script>
+<script src="/vendor/bootstrap/popper.min.js"></script>
+<script src="/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="/vendor/native-console.js"></script>
+<script src="/vendor/jquery.easing.1.3.js"></script>
+<script src="/vendor/loading-progress.js"></script>
+<script src="/vendor/jquery.waypoints.min.js"></script>
+<script src="/vendor/jquery.scrollUp.min.js"></script>
+<script src="/vendor/jquery.matchHeight-min.js"></script>
+<script src="/vendor/imagesloaded.pkgd.min.js"></script>
+<script src="/vendor/counterup2.js"></script>
+
+
+<script src="/js/active.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+</body>
+</html>

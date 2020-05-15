@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 신규하 블로그</title>
+    <link>https://gyuha.github.io/categories/</link>
+    <description>Recent content in Categories on 신규하 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Sun, 19 Apr 2020 03:50:46 +0900</lastBuildDate>
+    
+	<atom:link href="https://gyuha.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>typescript</title>
+      <link>https://gyuha.github.io/categories/typescript/</link>
+      <pubDate>Sun, 19 Apr 2020 03:50:46 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/categories/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://gyuha.github.io/categories/javascript/</link>
+      <pubDate>Sun, 15 Mar 2020 21:39:55 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utillity</title>
+      <link>https://gyuha.github.io/categories/utillity/</link>
+      <pubDate>Fri, 10 Jan 2020 03:03:39 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/categories/utillity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>system</title>
+      <link>https://gyuha.github.io/categories/system/</link>
+      <pubDate>Fri, 04 Jan 2019 17:04:32 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/categories/system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>os</title>
+      <link>https://gyuha.github.io/categories/os/</link>
+      <pubDate>Fri, 23 Nov 2018 10:19:45 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/categories/os/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

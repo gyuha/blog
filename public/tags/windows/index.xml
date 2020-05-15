@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>windows on 신규하 블로그</title>
+    <link>https://gyuha.github.io/tags/windows/</link>
+    <description>Recent content in windows on 신규하 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Fri, 10 Jan 2020 03:03:39 +0900</lastBuildDate>
+    
+	<atom:link href="https://gyuha.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>윈도우용 패키지 매니저 Chocolatey 사용법</title>
+      <link>https://gyuha.github.io/post/2020-01-10-chocolatey_manual/</link>
+      <pubDate>Fri, 10 Jan 2020 03:03:39 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/post/2020-01-10-chocolatey_manual/</guid>
+      <description>&lt;p&gt;Chocolatey는 윈도우용 패키지 매니저로, 설치하려는 윈도우용 소프트웨어를 일일이 웹사이트에서 찾아서 설치할 필요 없이 간단하게 커맨드 만으로 윈도우용 소프트웨어를 설치 할 수 있게 해 줍니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Windows 10 subsystem Ubuntu에서 ssh 설치 하기</title>
+      <link>https://gyuha.github.io/post/2018-11-23-windows10-subsystem-openssh/</link>
+      <pubDate>Fri, 23 Nov 2018 10:19:45 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/post/2018-11-23-windows10-subsystem-openssh/</guid>
+      <description>&lt;p&gt;먼저 기존에 설치된 openssh를 삭제하고 다시 설치해야 합니다.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

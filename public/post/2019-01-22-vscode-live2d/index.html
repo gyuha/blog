@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko-KR"><head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Gyuha blog 'VSCode에 live2d 사용하기'" />
+  <title>VSCode에 live2d 사용하기  | 신규하 블로그</title>
+  <meta property="og:title" content="VSCode에 live2d 사용하기" />
+  
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="2019-01-22"> 
+  <meta property="og:url" content="https://gyuha.github.io/post/2019-01-22-vscode-live2d/" />
+  <meta property="og:site_name" content="신규하 블로그" />
+   <meta property="og:image" content="https://gyuha.github.io/images/thumbnail.png">  
+  <meta property="og:tags" content="vscode" />
+  
+  <meta property="og:tags" content="live2d" />
+  
+
+  
+  <link rel="icon" href="/favicon.ico" />
+
+  
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div id="preloader">
+  <div class="preload-content">
+    <div id="loading-progress"></div>
+  </div>
+</div>
+
+
+
+<header class="header-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg">
+          
+          <a class="navbar-brand" href='/'>
+            <img src="/img/logo-title.png" alt="Logo" />
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href='/'>블로그</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='/categories'>카테고리</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='/tags'>태그</a>
+              </li>
+            </ul>
+            
+            <div id="search-wrapper">
+              <form action="https://google.com/search">
+                <input type="text" name="q" id="search" placeholder="검색어" />
+                <div id="close-icon"></div>
+                <input class="d-none" type="submit" value="" />
+                <input type="hidden" name="sitesearch" value="https://gyuha.github.io/" />
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="top-area">
+  <div class="top-video top-video-small ">
+    <video preload="preload" class="video" autoplay="autoplay" loop="loop" muted>
+      <source src="/video/bg.webp" type="video/webp" />
+      <source src="/video/bg.mp4" type="video/mp4" />
+    </video>
+    <div class="container">
+      <div class="title-message">
+        
+        <a href="https://gyuha.github.io/post/2019-01-22-vscode-live2d/">
+          <h1>
+            VSCode에 live2d 사용하기
+          </h1>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+
+<div class="post-title">
+  <a href="https://gyuha.github.io/post/2019-01-22-vscode-live2d/">
+    <div class="post-meta">
+      <time></time>
+    </div>
+  </a>
+</div>
+<section class="post-content">
+  
+  <p>먼저 띄운 화면을 보고 가시죠~</p>
+<p>캐릭터 얼굴이 마우스 움직이는 방향으로 움직입니다.</p>
+<p>너무 귀엽죠?</p>
+<p><img src="https://github.com/summerscar/vscode-live2d/raw/master/screenshot/test.gif" alt="sample"></p>
+<p>그러면, 설치를 해 볼까요?</p>
+<p>먼저, 확장프로그램에서 live2d를 검색해서 설치해 줍니다.</p>
+<p>그리고 재실행을 해주시면, 아무것도 안 나옵니다. -_-;</p>
+<p><img src="/img/20190123-vscode-live2d/vscode-live2d-01.png" alt="live2d"></p>
+<p><code>F1</code> 또는 <code>Ctrl+Shit+P</code>을 누르고 <code>live2d install</code>을 해 줍니다. 그리고 다시 VSCode를 실행 해 줍니다.</p>
+<p>그러면, 고양이가 왼쪽 하단에 나옵니다.</p>
+<p><img src="/img/20190123-vscode-live2d/vscode-live2d-02.png" alt="live2d-3"></p>
+<p>그리고, 나오는 경고&hellip; 살포시 무시하기 위해서 고양이를 살짝 옮기시고, 기어 버튼을 누릅니다.</p>
+<p><img src="/img/20190123-vscode-live2d/vscode-live2d-03.png" alt="live-2d"></p>
+<p>그리고 그만볼래(<code>Don't Show Again</code>)을 눌러 줍니다.</p>
+<p>우리는 고양이에 만족 할 순 없으니.. 다른 캐릭터를 찾아 봅니다.</p>
+<p><a href="https://github.com/summerscar/live2dDemo">https://github.com/summerscar/live2dDemo</a></p>
+<p>위 주소를 이동해서 쭈욱 보시면서 캐릭터를 선택 해 주시면 됩니다.</p>
+<p>그리고, 그 캐릭터는 아래 주소에서 테스트 해 보시면 됩니다.</p>
+<p><a href="http://summerscar.me/live2dDemo/">http://summerscar.me/live2dDemo/</a></p>
+<p><img src="https://github.com/summerscar/live2dDemo/blob/master/screenshot/42.jpg?raw=true" alt="test"></p>
+<p>전 위에 캐릭터를 이용해서 표시를 했습니다.</p>
+<p>설정하는 방법은 약간 귀찮습니다.</p>
+<p><code>File &gt; Preferences &gt; Settings</code>를 선택 하거나 <code>Ctrl+,</code>으로 설정 화면을 들어 갑니다.</p>
+<p>Live2d를 검색 하시거나 직접 입력을 하시거나, 좌측 상단에 <code>{}</code>버튼을 누르셔서 코드를 넣어 주시면 됩니다.</p>
+<p>저 같은 경우는 위 기본 값에서 사이즈를 반으로 줄여서 넣어 봤습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;live2d.width&#34;</span>: <span style="color:#ae81ff">150</span>,
+    <span style="color:#f92672">&#34;live2d.height&#34;</span>: <span style="color:#ae81ff">200</span>,
+    <span style="color:#f92672">&#34;live2d.model&#34;</span>: <span style="color:#e6db74">&#34;33.2017.newyear&#34;</span>,
+    <span style="color:#f92672">&#34;live2d.headPos&#34;</span>: <span style="color:#ae81ff">0.5</span>,
+    <span style="color:#f92672">&#34;live2d.scale&#34;</span>: <span style="color:#ae81ff">1</span>   
+}
+</code></pre></div><p>하지만, 수정한다고 해서 바로 적용 되지 않습니다.</p>
+<p><code>F1</code> 또는 <code>Ctrl+Shit+P</code>을 다시 누르고 <code>live2d uninstall</code>을 하고 다시 <code>live2d install</code>을 해 줘야 합니다.</p>
+<p>꼭!!! 지웠다가 다시 설치를 해야 적용이 됩니다.</p>
+<p>결과는 아래와 같습니다.</p>
+<p><img src="/img/20190123-vscode-live2d/vscode-live2d-04.png" alt="적용 화면"></p>
+<p>참.. 이쁘죠? ㅎㅎㅎ</p>
+</section>
+<time>
+  <i class="far fa-clock"></i>
+  2019년 01월 22일 23시 42분
+</time>
+ 
+<i class="far fa-folder"></i>
+<a href="https://gyuha.github.io//categories/utillity">utillity</a>
+ 
+
+<hr class="summary-sep" />
+<div class="recommend-articles">
+  <h3>
+    추천 글
+  </h3>
+  <ul>
+    
+    <li>
+      <a href="https://gyuha.github.io/post/2019-01-04-ubuntu-1804-kimchi-install/" rel="prev">
+        <span>우분투 18.04에서 kimchi 설치 하기</span>
+      </a>
+    </li>
+     
+    <li>
+      <a href="https://gyuha.github.io/post/2019-12-19-typescript-default-import/" rel="next">
+        <span>Typescript에서 default import 개선..</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+ 
+        </div>
+
+        <div id="sidebar" class="col-12 col-md-8 col-lg-4">
+          <div class="post-sidebar-area">
+<div id="post-toc" class="sidebar-widget-area">
+  <div class="title">
+    <i class="fa fa-list"></i>
+    목차
+  </div>
+  <div class="widget-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+<div class="sidebar-widget-area">
+  <div class="title">
+    <i class="fa fa-tag"></i>
+    태그
+  </div>
+  <div class="widget-content">
+     
+    <a href="https://gyuha.github.io/tags/vscode" class="badge badge-secondary">vscode</a>
+    <a href="https://gyuha.github.io/tags/live2d" class="badge badge-secondary">live2d</a>
+  </div>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+<footer class="footer-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="footer-single-widget">
+          <div class="copywrite-text mt-30">
+            <p>
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              All rights reserved
+            </p>
+            <p>made with by Gyuha</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="/vendor/jquery-2.2.4.min.js"></script>
+<script src="/vendor/bootstrap/popper.min.js"></script>
+<script src="/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="/vendor/native-console.js"></script>
+<script src="/vendor/jquery.easing.1.3.js"></script>
+<script src="/vendor/loading-progress.js"></script>
+<script src="/vendor/jquery.waypoints.min.js"></script>
+<script src="/vendor/jquery.scrollUp.min.js"></script>
+<script src="/vendor/jquery.matchHeight-min.js"></script>
+<script src="/vendor/imagesloaded.pkgd.min.js"></script>
+<script src="/vendor/counterup2.js"></script>
+
+
+<script src="/js/active.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+</body>
+</html>

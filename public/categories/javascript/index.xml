@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on 신규하 블로그</title>
+    <link>https://gyuha.github.io/categories/javascript/</link>
+    <description>Recent content in javascript on 신규하 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Sun, 15 Mar 2020 21:39:55 +0900</lastBuildDate>
+    
+	<atom:link href="https://gyuha.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>자바스크립트 배열 메서드 정리</title>
+      <link>https://gyuha.github.io/post/2020-03-15-javascript-arrary/</link>
+      <pubDate>Sun, 15 Mar 2020 21:39:55 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/post/2020-03-15-javascript-arrary/</guid>
+      <description>&lt;p&gt;자바스크립트의 배열을 메서드를 정리해 봅니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Typescript에서 default import 개선..</title>
+      <link>https://gyuha.github.io/post/2019-12-19-typescript-default-import/</link>
+      <pubDate>Thu, 19 Dec 2019 21:32:11 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/post/2019-12-19-typescript-default-import/</guid>
+      <description>&lt;p&gt;express를 import하면 아래와 같이 import 했을 겁니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Express Typescript Webpack</title>
+      <link>https://gyuha.github.io/post/2018-11-13-express-typescript-webpack/</link>
+      <pubDate>Tue, 13 Nov 2018 23:11:37 +0900</pubDate>
+      
+      <guid>https://gyuha.github.io/post/2018-11-13-express-typescript-webpack/</guid>
+      <description>&lt;p&gt;express를 타입스크립트롤 시작하는 방법을 설명합니다.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
