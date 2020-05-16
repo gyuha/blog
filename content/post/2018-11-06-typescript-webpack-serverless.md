@@ -110,9 +110,9 @@ functions:
 
 
 
-```webpack.copnfg.js` 파일을 만들고 아래와 같이 입력해 줍니다.
+`webpack.copnfg.js` 파일을 만들고 아래와 같이 입력해 줍니다.
 
-```json
+```javascript
 const path = require("path");
 
 module.exports = {

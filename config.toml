@@ -16,7 +16,23 @@ paginate = 4
   logo = "/img/logo-title.png"
   favicon = "/favicon.ico"
   comments = true
+  
+[pygmentsOptions]
+  linenos = "table"
+  pygmentsOptions = "table"
 
 [Author]
   name = "신규하"
   website = "https://gyuha.github.io"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "fruity"
+    tabWidth = 2

@@ -16,7 +16,7 @@ tags: [vscode, vue, typescript, eslint, tslint]
 
 `vue create myproject` 형태로 기본 프로젝트를 선택 합니다.
 
-```bash
+```bash {hl_lines=[11,18,27,31]}
 > npx vue create myproject
 
 ? Please pick a preset: Manually select features
@@ -43,7 +43,7 @@ tags: [vscode, vue, typescript, eslint, tslint]
   ESLint with error prevention only
   ESLint + Airbnb config
   ESLint + Standard config
->  ESLint + Prettier
+> ESLint + Prettier
   TSLint (deprecated)    
 
 ? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)
