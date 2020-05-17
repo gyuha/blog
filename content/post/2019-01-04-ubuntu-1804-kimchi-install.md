@@ -9,6 +9,7 @@ tags: [kvm,kimchi,ubuntu,setting]
 ## Bridge Network 설치하기
 
 전 kvm을 개발로 쓰면서 bridge network 형태로 자주 사용해서 먼저 bridge network를 설정 해 줍니다.
+<!--more-->
 
 kimchi를 설치 이후에 설정으로 추가해 주면... 문제가 발생하면서 네트워크가 불능이 되어 버립니다.
 
