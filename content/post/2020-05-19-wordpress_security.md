@@ -3,7 +3,7 @@ title: "워드프레스 보안 설정"
 date: 2020-05-19T10:37:23+09:00
 draft: true
 categories: [utillity]
-tag: [security,php,wordpress]
+tags: [security,php,wordpress]
 ---
 
 워드프레스로 만든 홈페이지 보안 적용 정리..
