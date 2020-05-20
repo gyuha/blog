@@ -22,3 +22,4 @@ deploy:
 	$(HUGO) -D
 
 	cd ./public && git add . && git commit -m $(COMMIT_MESSAGE) && git push
+	cd .. && git commit -am "update" && git push

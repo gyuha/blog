@@ -26,17 +26,17 @@ tags: [vscode, live2d]
 
 그리고 재실행을 해주시면, 아무것도 안 나옵니다. -_-;
 
-![live2d](/img/20190123-vscode-live2d/vscode-live2d-01.png)
+![live2d](/img/2019-01-23-vscode-live2d/vscode-live2d-01.png)
 
 `F1` 또는 `Ctrl+Shit+P`을 누르고 `live2d install`을 해 줍니다. 그리고 다시 VSCode를 실행 해 줍니다.
 
 그러면, 고양이가 왼쪽 하단에 나옵니다.
 
-![live2d-3](/img/20190123-vscode-live2d/vscode-live2d-02.png)
+![live2d-3](/img/2019-01-23-vscode-live2d/vscode-live2d-02.png)
 
 그리고, 나오는 경고... 살포시 무시하기 위해서 고양이를 살짝 옮기시고, 기어 버튼을 누릅니다.
 
-![live-2d](/img/20190123-vscode-live2d/vscode-live2d-03.png)
+![live-2d](/img/2019-01-23-vscode-live2d/vscode-live2d-03.png)
 
 그리고 그만볼래(`Don't Show Again`)을 눌러 줍니다.
 
@@ -80,6 +80,6 @@ Live2d를 검색 하시거나 직접 입력을 하시거나, 좌측 상단에 `{
 
 결과는 아래와 같습니다.
 
-![적용 화면](/img/20190123-vscode-live2d/vscode-live2d-04.png)
+![적용 화면](/img/2019-01-23-vscode-live2d/vscode-live2d-04.png)
 
 참.. 이쁘죠? ㅎㅎㅎ
