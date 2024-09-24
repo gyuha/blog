@@ -6,11 +6,10 @@ categories: [javascript]
 tags: [javascript]
 ---
 
-## 
 자바스크립에서 요긴하게 쓸 수 있는 한 줄 짜리 코드 들을 공유 합니다.
 
-# 배열 섞기
-
+## 배열 섞기
+배열을 랜덤으로 섞어 줍니다.
 ```javascript
 const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
 
@@ -18,9 +17,7 @@ const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(shuffleArray(arr));
 ```
 
-## 
-
-# 클립보드 복사하기
+## 클립보드 복사하기
 
 ```javascript
 const copyToClipboard = (text) =>
@@ -31,7 +28,7 @@ copyToClipboard("Hello World!");
 
 
 
-# 유니크 배열
+## 유니크 배열
 
 ```javascript
 const getUnique = (arr) => [...new Set(arr)];
@@ -42,7 +39,7 @@ console.log(getUnique(arr));
 
 
 
-# 배열 체크
+## 배열 체크
 
 ```javascript
 const isArray = (arr) => Array.isArray(arr);
@@ -54,7 +51,7 @@ console.log(isArray('Hello World'));  // false
 
 
 
-# 랜덤 숫자
+## 랜덤 숫자
 
 ```javascript
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
@@ -64,7 +61,7 @@ console.log(random(1, 50));
 
 
 
-# 타크 모드 검출
+## 다크 모드 검출
 
 ```javascript
 const isDarkMode = () =>
@@ -76,7 +73,7 @@ console.log(isDarkMode());
 
 
 
-# 스크롤 맨 위로 / 아래로
+## 스크롤 맨 위로 / 아래로
 
 ```javascript
 const scrollToTop = (element) =>
@@ -88,7 +85,7 @@ const scrollToBottom = (element) =>
 
 
 
-# 랜덤 색상 생성기
+## 랜덤 색상 생성기
 
 ```javascript
 const generateRandomHexColor = () =>
@@ -97,7 +94,7 @@ const generateRandomHexColor = () =>
 
 
 
-# 날짜 사이 계산하기
+## 날짜 사이 계산하기
 
 ```javascript
 const daysDiff = (date, date2) => Math.ceil(Math.abs(date - date2) / 86400000);
@@ -107,7 +104,7 @@ console.log(daysDiff(new Date('2022-05-10'), new Date('2022-11-25')));  // 199
 
 
 
-# 값 바꾸기
+## 값 바꾸기
 
 ```javascript
 let foo = 'foo';
@@ -120,7 +117,7 @@ console.log(foo, bar); // bar foo
 
 
 
-# 배열 합치기
+## 배열 합치기
 
 ```javascript
 // 배열을 합칩니다. 하지만, 중복은 유지
@@ -136,7 +133,7 @@ const merge = [...new Set([...a, ...b])];
 
 
 
-# 자바스크립트 실제 유형 가져오기
+## 자바스크립트 실제 유형 가져오기
 
 ```javascript
 const trueTypeOf = (obj) => {
@@ -155,7 +152,7 @@ console.log(trueTypeOf(() => {}));  // function
 
 
 
-# 긴 문자열 자르기
+## 긴 문자열 자르기
 
 ```javascript
 const truncateString = (string, length) => {
@@ -167,7 +164,7 @@ console.log(truncateString('동해 물과 백두산이 마르고 닳도록', 10)
 
 
 
-# 현재 탭이 보이고 있는지 체크
+## 현재 탭이 보이고 있는지 체크
 
 ```javascript
 const isTabInView = () => !document.hidden; // Not hidden
@@ -177,7 +174,7 @@ console.log(isTabInView()); // true or false
 
 
 
-# 숫자 앞에 0붙여서 출력하기
+## 숫자 앞에 0붙여서 출력하기
 
 ```javascript
 const numberPad = (num, size) =>
@@ -190,7 +187,7 @@ console.log(numberPad(5, 3)); // 005
 
 
 
-# 빈 배열 체크
+## 빈 배열 체크
 
 ```javascript
 const checkEmptyArray = (arr) => !Array.isArray(arr) || arr.length === 0;

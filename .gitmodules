@@ -1,6 +1,0 @@
-[submodule "themes/hago"]
-	path = themes/hago
-	url = https://github.com/gyuha/hago.git
-[submodule "public"]
-	path = public
-	url = https://github.com/gyuha/gyuha.github.io.git
