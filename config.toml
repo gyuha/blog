@@ -1,4 +1,4 @@
-baseURL = "https://gyuha.github.io/"
+baseURL = "https://gyuha.com/"
 languageCode = "ko-KR"
 title = "신규하 블로그"
 theme = "hago"
@@ -23,7 +23,7 @@ paginate = 4
 
 [Author]
   name = "신규하"
-  website = "https://gyuha.github.io"
+  website = "https://gyuha.com"
 
 [markup]
   [markup.highlight]
