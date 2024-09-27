@@ -7,7 +7,7 @@ DefaultContentLanguage = "kr"
 metaDataFormat = "yaml"
 disqusShortname = "gyuha-blog"
 googleAnalytics = "UA-128878421-1"
-paginate = 4
+paginate = 7
 
 
 [Params]
