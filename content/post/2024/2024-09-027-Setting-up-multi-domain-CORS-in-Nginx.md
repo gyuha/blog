@@ -29,7 +29,7 @@ map $http_origin $cors_origin {
 
 server {
     listen 443 ssl;
-    server_name api-demo.example.co.kr;
+    server_name api.example.co.kr;
 
     # SSL 설정 (생략)
 
