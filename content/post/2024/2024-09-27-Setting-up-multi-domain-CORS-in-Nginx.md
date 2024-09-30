@@ -1,6 +1,7 @@
 ---
 title: "Nginx에서 다중 도메인 CORS 설정하기"
 date: 2024-09-27T08:18:16+09:00
+categories: [os]
 draft: true
 ---
 
