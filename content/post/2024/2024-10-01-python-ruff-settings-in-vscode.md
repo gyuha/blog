@@ -3,7 +3,7 @@ title: "VSCode에서 Ruff로 Python 코드 품질 관리하기"
 date: 2024-10-01T01:10:56+09:00
 draft: true
 categories: [python]
-tag: python, linter, formatter
+tags: [python, vscode, ruff]
 ---
 
 
