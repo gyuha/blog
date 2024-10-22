@@ -18,23 +18,20 @@ Jenkins는 소프트웨어 개발에서 지속적 통합 및 배포(CI/CD)를 �
 다음은 Jenkins를 Docker Compose로 실행하기 위한 기본적인 `docker-compose.yml` 파일의 내용입니다:
 
 ```yaml
-version: '3.8'
-
+version: '3'
 services:
-  jenkins: 
+  jenkins:
     image: jenkins/jenkins:lts
-    container_name: jenkins
-    restart: always
-    environment:
-      - TZ=Asia/Seoul
-    user: root
     privileged: true
+    user: root
     ports:
-      - 10000:8080
+      - 8080:8080
       - 50000:50000
+    container_name: jenkins
     volumes:
       - ./jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
 ```
 
 이 설정은 Jenkins의 기본적인 실행 환경을 제공합니다. 각 설정의 의미와 중요성에 대해 자세히 살펴보겠습니다.
