@@ -2,6 +2,8 @@
 title: "Jenkins Docker Compose 설정 가이드"
 date: 2024-10-21T20:13:39+09:00
 draft: true
+categoies: ["DevOps", "os"]
+tags: ["Jenkins", "Docker", "Docker Compose", "CI/CD"]
 ---
 Jenkins는 소프트웨어 개발에서 지속적 통합 및 배포(CI/CD)를 위한 강력한 도구입니다. Docker Compose를 사용하여 Jenkins를 설정하면 환경 구성이 간편해지고 일관성 있는 배포가 가능해집니다.
 
