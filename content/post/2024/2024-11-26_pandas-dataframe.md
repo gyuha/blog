@@ -25,32 +25,32 @@ DataFrame은 다음과 같은 특징을 가지고 있습니다:
 5. **강력한 데이터 조작 기능**: Pandas는 데이터 필터링, 정렬, 집계, 결합, 결측치 처리 등 다양한 데이터 조작 기능을 제공합니다.
 
 
-### 1. 데이터 생성
+## 1. 데이터 생성
 다음과 같이 DataFrame을 생성할 수 있습니다:
 
-```python
-import pandas as pd
+  ```python
+  import pandas as pd
 
-data = {
-    '이름': ['Alice', 'Bob', 'Charlie'],
-    '나이': [25, 30, 35],
-    '도시': ['서울', '부산', '대구']
-}
+  data = {
+      '이름': ['Alice', 'Bob', 'Charlie'],
+      '나이': [25, 30, 35],
+      '도시': ['서울', '부산', '대구']
+  }
 
-df = pd.DataFrame(data)
-print(df)
-```
+  df = pd.DataFrame(data)
+  print(df)
+  ```
 
 이 코드는 다음과 같은 DataFrame을 생성합니다:
 
-```
-      이름  나이   도시
-0   Alice  25   서울
-1     Bob  30   부산
-2 Charlie  35   대구
-```
+  ```
+        이름  나이   도시
+  0   Alice  25   서울
+  1     Bob  30   부산
+  2 Charlie  35   대구
+  ```
 
-### 2. 데이터 조회 및 탐색
+## 2. 데이터 조회 및 탐색
 
 - **`head(n)`**: DataFrame의 처음 n개의 행을 반환합니다. 기본값은 5입니다.
   ```python
@@ -72,7 +72,7 @@ print(df)
   df.describe()
   ```
 
-### 3. 데이터 선택 및 필터링
+## 3. 데이터 선택 및 필터링
 
 - **`loc[]`**: 라벨 기반 인덱싱을 사용하여 특정 행과 열을 선택합니다.
   ```python
@@ -109,7 +109,7 @@ print(df)
   df[((df['나이'] > 30) & (df['도시'] == '서울')) | (df['도시'] == '부산')]
   ```
 
-### 4. 데이터 조작
+## 4. 데이터 조작
 
 - **`sort_values(by)`**: 특정 열을 기준으로 DataFrame을 정렬합니다.
   ```python
@@ -126,7 +126,7 @@ print(df)
   df.rename(columns={'이름': '이름_변경'}, inplace=True)
   ```
 
-### 5. 데이터 추가 및 수정
+## 5. 데이터 추가 및 수정
 
 - **`assign()`**: 새로운 열을 추가하거나 기존 열을 수정합니다.
   ```python
@@ -156,7 +156,7 @@ print(df)
   df.dropna()
   ```
 
-### 7. 그룹화 및 집계
+## 7. 그룹화 및 집계
 
 - **`groupby(by)`**: 특정 열을 기준으로 데이터를 그룹화합니다.
   ```python
