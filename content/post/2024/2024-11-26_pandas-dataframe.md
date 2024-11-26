@@ -139,7 +139,7 @@ DataFrame은 다음과 같은 특징을 가지고 있습니다:
   df = df.append(df2, ignore_index=True)
   ```
 
-### 6. 결측치 처리
+## 6. 결측치 처리
 
 - **`isnull()`**: 결측치가 있는지 확인합니다.
   ```python
