@@ -2,7 +2,7 @@
 title: "유용한 Aspect-Oriented Programming(AOP) 모음"
 date: 2024-12-20T13:15:31+09:00
 draft: true
-categoies: ["Spring"]
+categories: ["Spring"]
 tags: ["Spring", "annotation"]
 ---
 
