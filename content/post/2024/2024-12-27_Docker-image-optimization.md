@@ -6,6 +6,8 @@ categories: [system]
 tags: [docker, "docker compose", "ci/cd"]
 ---
 
+![Docker image optimization](/img/2024/docker/docker-opti.png)
+
 Docker의 이미지에는 사용자가 생각하는 것보다 더 많은 내용이 포함되는 경우가 많습니다. 
 <!--more-->
 이러한 불필요한 파일, 라이브러리, 의존성 등으로 인해 이미지 크기가 커지고 배포 및 실행 속도가 느려질 수 있습니다. 이 글에서는 Docker 이미지 최적화를 통해 크기와 실행성을 개선하는 다양한 방법을 소개합니다.
