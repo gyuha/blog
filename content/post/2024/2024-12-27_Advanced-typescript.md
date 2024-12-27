@@ -153,7 +153,7 @@ console.log(updatedUser);
 
 
 
-### 유니언(Union) 타입과 인터섹션(Intersection) 타입
+## 유니언(Union) 타입과 인터섹션(Intersection) 타입
 
 TypeScript는 여러 타입을 결합하여 새로운 타입을 만들어낼 수 있는 강력한 기능을 제공합니다. 이는 JavaScript에서의 논리 연산자 OR(||)와 AND(&&)와 비슷한 개념으로, 코드 베이스에서 정교한 타입 검사를 수행할 수 있게 합니다.
 
