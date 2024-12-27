@@ -216,7 +216,7 @@ transferPlayer({
 
 
 
-### Keyof 키워드
+## Keyof 키워드
 
 keyof 키워드는 인터페이스나 객체의 키를 추출하여 새로운 유니언 타입을 생성할 수 있게 해줍니다. 이는 타입 안정성을 유지하고, 리팩토링 시 실수를 줄이는 데 중요한 역할을 합니다.
 
@@ -278,7 +278,7 @@ adjustMenu(simpleMenu, 'coffee', '아메리카노');
 
 
 
-### Typeof 키워드
+## Typeof 키워드
 
 typeof 키워드는 변수의 타입을 추출하여 사용할 수 있도록 해줍니다. 이는 특히 함수의 반환 타입을 기반으로 새로운 타입을 생성할 때 유용합니다.
 
@@ -314,7 +314,7 @@ type Character = ReturnType<typeof getCharacter>;
 
 
 
-### 조건부 타입 (Conditional Types)
+## 조건부 타입 (Conditional Types)
 
 조건부 타입은 JavaScript의 삼항 연산자와 유사한 개념으로, 조건에 따라 다른 타입을 반환합니다. 이는 TypeScript에서 더욱 강력하고 유연한 타입 시스템을 지원합니다.
 
