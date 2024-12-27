@@ -168,11 +168,11 @@ function orderProduct(orderId: string | number) {
   console.log('상품 주문 번호:', orderId);
 }
 
-// 올바른 사용 예시
+// 👍 올바른 사용 예시
 orderProduct(1);
 orderProduct('123-abc');
 
-// 잘못된 사용 예시
+// 👎 잘못된 사용 예시
 orderProduct({ name: '상품명' });
 ```
 
@@ -198,14 +198,14 @@ function transferPlayer(player: Person & FootballPlayer) {
   console.log(`${player.firstname} ${player.name} 선수가 ${player.club}으로 이적합니다.`);
 }
 
-// 올바른 사용 예시
+// 👍 올바른 사용 예시
 transferPlayer({
   name: '라마스',
   firstname: '세르히오',
   club: 'PSG',
 });
 
-// 잘못된 사용 예시
+// 👎 잘못된 사용 예시
 transferPlayer({
   name: '라마스',
   firstname: '세르히오',
@@ -266,11 +266,11 @@ function adjustMenu(
   menu[menuEntry] = change;
 }
 
-// 올바른 사용 예시
+// 👍 올바른 사용 예시
 adjustMenu(simpleMenu, 'pizza', '하와이안 피자');
 adjustMenu(simpleMenu, 'beverage', '맥주');
 
-// 잘못된 사용 예시
+// 👎 잘못된 사용 예시
 adjustMenu(simpleMenu, 'coffee', '아메리카노');
 ```
 
@@ -344,3 +344,130 @@ let idTwo: Id<number>; // NumberId 타입
 위 예제에서는 Id라는 조건부 타입을 정의했습니다. 만약 T가 string 타입으로 확장 가능하다면, 반환 타입은 StringId이고, 그렇지 않으면 NumberId 타입이 됩니다.
 
 조건부 타입은 타입에서 더욱 정교한 제어와 타입 기반 로직을 구현할 수 있도록 도와줍니다.
+
+
+## 명령어 유형
+
+유틸리티 타입은 일반적인 타입 변환을 용이하게 하기 위한 도구입니다. TypeScript는 많은 유틸리티 타입을 제공합니다. 이 블로그 포스트에서 전부를 다루기에는 너무 많습니다. 아래에는 제가 가장 자주 사용하는 유틸리티 타입 몇 가지를 선택적으로 소개합니다. 공식 TypeScript 문서는 모든 유틸리티 타입 목록을 잘 제공하고 있습니다.
+
+### Partial
+
+The Partial utility type를 사용하면 모든 속성이 선택 사항인 새로운 인터페이스로 인터페이스를 변환할 수 있습니다.
+
+```ts
+interface MovieCharacter {
+  firstname: string;
+  name: string;
+  movie: string;
+}
+
+function registerCharacter(character: Partial<MovieCharacter>) {}
+
+// 👍 올바른 사용 예시
+registerCharacter({
+  firstname: 'Frodo',
+});
+
+// 👎 잘못된 사용 예시
+registerCharacter({
+  firstname: 'Frodo',
+  name: 'Baggins',
+});
+```
+
+
+MovieCharacter는 firstname, name, movie가 필요합니다. 그러나 registerPerson 함수의 시그니처는 Partial 유틸리티를 사용하여 firstname, name, movie를 선택적으로 가진 새 타입을 생성합니다.
+
+
+
+### Required
+
+Required는 Partial의 반대 역할을 합니다. 선택적 속성을 가진 기존 인터페이스를 받아 모든 속성이 필수인 타입으로 변환합니다.
+
+```ts
+interface MovieCharacter {
+  firstname?: string;
+  name?: string;
+  movie?: string;
+}
+
+function hireActor(character: Required<MovieCharacter>) {}
+
+// 👍 올바른 사용 예시
+hireActor({
+  firstname: 'Frodo',
+  name: 'Baggins',
+  movie: 'The Lord of the Rings',
+});
+
+// 👎 잘못된 사용 예시
+hireActor({
+  firstname: 'Frodo',
+  name: 'Baggins',
+});
+```
+
+
+이 예제에서는 MovieCharacter의 속성이 선택 사항이었습니다. Required를 사용하여 모든 속성이 필수인 타입으로 변환하였습니다. 따라서 firstname, name 및 movie 속성을 포함하는 객체만 허용됩니다.
+
+
+
+### Extract
+
+Extract는 타입의 정보를 추출할 수 있도록 해줍니다. Extract는 두 개의 매개변수를 받으며, 첫 번째는 인터페이스이고 두 번째는 추출해야 할 타입입니다.
+
+```ts
+type MovieCharacters =
+  | 'Harry Potter'
+  | 'Tom Riddle'
+  | { firstname: string; name: string };
+
+type hpCharacters = Extract<MovieCharacters, string>;
+// hpCharacters = 'Harry Potter' | 'Tom Riddle';
+
+type hpCharacters = Extract<MovieCharacters, { firstname: string }>;
+// hpCharacters = {firstname: string; name: string };
+```
+
+
+Extract<MovieCharacters, string>는 문자열로 구성된 유니언 타입 hpCharacters를 생성합니다. 반면 Extract<MovieCharacters, {firstname: string}>는 firstname: string 타입을 포함하는 모든 객체 타입을 추출합니다.
+
+### Exclude
+
+Exclude는 추출의 반대 역할을 합니다. 즉, 타입을 제외하여 새 타입을 생성할 수 있습니다.
+
+```ts
+type MovieCharacters =
+  | 'Harry Potter'
+  | 'Tom Riddle'
+  | { firstname: string; name: string };
+
+type hpCharacters = Exclude<MovieCharacters, string>;
+// equal to type hpCharacters = {firstname: string; name: string };
+
+type hpCharacters = Exclude<MovieCharacters, { firstname: string }>;
+// equal to type hpCharacters = 'Harry Potter' | 'Tom Riddle';
+```
+
+
+먼저, 모든 문자열을 제외하는 새로운 타입을 생성합니다. 그 다음, firstname: string을 포함하는 모든 객체 타입을 제외하는 타입을 생성합니다.
+
+### Infer type
+
+infer는 새 유형(type)을 생성할 수 있게 해줍니다. 이는 Javascript에서 var, let 또는 const 키워드를 사용하여 변수를 생성하는 것과 유사합니다.
+
+```ts
+type flattenArrayType<T> = T extends Array<infer ArrayType> ? ArrayType : T;
+
+type foo = flattenArrayType<string[]>;
+// foo = string;
+
+type foo = flattenArrayType<number[]>;
+// foo = number;
+
+type foo = flattenArrayType<number>;
+// foo = number;
+```
+
+`T`는 `Array<infer ArrayType>`을 확장합니다. 이는 `T`가 배열(Array)을 확장하는지 확인하는 것입니다. 더욱이, 우리는 infer 키워드를 사용하여 배열 타입을 얻습니다. 이는 마치 변수를 사용해 타입을 저장하는 것과 같습니다.그런 다음, 조건부 타입을 사용하여 T가 배열을 확장하면 ArrayType을 반환합니다. 그렇지 않으면 T를 반환합니다.
+
