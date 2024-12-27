@@ -113,5 +113,5 @@ LABEL description="This is an optimized Docker image."
 Docker 이미지를 최적화하는 작업은 단순히 이미지 크기를 줄이고 배포 속도를 높이는 것뿐만 아니라, 보안성과 자원 효율성까지 향상시킬 수 있는 중요한 과정입니다. 다양한 최적화 방법을 통해 Docker 이미지를 간소화하면 운영 환경에서의 안정성과 관리 효율성이 증가합니다. 특히 다단계 빌드나 캐시 활용, 그리고 도구를 적극 활용하는 전략들은 시간을 절약하고 비용을 줄이는 데 큰 도움이 됩니다. 결과적으로, 최적화된 Docker 이미지는 개발 및 운영의 전체적인 생산성을 높이는 핵심 요소로 자리매김합니다.
 
 ## 참고 자료
-1. __Docker 공식 문서__
-2. __Dockerfile 작성 베스트 프랙티스__
+1. [Docker 공식 문서](https://docs.docker.com/)
+2. [Dockerfile 모범 사례](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
