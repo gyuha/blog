@@ -96,7 +96,7 @@ servers = [
 ![pgcat](/img/2025/2025-01-17/pgcat.excalidraw.png)
 - 클라이언트는 PgCat(6432)로 연결
 - PgCat이 쿼리 유형에 따라 적절한 서버로 라우팅
-- 쓰기 쿼리 → Master (pg1)
+- 쓰기 쿼리 → Primary (pg1)
 - 읽기 쿼리 → Replica (pg2, pg3)
 
 ## 6. 장점
