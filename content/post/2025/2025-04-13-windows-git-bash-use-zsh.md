@@ -16,7 +16,9 @@ tags: [windows, git-bash, zsh, terminal]
 
 ### 2.1 Nerd Font 설치
 
-ZSH를 사용하기 전에 먼저 Nerd Font를 설치해야 합니다. [Nerd Fonts](https://www.nerdfonts.com/font-downloads)에서 원하는 폰트를 다운로드하여 설치합니다. 이 글에서는 `EnvyCodeR Nerd Font Mono`를 사용합니다.
+ZSH를 사용하기 전에 먼저 Nerd Font를 설치해야 합니다. [Nerd Fonts](https://www.nerdfonts.com/font-downloads)에서 원하는 폰트를 다운로드하여 설치합니다. 이 글에서는 `D2CodingLigature Nerd Font`를 사용합니다.
+
+- [D2CodingLigature Nerd Font Download](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/CommitMono.zip)
 
 ### 2.2 ZSH 패키지 다운로드
 
@@ -40,9 +42,10 @@ zsh
 
 `~/.minttyrc` 파일을 생성하고 다음 내용을 추가합니다:
 
+
 ```bash
 BoldAsFont=no
-Font=EnvyCodeR Nerd Font Mono
+Font=D2CodingLigature Nerd Font
 FontHeight=14
 Columns=180
 Rows=46
@@ -52,7 +55,7 @@ MiddleClickAction=void
 RightClickAction=paste
 Language=
 BellType=0
-BellFlash=yes
+BellFlash=no
 Printer=Microsoft Print to PDF
 Transparency=off
 CursorBlinks=yes
@@ -66,6 +69,7 @@ Term=xterm-256color
 BoldAsColour=no
 CursorType=block
 ```
+이렇게 설정 하면 git-bash의 터미널 창이 이뻐 집니다.
 
 ## 3. ZSH 설정
 
@@ -79,14 +83,7 @@ PATH=/mingw64/bin/usr/bin:/usr/bin:/bin:$PATH
 
 ### 3.2 Git Bash에서 ZSH 자동 실행 설정
 
-`C:\Program Files\Git\etc\bash.bashrc` 파일 끝에 다음 내용을 추가합니다:
-
-```bash
-# Get user bash configuration ~/.bashrc
-source ~/.bashrc;
-```
-
-그리고 `~/.bashrc` 파일을 생성하고 다음 내용을 추가합니다:
+`~/.bashrc` 파일을 생성하고 다음 내용을 추가합니다:
 
 ```bash
 # Launch Zsh
@@ -95,36 +92,75 @@ exec zsh
 fi
 ```
 
-## 4. ZSH 플러그인 설치
+이제 git-bash를 실행 합니다.
 
-### 4.1 zsh-autosuggestions 설치
+## 4. ZSH 유틸 설치
+oh-my-zsh를 설치 하면 편하긴 한데. oh-my-zsh가 기본적으로 너무 많은 기능을 가지고 있어서 많이 무겁다는 단점있습니다.
+이 포스트에서는 필요한 유틸만 별도로 설치 합니다. 
 
-```bash
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH/plugins/zsh-autosuggestions
-source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+### 4.1 설치 경로 만들기
+```
+mkdir -p ~/.zsh/plugins
+mkdir -p ~/.zsh/theme
 ```
 
-### 4.2 zsh-syntax-highlighting 설치
+### 4.2 zsh-autosuggestions 설치
+
+zsh-autosuggestions는 명령어를 입력할 때 이전에 사용한 명령어를 기반으로 자동 완성을 제안해주는 플러그인입니다. 터미널에서 작업할 때 반복적인 명령어 입력을 크게 줄여주고, 긴 경로나 복잡한 명령어를 쉽게 재사용할 수 있게 해줍니다. 제안된 명령어는 회색으로 표시되며, 오른쪽 화살표 키를 눌러 빠르게 수락할 수 있습니다.
 
 ```bash
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/plugins/zsh-syntax-highlighting
-source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
 ```
 
-## 5. Oh My Zsh 설치
+`~/.zshrc` 파일에 아래의 내용을 추가 해 줍니다. 마지막에 추가 해 줍니다.
+```bash
+if [[ -r "~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+	source "~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi 
+```
 
-다음 명령어를 실행하여 Oh My Zsh를 설치합니다:
+### 4.3 zsh-syntax-highlighting 설치
+
+zsh-syntax-highlighting은 명령줄에서 입력하는 명령어와 인자에 구문 강조 색상을 적용해주는 ZSH 플러그인입니다. 이 플러그인은 명령어가 올바르게 입력되었는지 실시간으로 시각적 피드백을 제공하며, 명령어를 실행하기 전에 오타나 구문 오류를 식별하는 데 도움을 줍니다. 유효한 명령어는 녹색으로, 존재하지 않는 명령어는 빨간색으로 표시되어 명령어 입력의 정확성을 즉시 확인할 수 있습니다.
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
 ```
+
+`~/.zshrc` 파일에 아래의 내용을 추가해 줍니다. 이 플러그인은 항상 zshrc 파일의 마지막에 로드되어야 한다는 점을 기억하세요.
+`~/.zshrc` 파일에 아래의 내용을 추가 해 줍니다. 마지막에 추가 해 줍니다.
+
+```bash
+if [[ -r "~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+	source "~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi 
+```
+
+### 4.4 zsh-completions 설치
+
+zsh-completions은 ZSH의 기본 명령어 완성 기능을 대폭 확장해주는 플러그인입니다. 이 플러그인은 수백 개의 추가 명령어, 도구 및 유틸리티에 대한 완성 스크립트를 제공하여 명령어 입력의 효율성과 정확성을 높여줍니다. Git, Docker, npm, pip, kubectl 등과 같은 다양한 개발 도구에 대한 고급 탭 완성 기능을 제공하므로 복잡한 명령어나 옵션을 기억하지 않아도 쉽게 입력할 수 있습니다.
+
+```bash
+git clone https://github.com/zsh-users/zsh-completions.git ~/.zsh/plugins/zsh-completions
+```
+
+`~/.zshrc` 파일에 아래의 내용을 추가해 줍니다.
+
+```bash
+if [[ -d ~/.zsh/plugins/zsh-completions/src ]]; then
+  fpath=(~/.zsh/plugins/zsh-completions/src $fpath)
+  autoload -U compinit && compinit
+fi
+```
+
+이 설정은 zsh-completions의 완성 스크립트를 ZSH의 함수 경로(fpath)에 추가하고, 완성 시스템(compinit)을 초기화합니다.
 
 ## 6. Powerlevel10k 테마 설치
 
 ### 6.1 Powerlevel10k 설치
 
 ```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/themes/powerlevel10k
 ```
 
 ### 6.2 설정 마법사 실행
