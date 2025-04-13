@@ -160,31 +160,66 @@ fi
 ### 6.1 Powerlevel10k 설치
 
 ```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/theme/powerlevel10k
+echo 'source ~/.zsh/theme/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 ```
+git-bash를 다시 시작 하면 Powerlevel10k의 설정이 시작 됩니다.
 
-### 6.2 설정 마법사 실행
-
-ZSH를 재시작한 후 다음 명령어를 실행하여 Powerlevel10k 설정 마법사를 시작합니다:
-
-```bash
-p10k configure
-```
 
 ## 7. VS Code에서 ZSH 사용하기
 
 VS Code의 `settings.json` 파일에 다음 설정을 추가합니다:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "Git Zsh": {
-    "path": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "args": []
-  }
-},
-"terminal.integrated.defaultProfile.windows": "Git Zsh",
-"terminal.integrated.fontFamily": "'EnvyCodeR Nerd Font Mono'"
+"terminal.integrated.defaultProfile.windows": "Git Bash",
+"terminal.integrated.fontFamily": "'D2CodingLigature Nerd Font'"
 ```
+
+## 8. Windows Terminal에서 ZSH 사용하기
+
+Windows 10/11에서는 Windows Terminal을 통해 더 강력하고 사용자 친화적인 터미널 환경을 구성할 수 있습니다. Windows Terminal에 Git Bash(ZSH)를 추가하여 사용하는 방법은 두 가지가 있습니다.
+
+### 8.1 Git 설치 시 Windows Terminal 연동 옵션 선택
+
+가장 간단한 방법은 Git for Windows를 설치할 때 Windows Terminal 프로필에 Git Bash를 추가하는 옵션을 선택하는 것입니다.
+
+1. Git for Windows 설치 프로그램을 실행합니다.
+2. 설치 과정 중 "Windows Terminal에 Git Bash 프로필 추가" 옵션을 체크합니다.
+3. 설치가 완료되면 Windows Terminal에서 Git Bash를 바로 사용할 수 있습니다.
+
+### 8.2 수동으로 Windows Terminal에 Git Bash 추가하기
+
+이미 Git이 설치되어 있다면, Windows Terminal 설정 파일을 직접 수정하여 Git Bash를 추가할 수 있습니다.
+
+1. Windows Terminal을 실행한 후, 상단의 드롭다운 메뉴 → 설정을 클릭합니다.
+2. 좌측 하단의 "설정 파일 열기" 버튼을 클릭하여 JSON 설정 파일을 엽니다.
+3. `profiles` → `list` 배열에 다음 코드를 추가합니다:
+
+```json
+{
+    "guid": "{수정필요-GUID}",
+    "hidden": false,
+    "name": "Git Bash (ZSH)",
+    "commandline": "C:\\Program Files\\Git\\bin\\bash.exe -li",
+    "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+    "startingDirectory": "%USERPROFILE%"
+}
+```
+
+4. `guid` 값은 고유해야 합니다. [온라인 GUID 생성기](https://www.guidgenerator.com/online-guid-generator.aspx)를 사용하여 새 GUID를 생성하세요.
+5. Git 설치 경로가 기본값과 다르다면 `commandline`과 `icon` 경로를 적절히 수정하세요.
+6. 설정 파일을 저장하고 Windows Terminal을 재시작합니다.
+
+기본 Profile을 bash로 하고 싶다면, 설정 파일에서
+
+위에 입력 했던, profile의 id를 `defaultProfile`에 넣어 주면 된다.
+
+```json
+"defaultProfile": "{수정필요-GUID}",
+```
+
+
+이제 Windows Terminal의 드롭다운 메뉴에서 "Git Bash (ZSH)"를 선택하면 Git Bash가 실행되고, 우리가 설정한 ZSH 환경이 자동으로 로드됩니다.
 
 이제 윈도우에서도 강력한 ZSH 환경을 사용할 수 있습니다. Git Bash와 ZSH의 결합은 개발 생산성을 크게 향상시킬 수 있습니다.
 
