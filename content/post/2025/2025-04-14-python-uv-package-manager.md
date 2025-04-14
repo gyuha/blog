@@ -65,7 +65,7 @@ uv --version
 
 `uv`는 다양한 셸 환경에서 자동 완성 및 편리한 명령어 사용을 지원합니다. 아래는 OS별 셸 통합 설정 방법입니다.
 
-#### **1. Windows (PowerShell)**
+#### 4.1. Windows (PowerShell)
 
 PowerShell에서 `uv` 자동 완성을 설정하려면 다음 명령어를 실행하세요:
 
@@ -76,7 +76,7 @@ uv generate-completion powershell > $PROFILE.CurrentUserAllHosts\uv.ps1
 
 PowerShell을 다시 시작하면 자동 완성이 활성화됩니다.
 
-#### **2. macOS/Linux (Zsh)**
+#### 4.2. macOS/Linux (Zsh)
 
 Zsh에서 `uv` 자동 완성을 설정하려면 다음 명령어를 실행하세요:
 
@@ -94,7 +94,7 @@ autoload -U compinit && compinit
 
 Zsh를 다시 시작하거나 `source ~/.zshrc`를 실행하여 설정을 적용합니다.
 
-#### **3. macOS/Linux (Bash)**
+#### 4.3. macOS/Linux (Bash)
 
 Bash에서 `uv` 자동 완성을 설정하려면 다음 명령어를 실행하세요:
 
@@ -117,168 +117,25 @@ Bash를 다시 시작하거나 `source ~/.bashrc`를 실행하여 설정을 적�
 
 ## 3. 가상환경 관리하기
 
-### 3.1. uv로 가상환경 관리하기
-
 uv는 Python 가상환경을 간편하게 생성하고 관리할 수 있는 강력한 도구를 제공합니다. 아래는 가상환경 관리 방법입니다:
 
-#### **1. 가상환경 생성**
+### 3.1. 가상환경 생성
 
-- 기본 가상환경 생성:
-  ```bash
-  uv venv create myenv
-  ```
-  위 명령어는 `myenv`라는 이름의 가상환경을 생성합니다.
-
-- 특정 Python 버전으로 가상환경 생성:
-  ```bash
-  uv venv create myenv --python 3.11
-  ```
-  Python 3.11 버전을 사용하는 가상환경을 생성합니다.
-
-#### **2. 가상환경 활성화**
-
-- 가상환경 활성화:
-  ```bash
-  uv venv activate myenv
-  ```
-  `myenv` 가상환경을 활성화합니다.
-
-#### **3. 가상환경 비활성화**
-
-- 가상환경 비활성화:
-  ```bash
-  uv venv deactivate
-  ```
-  현재 활성화된 가상환경을 비활성화합니다.
-
-#### **4. 가상환경 삭제**
-
-- 가상환경 삭제:
-  ```bash
-  uv venv remove myenv
-  ```
-  `myenv` 가상환경을 삭제합니다.
-
-#### **5. 가상환경 목록 확인**
-
-- 생성된 가상환경 목록 확인:
-  ```bash
-  uv venv list
-  ```
-  현재 생성된 모든 가상환경을 확인할 수 있습니다.
-
-uv를 사용하면 가상환경 생성, 활성화, 비활성화, 삭제, 그리고 목록 확인까지 모든 작업을 간단히 수행할 수 있습니다. 이를 통해 프로젝트별로 독립적인 Python 환경을 쉽게 관리할 수 있습니다.
 
 ---
 
-## 4. 패키지 관리 심화
-### 고급 설치 시나리오
-```bash
-# 플랫폼별 조건부 설치
-uv pip install "pandas>=2.0; sys_platform == 'linux'"
+## 4. 패키지 관리
 
-# 패키지 해시 검증
-uv pip install django --require-hashes
 
-# 대체 인덱스 소스 사용
-uv pip install private-pkg --index-url https://pkg.example.com/simple
+### 4.2 pip로 package 설치 하기
 ```
-
-### 버전 핀닝 전략
-```toml
-# uv.toml
-[versions]
-django = "==4.2.8"  # 강제 버전 고정
-numpy = "<=1.26.0"  # 상한 버전 제한
+uv pip install -r requirements.txt
 ```
+pip를 통해서 패키지를 설치 한다. 하지만 `pyproject.toml`에는 기록하지 않습니다.
 
-### 패치 적용 방법
-```bash
-uv pip install django --patch patches/django-security-fix.patch
+### 4.1 기존 requirements.txt 파일에서 설치 하기
+
 ```
-
----
-
-## 5. 의존성 관리의 기술
-### 잠금파일 최적화
-```bash
-# 플랫폼별 잠금파일 생성
-uv pip compile requirements.in \
-  --platform=linux_x86_64 \
-  --platform=macosx_arm64 \
-  -o requirements.txt
+uv add -r requirements.txt
 ```
-
-### 의존성 트리 분석
-```bash
-uv pip graph --format=json | jq .  # JSON 출력
-uv pip graph --exclude dev        # 개발 의존성 제외
-```
-
-### 보안 취약점 스캔
-```bash
-uv audit           # CVE 데이터베이스 기반 검사
-uv audit --fix     # 자동 패치 가능한 취약점 수정
-```
-
----
-
-## 6. 프로덕션 환경 운영 노하우
-### 최소 이미지 빌드
-```dockerfile
-FROM python:3.11-slim
-
-RUN pipx install uv
-COPY requirements.txt .
-RUN uv pip install -r requirements.txt --target /app
-
-CMD ["uv", "run", "python", "main.py"]
-```
-
-### CI/CD 통합 예시
-```yaml
-# GitHub Actions 예제
-- name: Cache uv
-  uses: actions/cache@v3
-  with:
-    path: |
-      ~/.cache/uv
-      ~/.cargo/registry
-    key: uv-${{ hashFiles('**/requirements.txt') }}
-
-- name: Install dependencies
-  run: uv pip sync requirements.txt
-```
-
----
-
-## 7. 문제 해결 가이드
-### 흔한 오류 사례
-**문제 1**: `ERROR: Incompatible package hashes`
-```bash
-uv pip sync --refresh-hashes  # 해시 정보 갱신
-```
-
-**문제 2**: `ResolutionImpossible`
-```bash
-uv pip install --resolution=lowest  # 최소 버전 기준 재시도
-```
-
-**문제 3**: `SSL verification failure`
-```bash
-uv config set global.ssl_verify false  # 개발 환경에서만 사용
-```
-
----
-
-## 8. 미래 로드맵
-- **패키지 프리페칭**: 백그라운드 업데이트 예측
-- **바이너리 캐시 공유**: 팀 내 패키지 캐시 서버 구축 지원
-- **ML 기반 의존성 추천**: 패키지 조합 추천 시스템
-- **WASI 지원**: WebAssembly 환경에서의 Python 실행
-
-[uv 공식 문서](https://uv.python.org) | [GitHub 저장소](https://github.com/astral-sh/uv)
-
----
-
-> "uv는 단순한 도구가 아닌 Python 생태계의 패러다임 전환을 이끕니다. 하루라도 빨리 도입할수록 개발 생산성이 기하급수적으로 향상될 것입니다." - Python 코어 개발자 Brett Cannon
+실행을 하면 패키지를 설치 하고 `pyproject.toml`파일에 패키지를 넣어 줍니다.
