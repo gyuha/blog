@@ -6,7 +6,6 @@ theme = "hago"
 DefaultContentLanguage = "kr"
 metaDataFormat = "yaml"
 disqusShortname = "gyuha-blog"
-googleAnalytics = "UA-128878421-1"
 paginate = 7
 
 
@@ -36,3 +35,7 @@ paginate = 7
     noClasses = true
     style = "fruity"
     tabWidth = 2
+
+[Services]
+  [Services.GoogleAnalytics]
+    ID = "G-3XN21838ZJ"
