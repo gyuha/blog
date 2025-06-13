@@ -40,13 +40,109 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef } from "react";
 import { type DefaultValues, type FieldValues, type UseFormProps, type UseFormReturn, useForm } from "react-hook-form";
 
-// ... (훅의 상세 코드는 이전과 동일) ...
+/**
+ * useFormUrlSync 훅의 옵션 타입
+ * @template T - 폼 필드 값들의 타입
+ */
+type UseFormUrlSyncOptions<T extends FieldValues> = Omit<UseFormProps<T>, "defaultValues"> & {
+  /** URL 동기화에서 제외할 필드명들 */
+  excludeFromUrl?: (keyof T)[];
+  /** URL 변경 시 replace 사용 여부 (기본값: true) */
+  replace?: boolean;
+  /** 폼의 기본값들 */
+  defaultValues: DefaultValues<T>;
+};
 
+/**
+ * URL 파라미터 값을 적절한 타입으로 파싱합니다.
+ * @param value - 파싱할 문자열 값
+ * @returns 파싱된 값 (string | number | boolean)
+ */
+function parseUrlValue(value: string): string | number | boolean {
+  if (value === "") return value;
+  if (value === "true") return true;
+  if (value === "false") return false;
+  const numValue = Number(value);
+  if (isNumber(numValue) && !Number.isNaN(numValue)) {
+    return numValue;
+  }
+  return value;
+}
+
+/**
+ * URL 검색 파라미터에서 초기값을 추출합니다.
+ * @template T - 폼 필드 값들의 타입
+ * @param searchParams - URL 검색 파라미터
+ * @param excludeFromUrl - URL 동기화에서 제외할 필드명들
+ * @returns URL에서 추출한 초기값들
+ */
+function extractInitialValuesFromUrl<T extends FieldValues>(
+  searchParams: URLSearchParams,
+  excludeFromUrl: (keyof T)[],
+): Partial<T> {
+  const urlValues: Partial<T> = {};
+  for (const [key, value] of searchParams.entries()) {
+    if (!excludeFromUrl.includes(key as keyof T)) {
+      (urlValues as AliasAny)[key] = parseUrlValue(value);
+    }
+  }
+  return urlValues;
+}
+
+/**
+ * 폼 값들로부터 URL 파라미터를 생성합니다.
+ * @template T - 폼 필드 값들의 타입
+ * @param values - 폼 값들
+ * @param currentParams - 현재 URL 파라미터
+ * @param excludeFromUrl - URL 동기화에서 제외할 필드명들
+ * @returns 새로운 URLSearchParams 객체
+ */
+function createUrlParamsFromValues<T extends FieldValues>(
+  values: T,
+  currentParams: URLSearchParams,
+  excludeFromUrl: (keyof T)[],
+): URLSearchParams {
+  const params = new URLSearchParams(currentParams);
+  for (const [key, value] of Object.entries(values)) {
+    if (excludeFromUrl.includes(key as keyof T)) {
+      continue;
+    }
+    if (value !== undefined && value !== null && value !== "") {
+      params.set(key, String(value));
+    } else {
+      params.delete(key);
+    }
+  }
+  return params;
+}
+
+/**
+ * 두 객체의 깊은 비교를 수행합니다.
+ * @param obj1 - 비교할 첫 번째 객체
+ * @param obj2 - 비교할 두 번째 객체
+ * @returns 객체들이 동일한지 여부
+ */
+function deepEqual(obj1: AliasAny, obj2: AliasAny): boolean {
+  return JSON.stringify(obj1) === JSON.stringify(obj2);
+}
+
+/**
+ * React Hook Form과 URL 검색 파라미터를 양방향으로 동기화하는 커스텀 훅입니다.
+ *
+ * @template T - 폼 필드 값들의 타입, FieldValues를 확장해야 함
+ * @param options - 훅 설정 옵션
+ * @returns React Hook Form의 UseFormReturn 객체
+ *
+ * @remarks
+ * URL 파라미터는 자동으로 적절한 타입(string, number, boolean)으로 파싱됩니다.
+ * 빈 문자열, null, undefined 값은 URL에서 제거됩니다.
+ * Next.js의 useRouter와 useSearchParams를 사용하므로 Next.js 환경에서만 동작합니다.
+ */
 export function useFormUrlSync<T extends FieldValues>(options: UseFormUrlSyncOptions<T>): UseFormReturn<T> {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { excludeFromUrl = [], replace = true, defaultValues, ...formOptions } = options;
-
+  
   const isUpdatingFromUrl = useRef(false);
 
   const getUrlValues = useCallback(() => {
