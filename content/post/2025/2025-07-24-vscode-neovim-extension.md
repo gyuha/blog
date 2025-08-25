@@ -146,14 +146,10 @@ end
 local packer_bootstrap = ensure_packer()
 
 -- 플러그인 설정
-require('packer').startup(function()
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- 안정적인 v2 브랜치 사용
-    config = function()
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
+    'easymotion/vim-easymotion'
   }
 end)
 
@@ -165,32 +161,35 @@ elseif vim.fn.has('macunix') == 1 then
 end
 
 vim.g.mapleader = ","        -- Leader 키 설정
-require('hop').setup()       -- hop 설정
 
--- hop이 설치되었는지 확인 후 키맵 설정
-local hop_ok, hop = pcall(require, 'hop')
+-- EasyMotion 키맵 설정
 local opts = { noremap = true, silent = true }
 
-if hop_ok then
-  vim.keymap.set('n', '<leader><leader>f', ':HopWord<CR>', opts)
-  vim.keymap.set('n', '<leader><leader>w', ':HopWordAC<CR>', opts)
-  vim.keymap.set('n', '<leader><leader>b', ':HopWordBC<CR>', opts)
-  vim.keymap.set('n', '<leader><leader>j', ':HopLineAC<CR>', opts)
-  vim.keymap.set('n', '<leader><leader>k', ':HopLineBC<CR>', opts)
-end
+-- EasyMotion 키맵들
+vim.api.nvim_set_keymap('n', '<leader><leader>f', '<Plug>(easymotion-bd-f)', {})
+vim.api.nvim_set_keymap('n', '<leader><leader>w', '<Plug>(easymotion-w)', {})
+vim.api.nvim_set_keymap('n', '<leader><leader>b', '<Plug>(easymotion-b)', {})
+vim.api.nvim_set_keymap('n', '<leader><leader>j', '<Plug>(easymotion-j)', {})
+vim.api.nvim_set_keymap('n', '<leader><leader>k', '<Plug>(easymotion-k)', {})
 
 -- Y를 누르면 라인 yank가 되도록 설정
-vim.keymap.set('n', 'Y', 'yy', { noremap = true })
+vim.api.nvim_set_keymap('n', 'Y', 'yy', { noremap = true })
 
 -- Visual Block 모드를 위한 여러 키 바인딩
 vim.api.nvim_set_keymap('n', '<C-q>', '<C-v>', opts)
 vim.api.nvim_set_keymap('v', '<C-q>', '<C-v>', opts)
 
 -- 추가 대안 (leader 키 사용)
-vim.keymap.set('n', '<leader>v', '<C-v>', opts)
+vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', opts)
 
 -- 상태라인에 모드 표시 (선택사항)
 vim.opt.showmode = true
+
+-- 완성 메뉴 메시지 숨기기
+vim.opt.shortmess:append("c")
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 ```
 
 ### 5. 플러그인 설치
