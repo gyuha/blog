@@ -190,7 +190,7 @@ vim.api.nvim_set_keymap('v', '<C-q>', '<C-v>', opts)
 vim.keymap.set('n', '<leader>v', '<C-v>', opts)
 
 -- 상태라인에 모드 표시 (선택사항)
-vim.opt.showmode = true)
+vim.opt.showmode = true
 ```
 
 ### 5. 플러그인 설치
