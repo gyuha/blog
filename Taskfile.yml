@@ -1,0 +1,35 @@
+version: "3"
+
+vars:
+  HUGO: hugo
+
+tasks:
+  run:
+    desc: Run Hugo server with drafts
+    cmds:
+      - "{{.HUGO}} server -D --bind=0.0.0.0"
+
+  dev:
+    desc: Run Hugo server with drafts and disable fast render
+    cmds:
+      - "{{.HUGO}} server -D --bind=0.0.0.0 --disableFastRender"
+
+  clone:
+    desc: Clone GitHub Pages repository to public folder
+    cmds:
+      - rm -rf public
+      - git clone https://github.com/gyuha/gyuha.github.io.git
+      - mv gyuha.github.io public
+
+  new:
+    desc: "Create a new post (usage: task new -- my-post-title)"
+    cmds:
+      - "{{.HUGO}} new post/$(date +%Y-%m-%d)-{{.CLI_ARGS}}.md"
+
+  deploy:
+    desc: Build and deploy to GitHub
+    cmds:
+      - 'echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"'
+      - "{{.HUGO}} -D"
+      - 'cd ./public && git add . && git commit -m "rebuilding site $(date +%Y-%m-%d)" && git push'
+      - git commit -am "update" && git push
