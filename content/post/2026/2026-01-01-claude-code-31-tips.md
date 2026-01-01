@@ -202,7 +202,7 @@ Claude Code에서 `/context`를 입력하면 현재 사용 중인 토큰을 상�
 - **"think"**: 기본 수준의 사고
 - **"think hard"**: 더 깊은 분석
 - **"ultrathink"**: 최대 깊이의 사고
-```
+
 "이 알고리즘을 생각 hard으로 최적화해줘"
 복잡한 문제에는 "ultrathink"를 사용하여 Claude가 더 오래 생각하게 하고, 간단한 작업에는 기본 "think"를 사용하여 속도를 높입니다.
 
