@@ -16,13 +16,13 @@ paginate = 7
   favicon = "/favicon.ico"
   comments = true
   
+  [Params.author]
+    name = "신규하"
+    website = "https://gyuha.com"
+  
 [pygmentsOptions]
   linenos = "table"
   pygmentsOptions = "table"
-
-[Author]
-  name = "신규하"
-  website = "https://gyuha.com"
 
 [markup]
   [markup.highlight]
