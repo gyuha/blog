@@ -14,6 +14,11 @@ tasks:
     cmds:
       - "{{.HUGO}} server -D --bind=0.0.0.0 --disableFastRender"
 
+  build:
+    desc: Build Hugo site with drafts
+    cmds:
+      - "{{.HUGO}} -D"
+
   clone:
     desc: Clone GitHub Pages repository to public folder
     cmds:
