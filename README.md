@@ -14,7 +14,8 @@ cd blog
 
 ## Hugo 설치 하기
 
-- [Hugo Install and Use Themes](https://gohugo.io/themes/installing-and-using-themes/)
+- [Hugo install](https://gohugo.io/installation/)
+
 
 ### Ubuntu
 ```bash
