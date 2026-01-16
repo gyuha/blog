@@ -3,12 +3,14 @@
 ## Project Clone
 
 ```bash
-git clone https://github.com/gyuha/blog.git
+git clone --recurse-submodules https://github.com/gyuha/blog.git
 cd blog
-git submodule init
-git submodule update
-git submodule foreach git checkout master
 ```
+
+> 이미 clone 한 경우 submodule 초기화:
+> ```bash
+> git submodule update --init --recursive
+> ```
 
 ## Hugo 설치 하기
 
