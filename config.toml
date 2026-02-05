@@ -6,7 +6,8 @@ theme = "hago"
 DefaultContentLanguage = "kr"
 metaDataFormat = "yaml"
 disqusShortname = "gyuha-blog"
-paginate = 7
+[pagination]
+  pagerSize = 7
 
 
 [Params]

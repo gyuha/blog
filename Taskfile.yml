@@ -29,7 +29,7 @@ tasks:
   new:
     desc: "Create a new post (usage: task new -- my-post-title)"
     cmds:
-      - "{{.HUGO}} new post/$(date +%Y-%m-%d)-{{.CLI_ARGS}}.md"
+      - "{{.HUGO}} new post/$(date +%Y)/$(date +%Y-%m-%d)-{{.CLI_ARGS}}.md"
 
   deploy:
     desc: Build and deploy to GitHub
