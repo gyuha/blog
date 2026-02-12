@@ -26,6 +26,9 @@ disqusShortname = "gyuha-blog"
   pygmentsOptions = "table"
 
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
   [markup.highlight]
     codeFences = true
     guessSyntax = false
