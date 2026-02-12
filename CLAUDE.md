@@ -56,23 +56,36 @@ hugo new post/YYYY/YYYY-MM-DD-my-post-title.md
 The theme follows Hugo's standard layout structure:
 
 ```
-themes/hago/layouts/
-├── _default/
-│   ├── baseof.html      # Base template (includes header, sidebar, footer)
-│   ├── single.html       # Single post page
-│   ├── list.html        # List pages (tags, categories)
-│   └── summary.html     # Post summary cards
-├── partials/
-│   ├── head.html        # HTML head (meta, CSS links)
-│   ├── header.html      # Site header/navigation
-│   ├── footer.html      # Footer content
-│   ├── title_bar.html   # Title bar section
-│   ├── post.html        # Full post content
-│   ├── side_*.html      # Sidebar components (recent, tags, categories, toc)
-│   └── pagination.html  # Pagination controls
-├── categories/taxonomy.html
-├── tags/taxonomy.html
-└── index.html
+themes/hago/
+├── layouts/
+│   ├── _default/
+│   │   ├── baseof.html      # Base template with two-column grid layout
+│   │   ├── single.html       # Single post page
+│   │   ├── list.html        # List pages (tags, categories)
+│   │   └── summary.html     # Post summary cards
+│   ├── partials/
+│   │   ├── head.html        # HTML head, Open Graph, CSS
+│   │   ├── header.html      # Navigation with animated search
+│   │   ├── footer.html      # Scripts, code copying, TOC, Vanta.js
+│   │   ├── title_bar.html   # Dynamic title bar with video background
+│   │   ├── post.html        # Full post with metadata, nav, comments
+│   │   ├── side_*.html      # Sidebar: recent, toc, categories, tags
+│   │   └── pagination.html  # Pagination controls
+│   ├── categories/taxonomy.html
+│   ├── tags/taxonomy.html
+│   └── index.html
+├── scss/
+│   ├── _variables.scss      # Font definitions (Noto Sans KR, Ubuntu)
+│   ├── _theme_color.scss    # Color palette and gradients
+│   ├── _mixin.scss          # Reusable CSS mixins
+│   ├── _responsive.scss     # Breakpoint definitions
+│   └── style.scss           # Main stylesheet
+└── static/
+    ├── js/
+    │   └── active.js        # Sticky header/sidebar, scrollUp
+    ├── css/                 # Compiled CSS output
+    ├── img/                 # Logo, favicon
+    └── videos/              # Background video (mp4, webp)
 ```
 
 ### Layout Pattern
@@ -82,6 +95,27 @@ The `baseof.html` establishes a two-column layout:
 - **Sidebar** (col-12 col-md-8 col-lg-4): Uses `{{ block "side" . }}` for sidebar widgets
 
 Page templates override these blocks to provide their specific content.
+
+### Theme Styling (SCSS)
+
+The theme uses SCSS with a modular structure:
+- **Two-font system**: Noto Sans KR for body text, Ubuntu for code
+- **Color variables** (`_theme_color.scss`): Dark theme with blue accents (#3fa4ff)
+- **Responsive**: Bootstrap grid with custom breakpoints in `_responsive.scss`
+- **Mixins**: Vendor prefixing utilities in `_mixin.scss`
+
+To customize colors or fonts, modify `_theme_color.scss` or `_variables.scss`.
+
+### JavaScript Features
+
+Located in `active.js` and `footer.html`:
+
+1. **Sticky navigation** (`active.js`): Header becomes sticky after 20px scroll
+2. **Sticky sidebar** (`active.js`): TOC becomes sticky after 157px scroll (only on single posts)
+3. **Code copying** (`footer.html`): Adds copy buttons to code blocks via clipboard API
+4. **Auto-scroll TOC** (`footer.html`): Highlights current section on scroll
+5. **Vanta.js background** (`footer.html`): Three.js particle animation on title bar
+6. **ScrollUp**: Back-to-top button with easing animation
 
 ## Deployment Process
 
@@ -108,3 +142,24 @@ tags: [tag1, tag2, tag3]
 ```
 
 The `<!--more-->` tag is used to specify the summary/excerpt for post listings.
+
+## Working with the Hago Theme
+
+Since you're currently in the `themes/hago` directory (a submodule of the main blog), here are key considerations:
+
+### Theme Development Workflow
+
+1. **Edit in place**: Changes made here directly affect the blog at `/Users/gyuha/workspace/blog`
+2. **Test changes**: Run `task dev` from the blog root to see changes live
+3. **Deploy theme changes**: The theme is a separate git submodule - commit and push to `https://github.com/gyuha/hago.git`
+
+### Adding New Features
+
+- **New page type**: Add to `layouts/` following Hugo's lookup order
+- **New partial**: Create in `layouts/partials/`, include with `{{ partial "name.html" . }}`
+- **New component style**: Add to appropriate SCSS file in `scss/`
+- **New JavaScript**: Add to `static/js/` or include in `layouts/partials/footer.html`
+
+### Code Block Styling
+
+The theme uses highlight.js for syntax highlighting. The copy button functionality is injected via JavaScript in `footer.html` - look for the clipboard-related code when modifying code block behavior.
