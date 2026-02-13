@@ -37,7 +37,7 @@ disqusShortname = "gyuha-blog"
     lineNos = false
     lineNumbersInTable = true
     noClasses = true
-    style = "fruity"
+    style = "github"
     tabWidth = 2
 
 [Services]
