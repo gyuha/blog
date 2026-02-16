@@ -21,7 +21,8 @@ Claude Code 사용자라면, **무엇을 해결해주는지**, **어떤 상황�
 
 ---
 
-## 1) AITMPL Skills (`https://www.aitmpl.com/skills`)
+## 1) AITMPL Skills 
+[https://www.aitmpl.com/skills](https://www.aitmpl.com/skills)
 
 ### 이 사이트는 무엇인가?
 
@@ -54,7 +55,8 @@ Claude Code 사용자라면, **무엇을 해결해주는지**, **어떤 상황�
 
 ---
 
-## 2) SkillsMP (`https://skillsmp.com`)
+## 2) SkillsMP 
+[https://skillsmp.com](https://skillsmp.com)
 
 ### 이 사이트는 무엇인가?
 
@@ -88,7 +90,8 @@ Claude Code 사용자라면, **무엇을 해결해주는지**, **어떤 상황�
 
 ---
 
-## 3) Oh My ClaudeCode (`https://github.com/Yeachan-Heo/oh-my-claudecode`)
+## 3) Oh My ClaudeCode 
+[https://github.com/Yeachan-Heo/oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode)
 
 ### 이 저장소는 무엇인가?
 
@@ -122,7 +125,8 @@ Claude Code를 팀 단위로 운용할 때 필요한 **멀티 에이전트 오�
 
 ---
 
-## 4) Awesome Claude Code (`https://github.com/hesreallyhim/awesome-claude-code`)
+## 4) Awesome Claude Code 
+[https://github.com/hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)
 
 ### 이 저장소는 무엇인가?
 
@@ -155,7 +159,8 @@ Claude Code 생태계 리소스를 폭넓게 모은 큐레이션 리스트입니
 
 ---
 
-## 5) SuperClaude Framework (`https://github.com/SuperClaude-Org/SuperClaude_Framework`)
+## 5) SuperClaude Framework 
+[https://github.com/SuperClaude-Org/SuperClaude_Framework](https://github.com/SuperClaude-Org/SuperClaude_Framework)
 
 ### 이 저장소는 무엇인가?
 
