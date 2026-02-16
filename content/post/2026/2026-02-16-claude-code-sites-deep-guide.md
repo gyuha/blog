@@ -13,11 +13,11 @@ Claude Code 사용자라면, **무엇을 해결해주는지**, **어떤 상황�
 
 ## 먼저 한눈에: 어떤 사이트를 언제 쓰면 좋을까?
 
-- **빠르게 실전 템플릿을 붙여서 시작**하고 싶다 -> `aitmpl.com/skills`
-- **스킬을 대량 탐색**하고 싶다 -> `skillsmp.com`
-- **멀티 에이전트 오케스트레이션을 본격 도입**하고 싶다 -> `oh-my-claudecode`
-- **생태계 전체 레퍼런스를 한곳에서 훑고 싶다** -> `awesome-claude-code`
-- **명령/페르소나/모드 중심 프레임워크**가 필요하다 -> `SuperClaude_Framework`
+- **빠르게 실전 템플릿을 붙여서 시작**하고 싶다 -> [aitmpl.com/skills](https://www.aitmpl.com/skills)
+- **스킬을 대량 탐색**하고 싶다 -> [skillsmp.com](https://skillsmp.com)
+- **멀티 에이전트 오케스트레이션을 본격 도입**하고 싶다 -> [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode)
+- **생태계 전체 레퍼런스를 한곳에서 훑고 싶다** -> [awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)
+- **명령/페르소나/모드 중심 프레임워크**가 필요하다 -> [SuperClaude_Framework](https://github.com/SuperClaude-Org/SuperClaude_Framework)
 
 ---
 
@@ -225,8 +225,8 @@ Claude Code를 명령 체계/전문화 에이전트/행동 모드로 확장하�
 
 ### 참고 링크
 
-- AITMPL Skills: `https://www.aitmpl.com/skills`
-- SkillsMP: `https://skillsmp.com`
-- Oh My ClaudeCode: `https://github.com/Yeachan-Heo/oh-my-claudecode`
-- Awesome Claude Code: `https://github.com/hesreallyhim/awesome-claude-code`
-- SuperClaude Framework: `https://github.com/SuperClaude-Org/SuperClaude_Framework`
+- [AITMPL Skills](https://www.aitmpl.com/skills)
+- [SkillsMP](https://skillsmp.com)
+- [Oh My ClaudeCode](https://github.com/Yeachan-Heo/oh-my-claudecode)
+- [Awesome Claude Code](https://github.com/hesreallyhim/awesome-claude-code)
+- [SuperClaude Framework](https://github.com/SuperClaude-Org/SuperClaude_Framework)
