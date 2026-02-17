@@ -2,7 +2,7 @@
 title: "Claude Code 토큰 최적화 총정리: 프롬프트 습관부터 MCP 전략까지"
 date: 2026-02-16T02:05:00+09:00
 draft: true
-description: "twofootdog와 goddaehee 글을 통합해 Claude Code 토큰 절약 전략을 한 번에 정리한 요약 포스팅입니다."
+description: "Claude Code 토큰 절약 전략을 한 번에 정리한 요약 포스팅입니다."
 categories: [AI, Development, Productivity]
 tags: [claude, claude-code, token, prompt, mcp, optimization]
 ---
@@ -22,7 +22,7 @@ Claude Code 토큰 최적화는 크게 두 축입니다.
 
 ## 1) 프롬프트는 하이브리드로 작성하기
 
-twofootdog 글에서 가장 강조하는 포인트는 "명령은 영어, 설명은 한국어"입니다.
+"명령은 영어, 설명은 한국어"입니다.
 
 - 명령어/기술 용어/파일명/함수명은 영어 유지
 - 보충 설명만 짧게 한국어 사용
@@ -36,8 +36,6 @@ Create login feature
 - JWT auth
 - 로그인 실패 시 error message
 ```
-
-twofootdog 글에서 제시한 핵심 수치도 참고할 만합니다.
 
 - 한글 프롬프트는 영어 대비 토큰이 더 많이 소모될 수 있음
 - 예시 비교: "이 코드를 리팩토링해주세요"(약 197토큰) vs "Please refactor this code"(약 39토큰)
@@ -63,9 +61,7 @@ twofootdog 글에서 제시한 핵심 수치도 참고할 만합니다.
 
 토큰 관리는 감이 아니라, 명령어로 확인하는 습관이 중요합니다.
 
-## twofootdog 실전 보강 포인트
-
-원문에서 특히 유용한 부분은 "실수 방지"와 "재사용"입니다.
+특히 유용한 부분은 "실수 방지"와 "재사용"입니다.
 
 - 너무 짧게 줄여 의미가 모호해지지 않게, 최소 맥락은 유지
 - 반복 프롬프트는 `.claude/commands/`에 슬래시 명령으로 저장
@@ -84,7 +80,7 @@ twofootdog 글에서 제시한 핵심 수치도 참고할 만합니다.
 
 ## 5) MCP는 "많이 연결"보다 "선택 연결"
 
-goddaehee 글의 핵심은 MCP 서버가 많아질수록 세션 시작 시 도구 정의 토큰 오버헤드가 커진다는 점입니다.
+MCP 서버가 많아질수록 세션 시작 시 도구 정의 토큰 오버헤드가 커진다는 점입니다.
 
 - 사용하지 않는 서버는 비활성화
 - 필요할 때만 서버 활성화
@@ -109,9 +105,8 @@ MCP를 자주 쓰는 경우, 아래 순서로 점검하면 좋습니다.
 
 참고로 Tool Search Tool/defer loading은 글 기준으로 API 베타 중심 내용이며, CLI 지원 범위는 시점에 따라 달라질 수 있습니다.
 
-## goddaehee 실전 보강 포인트
 
-원문에서 특히 중요한 포인트는 "CLI에서 지금 당장 할 수 있는 최적화"입니다.
+"CLI에서 지금 당장 할 수 있는 최적화"입니다.
 
 - `--allowedTools`/`--disallowedTools`로 불필요한 도구 노출을 제한
 - 작업 성격별로 `--mcp-config`를 분리해 최소 서버 세트로 시작
