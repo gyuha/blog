@@ -30,7 +30,7 @@ OpenClaw Trading의 본질은 "매매 봇 하나 실행"이 아니라 다음 루
 ## 시스템 구조: 4계층 아키텍처
 
 ```mermaid
-flowchart LR
+flowchart TB
     A[Data Layer\nOHLCV/거래량/공시/재무 수집] --> B[Strategy Layer\n전략 문서 해석\n활성 전략 관리]
     B --> C[Analysis Layer\n다중 팩터 스코어링\n랭킹/매수수량 계산]
     C --> D[Execution Layer\n주문 집행\n손익/체결 기록]
