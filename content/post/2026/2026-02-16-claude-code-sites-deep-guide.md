@@ -1,8 +1,8 @@
 ---
-title: "Claude Code 사용자라면 꼭 알아둘 사이트 5선: 스킬/에이전트 생태계 실전 가이드"
+title: "Claude Code 사용자라면 꼭 알아둘 사이트 6선: 스킬/에이전트 생태계 실전 가이드"
 date: 2026-02-16T01:58:00+09:00
 draft: true
-description: "Claude Code 관련 추천 링크 5개, 각 사이트의 역할, 강점, 추천 사용 시나리오, 주의점, 시작 방법까지 실무 관점으로 정리했습니다."
+description: "Claude Code 관련 추천 링크 6개, 각 사이트의 역할, 강점, 추천 사용 시나리오, 주의점, 시작 방법까지 실무 관점으로 정리했습니다."
 categories: [AI, Development, Productivity]
 tags: [claude, claude-code, skills, agents, mcp, workflow, automation]
 ---
@@ -15,6 +15,7 @@ Claude Code 사용자라면, **무엇을 해결해주는지**, **어떤 상황�
 
 - **빠르게 실전 템플릿을 붙여서 시작**하고 싶다 -> [aitmpl.com/skills](https://www.aitmpl.com/skills)
 - **스킬을 대량 탐색**하고 싶다 -> [skillsmp.com](https://skillsmp.com)
+- **오픈 스킬 생태계 표준 디렉터리부터 보고 싶다** -> [skills.sh](https://skills.sh/)
 - **멀티 에이전트 오케스트레이션을 본격 도입**하고 싶다 -> [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode)
 - **생태계 전체 레퍼런스를 한곳에서 훑고 싶다** -> [awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)
 - **명령/페르소나/모드 중심 프레임워크**가 필요하다 -> [SuperClaude_Framework](https://github.com/SuperClaude-Org/SuperClaude_Framework)
@@ -90,7 +91,48 @@ Claude Code 사용자라면, **무엇을 해결해주는지**, **어떤 상황�
 
 ---
 
-## 3) Oh My ClaudeCode 
+## 3) Skills.sh
+[https://skills.sh/](https://skills.sh/)
+
+### 이 사이트는 무엇인가?
+
+오픈 에이전트 스킬 생태계를 모아 보여주는 디렉터리/리더보드입니다.
+
+핵심은 "설치 가능한 스킬을 빠르게 발견하고, 바로 가져와 실험"하는 흐름이고, 단일 에이전트에 묶이지 않는 점이 강점입니다.
+
+### 2) SkillsMP와 비교하면?
+
+- 공통점: 둘 다 공개 스킬을 탐색하고 후보를 추리는 용도로 좋습니다
+- `SkillsMP`는 GitHub 기반 스킬 마켓플레이스 성격이 강해 "스킬 카탈로그 탐색"에 유리합니다
+- `Skills.sh`는 리더보드와 설치 진입점(`npx skills add <owner/repo>`)이 강조되어 "빠른 실험/도입" 흐름이 더 직관적입니다
+- 실무에서는 `SkillsMP`로 후보를 넓게 모은 뒤, `Skills.sh`에서 실제 사용량/설치 편의성을 보고 최종 압축하는 방식이 효율적입니다
+
+### 강점
+
+- 스킬 리더보드와 검색이 있어 "지금 실제로 많이 쓰는 스킬"을 빠르게 파악할 수 있습니다
+- `npx skills add <owner/repo>`처럼 설치 진입점이 단순해 실험 속도가 빠릅니다
+- Claude Code를 포함해 다양한 에이전트 생태계를 함께 다뤄 비교 탐색이 쉽습니다
+
+### 이런 경우에 추천
+
+- 특정 문제(예: 테스트 자동화, 문서화, 디버깅)에 맞는 검증된 스킬 후보를 빠르게 찾고 싶을 때
+- 팀 표준 스킬 세트를 만들기 전에 실사용 지표를 참고하고 싶을 때
+- 단일 저장소 큐레이션보다 더 넓은 생태계에서 후보를 고르고 싶을 때
+
+### 주의할 점
+
+- 설치 편의성이 높아도, 스킬 품질/권한 범위는 저장소마다 다르므로 사전 검토가 필요합니다
+- 리더보드 상위 스킬이 내 코드베이스 제약(언어, 도구, 보안 정책)과 항상 맞는 것은 아닙니다
+
+### 시작 팁
+
+1. 내 병목을 한 문장으로 먼저 정의합니다 (예: "Vitest flaky 테스트 분석")
+2. 상위 후보 2~3개만 골라 `SKILL.md`, 도구 권한, 실행 예시를 비교합니다
+3. 팀 반영 전에 개인/샌드박스 프로젝트에서 먼저 재현성 검증을 합니다
+
+---
+
+## 4) Oh My ClaudeCode 
 [https://github.com/Yeachan-Heo/oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode)
 
 ### 이 저장소는 무엇인가?
@@ -125,7 +167,7 @@ Claude Code를 팀 단위로 운용할 때 필요한 **멀티 에이전트 오�
 
 ---
 
-## 4) Awesome Claude Code 
+## 5) Awesome Claude Code 
 [https://github.com/hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)
 
 ### 이 저장소는 무엇인가?
@@ -159,7 +201,7 @@ Claude Code 생태계 리소스를 폭넓게 모은 큐레이션 리스트입니
 
 ---
 
-## 5) SuperClaude Framework 
+## 6) SuperClaude Framework 
 [https://github.com/SuperClaude-Org/SuperClaude_Framework](https://github.com/SuperClaude-Org/SuperClaude_Framework)
 
 ### 이 저장소는 무엇인가?
@@ -217,14 +259,15 @@ Claude Code를 명령 체계/전문화 에이전트/행동 모드로 확장하�
 
 핵심은 "많이 깔기"가 아니라 "문제-도구 매칭"입니다.
 
-사이트 5개를 다 써야 하는 게 아니라, 지금 내 병목을 가장 빨리 푸는 순서로 들어가면 됩니다.
+사이트 6개를 다 써야 하는 게 아니라, 지금 내 병목을 가장 빨리 푸는 순서로 들어가면 됩니다.
 
 추천 시작 순서 하나만 남기면:
 
 1. `awesome-claude-code`로 선택지 파악
 2. `skillsmp`로 구체 스킬 후보 압축
-3. `aitmpl`로 초기 스택 구성
-4. 팀 단계에서 `oh-my-claudecode` 또는 `superclaude` 중 하나를 채택
+3. `skills.sh`로 실사용 지표/설치 흐름 확인
+4. `aitmpl`로 초기 스택 구성
+5. 팀 단계에서 `oh-my-claudecode` 또는 `superclaude` 중 하나를 채택
 
 ---
 
@@ -232,6 +275,7 @@ Claude Code를 명령 체계/전문화 에이전트/행동 모드로 확장하�
 
 - [AITMPL Skills](https://www.aitmpl.com/skills)
 - [SkillsMP](https://skillsmp.com)
+- [Skills.sh](https://skills.sh/)
 - [Oh My ClaudeCode](https://github.com/Yeachan-Heo/oh-my-claudecode)
 - [Awesome Claude Code](https://github.com/hesreallyhim/awesome-claude-code)
 - [SuperClaude Framework](https://github.com/SuperClaude-Org/SuperClaude_Framework)
