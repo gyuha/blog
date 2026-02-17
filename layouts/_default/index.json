@@ -1,0 +1,14 @@
+{{- $items := slice -}}
+{{- $postSections := .Site.Params.postSections | default (slice "post") -}}
+{{- $pages := where .Site.RegularPages "Section" "in" $postSections -}}
+{{- range $pages -}}
+  {{- $items = $items | append (dict
+    "title" .Title
+    "permalink" .RelPermalink
+    "summary" (.Summary | plainify)
+    "content" .Plain
+    "date" (.Date.Format "2006-01-02")
+    "section" .Section
+  ) -}}
+{{- end -}}
+{{- $items | jsonify -}}

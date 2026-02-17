@@ -43,3 +43,6 @@ disqusShortname = "gyuha-blog"
 [Services]
   [Services.GoogleAnalytics]
     ID = "G-3XN21838ZJ"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

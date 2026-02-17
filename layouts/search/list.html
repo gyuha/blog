@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article class="post">
+  <div class="post-title">
+    <h2>검색</h2>
+  </div>
+
+  <div class="post-summary">
+    <form id="internal-search-form" action='{{ "/search/" | relURL }}' method="get">
+      <input type="search" name="q" id="internal-search-input" class="search" placeholder='{{ i18n "menu_search_keyword" }}' />
+    </form>
+  </div>
+
+  <div id="search-meta" class="post-summary"></div>
+  <div id="search-results"></div>
+</article>
+
+<script>
+  window.__SEARCH_INDEX_URL__ = '{{ "index.json" | relURL }}';
+</script>
+<script src='{{ "/js/internal-search.js" | relURL }}'></script>
+{{ end }}
+
+{{ define "side" }}
+{{ partial "side_category.html" . }}
+{{ partial "side_tags.html" . }}
+{{ end }}
