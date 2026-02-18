@@ -122,6 +122,8 @@ Prefer local patterns over global rewrites.
   - `date`
   - `draft`
 - Preferred post metadata for new content: `categories` (plural), `tags`, optional `description`.
+- For charts/diagrams in posts, use Mermaid by default.
+- For line breaks in post content, use HTML `<br>` instead of `\n`.
 - Use `<!--more-->` for excerpt split in longer posts.
 - Legacy variance exists (`category` singular, occasional underscore filenames). Keep existing posts stable; use current dominant pattern for new posts.
 

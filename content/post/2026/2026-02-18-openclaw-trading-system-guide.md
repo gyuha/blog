@@ -31,9 +31,9 @@ OpenClaw Trading의 본질은 "매매 봇 하나 실행"이 아니라 다음 루
 
 ```mermaid
 flowchart TB
-    A[Data Layer\nOHLCV/거래량/공시/재무 수집] --> B[Strategy Layer\n전략 문서 해석\n활성 전략 관리]
-    B --> C[Analysis Layer\n다중 팩터 스코어링\n랭킹/매수수량 계산]
-    C --> D[Execution Layer\n주문 집행\n손익/체결 기록]
+    A[Data Layer<br>OHLCV/거래량/공시/재무 수집] --> B[Strategy Layer<br>전략 문서 해석<br>활성 전략 관리]
+    B --> C[Analysis Layer<br>다중 팩터 스코어링<br>랭킹/매수수량 계산]
+    C --> D[Execution Layer<br>주문 집행<br>손익/체결 기록]
     D --> E[(Supabase)]
     E --> B
 ```
@@ -66,12 +66,12 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    Cron[Cron\n정시/주기 실행] --> Agent[OpenClaw Agent]
-    Heartbeat[Heartbeat\n간격 기반 점검] --> Agent
-    Webhook[Webhook\n외부 이벤트 트리거] --> Agent
+    Cron[Cron<br>정시/주기 실행] --> Agent[OpenClaw Agent]
+    Heartbeat[Heartbeat<br>간격 기반 점검] --> Agent
+    Webhook[Webhook<br>외부 이벤트 트리거] --> Agent
     Agent --> Telegram[Telegram 알림/대화]
-    Agent --> Kiwoom[키움 REST API\n주문/조회]
-    Agent --> DART[OpenDART API\n공시/재무]
+    Agent --> Kiwoom[키움 REST API<br>주문/조회]
+    Agent --> DART[OpenDART API<br>공시/재무]
     Agent --> DB[(Supabase)]
 ```
 
@@ -108,11 +108,11 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-    S1[1. OpenClaw/Telegram 기본 연결] --> S2[2. 스킬 설치\nKiwoom/OpenDART/Supabase]
+    S1[1. OpenClaw/Telegram 기본 연결] --> S2[2. 스킬 설치<br>Kiwoom/OpenDART/Supabase]
     S2 --> S3[3. API 키 발급/환경변수 등록]
     S3 --> S4[4. API 연결 테스트]
     S4 --> S5[5. 데이터 파이프라인 적재/스케줄]
-    S5 --> S6[6. 전략 문서 등록\n분석 모듈 생성]
+    S5 --> S6[6. 전략 문서 등록<br>분석 모듈 생성]
     S6 --> S7[7. 백테스트]
     S7 --> S8[8. 모의투자 운영]
     S8 --> S9[9. 소액 실전 전환]
@@ -214,7 +214,7 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    R1[당일 손익/체결 리포트] --> R2[실패 원인 태깅\n신호/체결/데이터/운영]
+    R1[당일 손익/체결 리포트] --> R2[실패 원인 태깅<br>신호/체결/데이터/운영]
     R2 --> R3[파라미터 수정 후보 생성]
     R3 --> R4[다음 거래일 반영]
     R4 --> R1
