@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "youtube": {
+      "command": "uvx",
+      "args": [
+        "mcp-youtube-intelligence"
+      ],
+      "env": {
+        "MYI_LLM_PROVIDER": "auto",
+        "MYI_DATA_DIR": ".mcp-youtube-intelligence"
+      }
+    }
+  }
+}
