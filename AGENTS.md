@@ -138,6 +138,45 @@ Required guidance:
 5. Ensure diagrams render through the existing Hugo Mermaid pipeline (`render-codeblock-mermaid.html`).
 - Practical expectation: for technical posts, include Mermaid frequently; if a section can be clearer with a chart, add one.
 
+## YouTube URL Auto-Post Rule (OpenCode + YouTube MCP)
+When the user prompt contains only a YouTube URL (and no other explicit writing instructions), treat it as a request to generate a new blog post from that video.
+
+Required trigger conditions:
+1. Input is a single YouTube URL (`youtube.com/watch?v=...`, `youtu.be/...`, or `youtube.com/shorts/...`).
+2. No additional task text is required; URL-only input is sufficient.
+
+Required execution flow:
+1. Extract the YouTube video ID from the URL.
+2. Use YouTube MCP tools to gather source material:
+   - `youtube_get_video` for metadata
+   - `youtube_get_transcript` (prefer `chunks` or `full` for depth)
+   - `youtube_segment_topics` for section planning
+   - `youtube_extract_entities` for key terms/names
+   - optionally `youtube_get_comments` when audience reaction adds value
+3. Create a new post under `content/post/YYYY/` using existing naming conventions (`YYYY-MM-DD-slug.md`).
+4. Write a Korean technical summary post by default unless the user explicitly requests another language.
+5. Include YAML frontmatter with at least:
+   - `title`
+   - `date`
+   - `draft: false`
+   - `categories` (plural)
+   - `tags`
+   - `description`
+6. Structure content with:
+   - concise intro
+   - `<!--more-->` excerpt split
+   - major topic sections based on transcript/topic segmentation
+   - frequent Mermaid diagrams for flows/architecture/timelines/comparisons
+   - practical takeaways and a short conclusion
+7. Add the source video URL near the top of the post for traceability.
+
+Quality requirements for URL-only YouTube requests:
+- Do not produce a shallow transcript dump; synthesize and reorganize by topic.
+- Keep claims grounded in transcript/video context; avoid invented details.
+- Prefer multiple small Mermaid diagrams over one large diagram.
+- Follow all existing markdown/frontmatter conventions in this file.
+- Run `task build` before handoff.
+
 ## Error Handling and Safety
 - Avoid silent failures.
 - Keep changes minimal and scoped.
