@@ -138,8 +138,48 @@ Required guidance:
 5. Ensure diagrams render through the existing Hugo Mermaid pipeline (`render-codeblock-mermaid.html`).
 - Practical expectation: for technical posts, include Mermaid frequently; if a section can be clearer with a chart, add one.
 
+## URL-Only Auto-Post Rule
+When the user prompt contains only URL lines (with no other explicit writing instructions), treat it as a request to generate a new blog post grounded in those URLs.
+
+Required trigger conditions:
+1. Input contains only URL values (single-line or multi-line), with optional whitespace.
+2. No additional task text is required; URL-only input is sufficient.
+3. If multiple URLs are provided across multiple lines, treat them as one combined source set for one post.
+
+Required execution flow:
+1. Parse all URLs from the prompt in order.
+2. Fetch and analyze each URL using the appropriate toolchain by URL type:
+   - YouTube URLs: use YouTube MCP flow (see section below)
+   - Non-YouTube URLs: use web/document fetch tools (`webfetch`, `google_search`, or equivalent) to collect reliable source text
+3. Synthesize one cohesive post from all gathered sources.
+4. If multiple URLs are provided, do not generate multiple posts unless the user explicitly asks for that.
+5. Resolve overlap/conflicts across sources by prioritizing primary-source statements and clearly framing uncertainty.
+6. Create a new post under `content/post/YYYY/` using existing naming conventions (`YYYY-MM-DD-slug.md`).
+7. Write a Korean technical summary post by default unless the user explicitly requests another language.
+8. Include YAML frontmatter with at least:
+   - `title`
+   - `date`
+   - `draft: false`
+   - `categories` (plural)
+   - `tags`
+   - `description`
+9. Structure content with:
+   - concise intro
+   - `<!--more-->` excerpt split
+   - major topic sections derived from the URL sources
+   - frequent Mermaid diagrams for flows/architecture/timelines/comparisons
+   - practical takeaways and a short conclusion
+10. Add a `Sources` section near the top listing all input URLs for traceability.
+
+Quality requirements for URL-only requests:
+- Do not produce shallow copy/paste summaries; synthesize and reorganize by topic.
+- Keep claims grounded in source content; avoid invented details.
+- Prefer multiple small Mermaid diagrams over one large diagram.
+- Follow all existing markdown/frontmatter conventions in this file.
+- Run `task build` before handoff.
+
 ## YouTube URL Auto-Post Rule (OpenCode + YouTube MCP)
-When the user prompt contains only a YouTube URL (and no other explicit writing instructions), treat it as a request to generate a new blog post from that video.
+When the user prompt contains only a YouTube URL (and no other explicit writing instructions), apply the URL-only rule above and use this YouTube-specific flow.
 
 Required trigger conditions:
 1. Input is a single YouTube URL (`youtube.com/watch?v=...`, `youtu.be/...`, or `youtube.com/shorts/...`).
