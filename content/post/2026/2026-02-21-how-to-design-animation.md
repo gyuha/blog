@@ -10,11 +10,12 @@ tags: [animation, easing, spring, motion-design, interaction, frontend, math, me
 애니메이션을 잘 만드는 사람은 "감각이 좋다"고 자주 말하지만, 실제 구현 단계에서는 감각만으로 재현 가능한 결과를 만들기 어렵습니다.
 이번 글은 kciter의 글을 기반으로, 애니메이션을 그래프와 상태 전환 문제로 바꿔서 설계하는 실무 프레임워크를 정리한 요약 노트입니다.
 
+<!--more-->
+
 ## Sources
 
 - https://kciter.so/posts/how-to-design-animation/
 
-<!--more-->
 
 ## 핵심 요약
 

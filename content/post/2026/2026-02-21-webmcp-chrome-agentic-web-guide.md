@@ -9,12 +9,13 @@ tags: [webmcp, mcp, chrome, ai-agent, agentic-web, react, automation, mermaid]
 
 브라우저를 쓰는 AI 에이전트가 늘어나면서, 웹사이트는 이제 "사람만 읽기 좋은 UI"를 넘어 "에이전트가 결정적으로 조작하기 좋은 인터페이스"를 요구받고 있습니다.
 
+<!--more-->
+
 이 글은 아래 영상을 기반으로 WebMCP의 핵심 개념과 실제 도입 흐름을 실무 관점으로 압축해 정리한 노트입니다.
 
 - 원본 영상: [구글이 공개한 역대급 기술! 이제 AI가 내 웹사이트를 직접 조종합니다 (WebMCP)](https://www.youtube.com/watch?v=8zEh7eYz4Pc)
 - 채널: [Nova AI](https://www.youtube.com/@NovaAI)
 
-<!--more-->
 
 ## 3줄 요약
 

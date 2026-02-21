@@ -10,11 +10,12 @@ tags: [notebooklm, gemini, ai-video, prompt-workflow, content-automation, seo, m
 NotebookLM이 Gemini 3 기반으로 업데이트되면서, 리서치-정리-시각화-블로그-영상화가 하나의 도구 안에서 이어지는 흐름이 현실화되었습니다.
 이 글은 아래 영상을 바탕으로, 과장된 마케팅 문구는 걷어내고 실제로 재현 가능한 워크플로우만 추려서 정리한 실전 노트입니다.
 
+<!--more-->
+
 ## Sources
 
 - https://www.youtube.com/watch?v=MeUemwjlGSk
 
-<!--more-->
 
 ## 3줄 요약
 
