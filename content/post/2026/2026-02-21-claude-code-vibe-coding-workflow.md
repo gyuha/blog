@@ -23,6 +23,7 @@ Claude Code를 "그냥 잘 답하는 도구"로 쓰면 세션이 길어질수록
 - https://docs.anthropic.com/en/docs/claude-code/best-practices
 - https://docs.anthropic.com/en/docs/claude-code/memory
 - https://docs.anthropic.com/en/docs/claude-code/settings
+- https://docs.anthropic.com/en/docs/claude-code/permissions
 - https://gyuha.com/post/2026/2026-02-18-claude-code-core-guide-opus-46/
 - https://gyuha.com/post/2026/2026-02-21-claude-code-six-months-hardcore-workflow-upgrade/
 
@@ -43,7 +44,71 @@ flowchart LR
     C --> N[Next Iteration]
 ```
 
-## 1) Skill, MCP를 어떻게 나눠 쓸까
+## 1) Rules, `CLAUDE.md`를 어떻게 운영할까
+
+### Rules + `CLAUDE.md`: 실행 기준을 먼저 고정
+
+`Skill`과 `MCP`를 붙이기 전에, 먼저 "이 프로젝트에서 Claude가 따라야 할 기본 규칙"을 `CLAUDE.md`와 rules 파일로 고정하는 편이 안전합니다. 이렇게 해두면 세션마다 스타일, 명령, 금지사항을 반복 설명하지 않아도 됩니다.
+
+- 공통 지침: `./CLAUDE.md` 또는 `./.claude/CLAUDE.md`
+- 개인 프로젝트 지침: `./CLAUDE.local.md` (gitignore 대상)
+- 주제별 규칙 분리: `./.claude/rules/*.md`
+- 규칙 충돌 시에는 더 구체적인(프로젝트/경로 특화) 규칙이 우선
+
+```text
+project-root/
+  CLAUDE.md
+  CLAUDE.local.md
+  .claude/
+    CLAUDE.md
+    rules/
+      code-style.md
+      testing.md
+      security.md
+```
+
+실무 팁:
+
+- `CLAUDE.md`에는 "프로젝트 전역 원칙"만 두고 짧게 유지
+- 언어/레이어별 상세 규칙은 `.claude/rules/`로 분리
+- 팀 공유는 `.claude/settings.json`, 개인 오버라이드는 `.claude/settings.local.json`로 운영
+
+### Rules를 더 촘촘하게 운영하는 4가지 기준
+
+1. **로딩 범위 규칙**
+   - 상위 디렉터리의 `CLAUDE.md`/`CLAUDE.local.md`는 세션 시작 시 로드됩니다.
+   - 하위 디렉터리의 `CLAUDE.md`는 해당 경로 파일을 실제로 읽을 때 on-demand로 포함됩니다.
+2. **모듈화 규칙**
+   - `.claude/rules/*.md` 파일은 자동 로드되며, `.claude/CLAUDE.md`와 같은 프로젝트 메모리 계층으로 동작합니다.
+   - 규칙이 커지면 `frontend/`, `backend/`, `security/`처럼 디렉터리로 쪼개는 편이 유지보수에 유리합니다.
+3. **조건부 규칙**
+   - 특정 경로에만 적용할 규칙은 frontmatter `paths`를 사용합니다.
+   - 예: API 규칙은 `src/api/**/*.ts`, 테스트 규칙은 `tests/**/*.test.ts`로 범위를 제한합니다.
+4. **권한/설정 우선순위 규칙**
+   - 권한 규칙은 `deny -> ask -> allow` 순서로 평가됩니다.
+   - 설정 우선순위는 `Managed -> CLI -> Local -> Project -> User`입니다.
+
+```mermaid
+flowchart TD
+    M[Managed Policy] --> C[CLI Args]
+    C --> L[.claude/settings.local.json]
+    L --> P[.claude/settings.json]
+    P --> U[~/.claude/settings.json]
+```
+
+```markdown
+---
+paths:
+  - "src/api/**/*.ts"
+  - "tests/**/*.test.ts"
+---
+
+# API/Test Rules
+- API 파일은 입력 검증을 필수 적용
+- 테스트 파일은 실패 케이스를 먼저 작성
+```
+
+## 2) Skill, MCP를 어떻게 나눠 쓸까
 
 ### Skill: 반복 작업을 파일 규칙으로 전환
 
@@ -89,7 +154,7 @@ flowchart LR
 - "많이 연결"보다 작업별 최소 세트 연결이 토큰/안정성에 유리
 - 민감한 환경에서는 project/user 스코프와 권한 정책을 분리해 관리
 
-## 2) Agent, Subagent, Agent Team을 어떻게 나눠 쓸까
+## 3) Agent, Subagent, Agent Team을 어떻게 나눠 쓸까
 
 핵심은 "복잡한 문제를 어떤 협업 구조로 풀 것인가"입니다. 같은 작업도 구조를 잘못 고르면 토큰 비용과 충돌 리스크가 빠르게 증가합니다.
 
@@ -131,7 +196,7 @@ flowchart LR
 - **Subagent**: 출력이 큰 조사/검증 분리
 - **Agent Team**: 독립 모듈 병렬 개발 + 상호 조율 필요
 
-## 3) 개발 시 검증 방법 (Verify를 시스템으로 만들기)
+## 4) 개발 시 검증 방법 (Verify를 시스템으로 만들기)
 
 바이브 코딩의 실패 지점은 구현이 아니라 검증 생략입니다. 따라서 검증은 "원할 때 실행"이 아니라 "항상 실행"으로 설계해야 합니다.
 
@@ -165,7 +230,7 @@ Claude Code Hooks를 쓰면 검증 타이밍을 강제할 수 있습니다.
 - 맥락 판단이 필요한 검증은 agent hook으로 분리
 - 에러가 많을수록(예: 다수 실패) 자동 수정보다 원인 분류를 먼저 수행
 
-## 4) 추천 폴더 구조
+## 5) 추천 폴더 구조
 
 아래 구조는 공식 스코프(user/project/local)와 실전 운영 패턴을 함께 반영한 최소 템플릿입니다.
 
@@ -212,7 +277,7 @@ flowchart TD
 - 팀 공유가 필요한 설정은 `.claude/settings.json`, 개인 전용은 `.claude/settings.local.json`
 - `.mcp.json`은 팀 공통 서버만, 개인 토큰/민감값은 user/local 스코프로 분리
 
-## 5) 추가 Context 운영: `plan`, `context`, `tasks` + Hook
+## 6) 추가 Context 운영: `plan`, `context`, `tasks` + Hook
 
 대화창에만 상태를 남기면 compaction 이후에 중요한 맥락이 누락되기 쉽습니다. 그래서 문서 3종(`plan/context/tasks`)을 기준 상태로 두고, Hook으로 "압축 전 저장 -> 세션 재시작 시 재주입"을 자동화하는 방식이 안정적입니다.
 
