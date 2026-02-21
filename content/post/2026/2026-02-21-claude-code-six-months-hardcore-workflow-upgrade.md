@@ -9,6 +9,7 @@ tags: [claude-code, hooks, skills, agents, workflow, pm2, dev-docs]
 
 이 글은 Reddit의 **"Claude Code is a Beast – Tips from 6 Months of Hardcore Use"** 내용을 기준으로, 실제 운영 절차를 그대로 옮길 수 있게 핵심 사실과 실행 순서를 다시 정리한 문서입니다.
 핵심 목표는 "요약"이 아니라, **어떤 조건에서 어떤 장치를 붙였는지**를 정확히 설명하는 것입니다.
+<!--more-->
 
 ## Sources
 
@@ -16,7 +17,6 @@ tags: [claude-code, hooks, skills, agents, workflow, pm2, dev-docs]
 - https://dev.to/diet-code103/claude-code-is-a-beast-tips-from-6-months-of-hardcore-use-572n
 - https://github.com/diet103/claude-code-infrastructure-showcase
 
-<!--more-->
 
 ## 원문에서 먼저 고정해야 할 사실(수치)
 
