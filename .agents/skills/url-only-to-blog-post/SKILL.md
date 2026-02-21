@@ -1,6 +1,6 @@
 ---
 name: url-only-to-blog-post
-description: Create a new Hugo blog post when the user prompt contains only URL lines. Use when input is URL-only (single or multiple lines) and you must fetch sources, research context, synthesize one Korean technical post, and enforce Mermaid-first + build verification.
+description: Create a new Hugo blog post when the user prompt contains only URL lines. Use when input is URL-only (single or multiple lines) and you must fetch sources, research context, produce one evidence-grounded Korean technical post with precise explanations, and enforce Mermaid-first + build verification.
 ---
 
 # URL-Only To Blog Post
@@ -29,7 +29,7 @@ Do not use this skill when the user asks for non-post tasks (for example, code c
 5. Build structured notes per claim: `claim`, `evidence quote`, `url`, `confidence`.
 6. Research and cross-check key claims across sources.
 7. Resolve overlaps/conflicts by prioritizing primary-source statements.
-8. Synthesize one cohesive Korean technical post from notes (not raw pages).
+8. Write one cohesive Korean technical post from notes (not raw pages), prioritizing explanation accuracy over aggressive compression.
 9. Create one file at `content/post/YYYY/YYYY-MM-DD-slug.md`.
 10. Run `task build` before handoff.
 
@@ -77,6 +77,8 @@ Body requirements:
 - Insert `<!--more-->` near the top excerpt boundary.
 - Add a `Sources` section near the top with all input URLs.
 - Organize major sections by topic synthesis, not by copy-paste excerpts.
+- Prioritize precise explanation of mechanisms, assumptions, and trade-offs over short summary-style writing.
+- For key concepts and architecture decisions, explain `what`, `why`, and `how` concretely.
 - Use Mermaid diagrams aggressively in technical sections.
 - Prefer multiple small diagrams over one oversized diagram.
 - Include practical takeaways and a short conclusion.
@@ -86,6 +88,7 @@ Body requirements:
 - Keep claims grounded in fetched source material.
 - Do not invent numbers, quotes, timelines, or implementation details.
 - Attach at least one direct evidence quote to each non-trivial factual claim in notes.
+- Prefer source-backed explicit explanations over broad paraphrased summaries.
 - If evidence is weak or conflicting, state uncertainty explicitly.
 - Preserve URL order in `Sources` for traceability.
 - Generate one post by default even with multiple URLs.
@@ -99,6 +102,7 @@ Body requirements:
 3. Confirm `<!--more-->` exists.
 4. Confirm `Sources` includes all input URLs.
 5. Confirm Mermaid diagrams appear in major technical sections.
-6. Run `task build` and verify success.
+6. Confirm core sections explain key claims with concrete detail, not only high-level summaries.
+7. Run `task build` and verify success.
 
 For deeper review criteria, read `references/url-only-post-quality-checklist.md`.
