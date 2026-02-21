@@ -148,9 +148,9 @@ Required trigger conditions:
 
 Required execution flow:
 1. Parse all URLs from the prompt in order.
-2. Fetch and analyze each URL using the appropriate toolchain by URL type:
-   - YouTube URLs: delegate to skill `.agents/skills/youtube-to-blog-post/SKILL.md` (single source of truth)
-   - Non-YouTube URLs: use web/document fetch tools (`webfetch`, `google_search`, or equivalent) to collect reliable source text
+2. Classify URL set type:
+   - All URLs are YouTube (`youtube.com/watch`, `youtu.be`, `youtube.com/shorts`) -> delegate to `.agents/skills/youtube-to-blog-post/SKILL.md`.
+   - Any non-YouTube URL is included (all non-YouTube or mixed) -> delegate to `.agents/skills/url-only-to-blog-post/SKILL.md`.
 3. Synthesize one cohesive post from all gathered sources.
 4. If multiple URLs are provided, do not generate multiple posts unless the user explicitly asks for that.
 5. Resolve overlap/conflicts across sources by prioritizing primary-source statements and clearly framing uncertainty.
