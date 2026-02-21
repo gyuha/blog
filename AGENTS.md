@@ -149,7 +149,7 @@ Required trigger conditions:
 Required execution flow:
 1. Parse all URLs from the prompt in order.
 2. Fetch and analyze each URL using the appropriate toolchain by URL type:
-   - YouTube URLs: use YouTube MCP flow (see section below)
+   - YouTube URLs: delegate to skill `.agents/skills/youtube-to-blog-post/SKILL.md` (single source of truth)
    - Non-YouTube URLs: use web/document fetch tools (`webfetch`, `google_search`, or equivalent) to collect reliable source text
 3. Synthesize one cohesive post from all gathered sources.
 4. If multiple URLs are provided, do not generate multiple posts unless the user explicitly asks for that.
@@ -178,44 +178,15 @@ Quality requirements for URL-only requests:
 - Follow all existing markdown/frontmatter conventions in this file.
 - Run `task build` before handoff.
 
-## YouTube URL Auto-Post Rule (OpenCode + YouTube MCP)
-When the user prompt contains only a YouTube URL (and no other explicit writing instructions), apply the URL-only rule above and use this YouTube-specific flow.
+## YouTube URL Auto-Post Delegation Rule
+When the user prompt contains only YouTube URL(s), or the user explicitly asks for YouTube-to-post conversion, delegate to `.agents/skills/youtube-to-blog-post/SKILL.md`.
 
-Required trigger conditions:
-1. Input is a single YouTube URL (`youtube.com/watch?v=...`, `youtu.be/...`, or `youtube.com/shorts/...`).
-2. No additional task text is required; URL-only input is sufficient.
-
-Required execution flow:
-1. Extract the YouTube video ID from the URL.
-2. Use YouTube MCP tools to gather source material:
-   - `youtube_get_video` for metadata
-   - `youtube_get_transcript` (prefer `chunks` or `full` for depth)
-   - `youtube_segment_topics` for section planning
-   - `youtube_extract_entities` for key terms/names
-   - optionally `youtube_get_comments` when audience reaction adds value
-3. Create a new post under `content/post/YYYY/` using existing naming conventions (`YYYY-MM-DD-slug.md`).
-4. Write a Korean technical summary post by default unless the user explicitly requests another language.
-5. Include YAML frontmatter with at least:
-   - `title`
-   - `date`
-   - `draft: false`
-   - `categories` (plural)
-   - `tags`
-   - `description`
-6. Structure content with:
-   - concise intro
-   - `<!--more-->` excerpt split
-   - major topic sections based on transcript/topic segmentation
-   - frequent Mermaid diagrams for flows/architecture/timelines/comparisons
-   - practical takeaways and a short conclusion
-7. Add the source video URL near the top of the post for traceability.
-
-Quality requirements for URL-only YouTube requests:
-- Do not produce a shallow transcript dump; synthesize and reorganize by topic.
-- Keep claims grounded in transcript/video context; avoid invented details.
-- Prefer multiple small Mermaid diagrams over one large diagram.
-- Follow all existing markdown/frontmatter conventions in this file.
-- Run `task build` before handoff.
+Delegation contract:
+1. Follow the skill workflow and quality checklist as the source of truth.
+2. Accept `youtube.com/watch`, `youtu.be`, and `youtube.com/shorts` formats.
+3. If multiple YouTube URLs are provided, keep input order and produce one unified post by default.
+4. Preserve core output guarantees: `content/post/YYYY/YYYY-MM-DD-slug.md`, required YAML frontmatter, `<!--more-->`, source URL(s) near top, and Mermaid-first structure.
+5. Enforce accuracy gates from the skill: no invented details, explicit uncertainty handling, and `task build` before handoff.
 
 ## Error Handling and Safety
 - Avoid silent failures.
