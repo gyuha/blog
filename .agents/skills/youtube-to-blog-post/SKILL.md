@@ -26,10 +26,22 @@ Do not use this skill for non-YouTube-only source sets.
    - `youtube_segment_topics`
    - `youtube_extract_entities`
    - `youtube_get_comments` only when audience reactions add useful context
-4. Write one cohesive post from all gathered material, prioritizing explanation accuracy over aggressive compression.
-5. Create a new file under `content/post/YYYY/YYYY-MM-DD-slug.md`.
-6. Write the post in Korean by default unless the user explicitly requests another language.
-7. Run `task build` before handoff.
+4. Build structured notes per key claim: `claim`, `transcript quote/time marker`, `video url`, `confidence`.
+5. Build a fixed output outline first, then write section-by-section from notes, prioritizing explanation accuracy over aggressive compression.
+6. Generate exactly one post file under `content/post/YYYY/YYYY-MM-DD-slug.md` unless the user explicitly asks for multiple posts.
+7. Write the post in Korean by default unless the user explicitly requests another language.
+8. Run a completion audit against required section order and checklist (PASS/FAIL per item).
+9. Run `task build` before handoff.
+
+## Anti-Truncation Execution Rules
+
+- Never draft in one long free-form pass.
+- Use a staged pipeline:
+  1) source collection -> 2) evidence notes -> 3) fixed outline -> 4) section-by-section writing -> 5) completion audit.
+- Fixed outline must include every required section before body writing starts.
+- If transcript depth is insufficient for any segment, mark uncertainty and avoid high-confidence technical assertions for that segment.
+- If any required section is missing after writing, regenerate only missing sections and re-run the audit.
+- Hard gate: no final handoff is allowed unless all checklist items are PASS.
 
 ## Required Post Contract
 
@@ -49,15 +61,23 @@ description: "..."
 ```
 
 Body requirements:
+- Write in Korean unless user explicitly requests another language.
 - Add a concise intro.
 - Insert `<!--more-->` after the intro/excerpt area.
-- Add major sections based on transcript/topic segmentation.
+- Add a `Sources` section immediately after `<!--more-->` with all input URLs in original order.
+- Use this exact section order:
+  1) Intro
+  2) `<!--more-->`
+  3) Sources
+  4) Topic Sections (at least 3, based on transcript/topic segmentation)
+  5) Practical Takeaways
+  6) Conclusion
 - Prioritize precise explanation of mechanisms, assumptions, and trade-offs over short summary-style writing.
 - For key technical points, explain `what`, `why`, and `how` concretely.
 - Use Mermaid diagrams aggressively for flows, architecture, timelines, and comparisons.
+- Require Mermaid in at least 2 major technical sections.
 - Prefer multiple small Mermaid diagrams over one oversized diagram.
 - Add practical takeaways and a short conclusion.
-- Place source URL(s) near the top for traceability.
 
 ## Synthesis Rules
 
@@ -66,6 +86,7 @@ Body requirements:
 - Prefer source-backed explicit explanations over broad paraphrased summaries.
 - Resolve overlap or conflicts by prioritizing primary-source statements.
 - If uncertainty exists, state uncertainty explicitly instead of inventing details.
+- Ensure every non-trivial factual paragraph in the final post maps to at least one evidence-note entry.
 
 ## Multi-URL Rule
 
@@ -75,11 +96,17 @@ Body requirements:
 ## Validation Checklist
 
 1. Confirm file path follows `content/post/YYYY/YYYY-MM-DD-slug.md`.
-2. Confirm frontmatter includes `title`, `date`, `draft: false`, `categories`, `tags`, `description`.
-3. Confirm `<!--more-->` exists.
-4. Confirm Mermaid diagrams are present in major technical sections.
-5. Confirm source URL(s) are listed near the top.
-6. Confirm core sections explain key claims with concrete detail, not only high-level summaries.
-7. Run `task build` and verify success.
+2. Confirm exactly one new post file was created for this request (unless user explicitly asked split output).
+3. Confirm frontmatter includes `title`, `date`, `draft: false`, `categories`, `tags`, `description`.
+4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> Practical Takeaways -> Conclusion.
+5. Confirm `Sources` includes all input URLs in original order.
+6. Confirm Mermaid diagrams appear in at least 2 major technical sections.
+7. Confirm core sections explain key claims with concrete detail, not only high-level summaries.
+8. Confirm every non-trivial factual paragraph maps to evidence notes.
+9. Run `task build` and verify success.
 
-For detailed quality criteria and section-by-section checks, read `references/youtube-post-quality-checklist.md`.
+Checklist enforcement:
+- Mark each item as PASS/FAIL explicitly.
+- If any item is FAIL, do not hand off. Fix gaps and rerun the checklist.
+
+`references/youtube-post-quality-checklist.md` is mandatory acceptance criteria, not optional reference.

@@ -2,6 +2,10 @@
 
 Use this checklist after drafting the post and before final handoff.
 
+Hard gate:
+- Report PASS/FAIL for every item.
+- If any item is FAIL, do not hand off. Fix and rerun the full checklist.
+
 ## Input and Scope
 
 - Input is YouTube URL-only, or the user explicitly asked for YouTube-to-post conversion.
@@ -32,13 +36,14 @@ Required keys are present and valid:
 - Post language is Korean unless user requested otherwise.
 - Intro is concise and clear.
 - `<!--more-->` exists near the top excerpt boundary.
-- Source video URL(s) appear near the top for traceability.
+- `Sources` section appears immediately after `<!--more-->` and lists all URLs in original order.
+- Section order is exact: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> Practical Takeaways -> Conclusion.
 - Main sections are derived from transcript segmentation and topic flow.
 - Content is synthesized, not copied transcript blocks.
 
 ## Mermaid-First Enforcement
 
-- Mermaid diagrams are used in major technical sections.
+- Mermaid diagrams are used in at least 2 major technical sections.
 - Diagram labels are short and readable.
 - Direction is consistent (`LR` or `TD`) per diagram purpose.
 - Multiple small diagrams are used instead of one overloaded diagram.
@@ -49,10 +54,12 @@ Required keys are present and valid:
 - No invented numbers, quotes, or implementation details.
 - Conflicts across sources are resolved with primary-source priority.
 - Uncertainty is explicitly stated where evidence is weak.
+- Every non-trivial factual paragraph maps to at least one evidence note (`claim`, `transcript quote/time marker`, `video url`, `confidence`).
 
 ## Hugo and Repository Conventions
 
 - File path is `content/post/YYYY/YYYY-MM-DD-slug.md`.
+- Exactly one new post file is created unless the user explicitly requests split output.
 - Formatting and style are consistent with nearby posts.
 - Existing posts are not rewritten unless explicitly requested.
 
