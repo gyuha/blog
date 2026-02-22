@@ -136,6 +136,13 @@ Required guidance:
 3. Use Mermaid in major sections by default unless the section is purely narrative.
 4. Keep diagrams readable with short labels and consistent direction (`LR` or `TD`).
 5. Ensure diagrams render through the existing Hugo Mermaid pipeline (`render-codeblock-mermaid.html`).
+6. Use color actively in Mermaid flowcharts to improve grouping and emphasis; do not leave all nodes in default style when color can improve clarity.
+7. Prefer semantic color grouping by role (for example: input, processing, validation, output) and keep one consistent palette within a diagram.
+8. Use Mermaid styling primitives (`classDef`, `class`, `style`, and link styling when needed) to apply node and path colors explicitly.
+9. Maintain readability and accessibility: keep strong contrast between text and fill colors, and avoid overly saturated combinations that reduce legibility.
+10. When applying color, keep visual noise low: limit palette size and use color intentionally for structure, not decoration.
+11. If Mermaid node labels or edge labels include special characters (for example `/`, `@`, `:`, `#`), wrap the label text in double quotes to avoid parser errors.
+12. For `sequenceDiagram`, use double quotes only when needed (for example when labels/messages contain special characters that may break parsing), and keep plain labels unquoted by default.
 - Practical expectation: for technical posts, include Mermaid frequently; if a section can be clearer with a chart, add one.
 
 ## URL-Only Auto-Post Rule
