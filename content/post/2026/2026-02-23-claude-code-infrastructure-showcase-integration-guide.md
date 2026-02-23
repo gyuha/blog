@@ -89,11 +89,11 @@ README에서 강조하는 500라인 규칙은 "문서를 짧게 써라"가 목�
 
 ```mermaid
 flowchart TD
-  A["User Task"] --> B["Load SKILL.md first"]
-  B --> C{"Need deeper detail?"}
-  C -->|"No"| D["Execute with light context"]
-  C -->|"Yes"| E["Load specific resource file"]
-  E --> F["Execute with targeted depth"]
+  A["사용자 작업"] --> B["먼저 SKILL.md 로드"]
+  B --> C{"더 깊은 상세 정보가 필요한가?"}
+  C -->|"아니오"| D["가벼운 컨텍스트로 실행"]
+  C -->|"예"| E["특정 리소스 파일 로드"]
+  E --> F["대상 깊이로 실행"]
 
   classDef base fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
   classDef decision fill:#fff8e1,stroke:#ff8f00,color:#e65100
@@ -157,18 +157,18 @@ README의 통합 흐름을 실제 적용 관점으로 재배열하면 다음 순
 
 ```mermaid
 sequenceDiagram
-  participant U as User/Team
-  participant P as Project
-  participant H as Hooks
-  participant S as Skills
+  participant U as 사용자팀
+  participant P as 프로젝트
+  participant H as 훅
+  participant S as 스킬
 
-  U->>P: Confirm stack and directory layout
-  U->>H: Add essential 2 hooks
-  H->>P: Enable UserPromptSubmit/PostToolUse
-  U->>S: Add one highest-value skill
-  S->>P: Customize skill-rules pathPatterns
-  U->>P: Run smoke test on real edited files
-  P-->>U: Iterate with additional skills/agents
+  U->>P: 스택과 디렉터리 구조 확인
+  U->>H: 필수 훅 2개 추가
+  H->>P: UserPromptSubmit 및 PostToolUse 활성화
+  U->>S: 우선순위가 가장 높은 스킬 1개 추가
+  S->>P: skill-rules pathPatterns를 프로젝트에 맞게 조정
+  U->>P: 실제 수정 파일 기준 스모크 테스트 실행
+  P-->>U: 추가 스킬과 에이전트로 반복 개선
 ```
 
 이 흐름에서 절대 건너뛰지 말아야 할 단계는 "경로 패턴 검증"입니다. 자동 활성화 시스템의 성공/실패는 모델 품질이 아니라 경로 매칭 정확도에서 대부분 갈립니다.
