@@ -17,7 +17,7 @@ tags:
 description: "Reddit 원문을 기준으로 누락 없이 재구성한 한국어 포스트. Skills 자동활성화, Dev Docs, PM2, Hook 파이프라인, 에이전트 운영 원칙을 구조적으로 정리합니다."
 ---
 
-이 글은 Reddit의 **"Claude Code is a Beast – Tips from 6 Months of Hardcore Use"**를 한국어로 다시 정리한 재포스팅입니다. 원문에서 전달한 핵심 맥락과 세부 운영 팁이 빠지지 않도록, 주장-근거-실행 흐름 순서로 재구성했습니다.
+이 글은 Reddit의 **Claude Code is a Beast – Tips from 6 Months of Hardcore Use**를 한국어로 다시 정리한 재포스팅입니다. 원문에서 전달한 핵심 맥락과 세부 운영 팁이 빠지지 않도록, 주장-근거-실행 흐름 순서로 재구성했습니다.
 
 <!--more-->
 
