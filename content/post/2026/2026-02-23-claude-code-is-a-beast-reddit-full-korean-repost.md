@@ -23,9 +23,10 @@ description: "Reddit 원문을 기준으로 누락 없이 재구성한 한국어
 
 ## Sources
 
-- https://www.reddit.com/r/ClaudeAI/comments/1oivjvm/claude_code_is_a_beast_tips_from_6_months_of/
-- https://dev.to/diet-code103/claude-code-is-a-beast-tips-from-6-months-of-hardcore-use-572n
-- https://github.com/diet103/claude-code-infrastructure-showcase
+- [Claude Code is a Beast – Tips from 6 Months of Hardcore Use.](https://www.reddit.com/r/ClaudeAI/comments/1oivjvm/claude_code_is_a_beast_tips_from_6_months_of/)
+  - 번역 : [Claude Code는 괴물이다 – 6개월 하드코어 사용에서 얻은 팁들](https://rosettalens.com/s/ko/claude-code-is-a-beast-tips-from-6-months-of-hardcore-use)
+  - 포스팅 : [원문 글의 포스팅](https://dev.to/diet-code103/claude-code-is-a-beast-tips-from-6-months-of-hardcore-use-572n)
+- [Claude Code Infrastructure Showcase](https://github.com/diet103/claude-code-infrastructure-showcase)
 
 ## 먼저 고정해야 할 전제와 배경
 
