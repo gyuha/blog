@@ -36,11 +36,11 @@ README에서 가장 먼저 강조하는 문장은 "This is NOT a working applica
 
 ```mermaid
 flowchart LR
-  A["User Prompt"] --> B["Hooks"]
-  B --> C["Skill Activation"]
-  C --> D["Guided Execution"]
-  D --> E["Specialized Agents"]
-  E --> F["Dev Docs Continuity"]
+  A["사용자 프롬프트"] --> B["훅"]
+  B --> C["스킬 활성화"]
+  C --> D["안내 실행"]
+  D --> E["특화된 에이전트"]
+  E --> F["개발 문서 연속성"]
 
   classDef input fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
   classDef control fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
@@ -63,14 +63,14 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  A["Prompt Submitted"] --> B["UserPromptSubmit Hook"]
-  B --> C["Match skill-rules.json"]
-  C --> D["Inject Skill Suggestion"]
-  D --> E["Claude Executes"]
-  E --> F["PostToolUse Hook"]
-  F --> G["Track Modified Files"]
+  A["프롬프트 제출됨"] --> B["UserPromptSubmit 훅"]
+  B --> C["skill-rules.json 매칭"]
+  C --> D["스킬 제안 주입"]
+  D --> E["Claude 실행"]
+  E --> F["PostToolUse 훅"]
+  F --> G["수정된 파일 추적"]
 
-  H["Stop Hook (optional)"] --> I["Typecheck/Build Gate"]
+  H["Stop 훅 (선택사항)"] --> I["타입체크/빌드 게이트"]
 
   classDef safe fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
   classDef caution fill:#ffebee,stroke:#c62828,color:#b71c1c
