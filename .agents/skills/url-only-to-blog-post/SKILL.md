@@ -28,11 +28,17 @@ Do not use this skill when the user asks for non-post tasks (for example, code c
    - Non-YouTube URL: fetch source text using `webfetch`, `google_search`, or equivalent reliable tools.
 5. Build structured notes per claim: `claim`, `evidence quote`, `url`, `confidence`.
 6. Research and cross-check key claims across sources.
-7. Resolve overlaps/conflicts by prioritizing primary-source statements.
-8. Build a fixed output outline first, then write section-by-section from notes (not raw pages), prioritizing explanation accuracy over aggressive compression.
-9. Generate exactly one post file at `content/post/YYYY/YYYY-MM-DD-slug.md` unless the user explicitly asks for multiple posts.
-10. Run a completion audit against the required section order and checklist (PASS/FAIL per item).
-11. Run `task build` before handoff.
+7. (Optional) Enhance notes with background research using the `deep-research` skill:
+   - Set `topic` from the main subject identified in step 5 notes.
+   - Set `keywords` from entities and key terms extracted across all sources.
+   - Set `topic_type` to `library`, `news`, or `general` based on source content.
+   - Set `primary_claims` to assertions needing verification or expansion.
+   - Merge returned research notes into your evidence set before writing.
+8. Resolve overlaps/conflicts by prioritizing primary-source statements.
+9. Build a fixed output outline first, then write section-by-section from notes (not raw pages), prioritizing explanation accuracy over aggressive compression.
+10. Generate exactly one post file at `content/post/YYYY/YYYY-MM-DD-slug.md` unless the user explicitly asks for multiple posts.
+11. Run a completion audit against the required section order and checklist (PASS/FAIL per item).
+12. Run `task build` before handoff.
 
 ## Anti-Truncation Execution Rules
 

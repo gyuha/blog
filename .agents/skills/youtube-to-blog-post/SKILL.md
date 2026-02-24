@@ -27,11 +27,17 @@ Do not use this skill for non-YouTube-only source sets.
    - `youtube_extract_entities`
    - `youtube_get_comments` only when audience reactions add useful context
 4. Build structured notes per key claim: `claim`, `transcript quote/time marker`, `video url (timestamped)`, `confidence`.
-5. Build a fixed output outline first, then write section-by-section from notes, prioritizing explanation accuracy over aggressive compression.
-6. Generate exactly one post file under `content/post/YYYY/YYYY-MM-DD-slug.md` unless the user explicitly asks for multiple posts.
-7. Write the post in Korean by default unless the user explicitly requests another language.
-8. Run a completion audit against required section order and checklist (PASS/FAIL per item).
-9. Run `task build` before handoff.
+5. (Optional) Enhance notes with background research using the `deep-research` skill:
+   - Set `topic` from the main subject identified in step 4 notes.
+   - Set `keywords` from entities and key terms extracted in step 4.
+   - Set `topic_type` to `library`, `news`, or `general` based on video content.
+   - Set `primary_claims` to assertions needing verification or expansion.
+   - Merge returned research notes into your evidence set before writing.
+6. Build a fixed output outline first, then write section-by-section from notes, prioritizing explanation accuracy over aggressive compression.
+7. Generate exactly one post file under `content/post/YYYY/YYYY-MM-DD-slug.md` unless the user explicitly asks for multiple posts.
+8. Write the post in Korean by default unless the user explicitly requests another language.
+9. Run a completion audit against required section order and checklist (PASS/FAIL per item).
+10. Run `task build` before handoff.
 
 ## Anti-Truncation Execution Rules
 
