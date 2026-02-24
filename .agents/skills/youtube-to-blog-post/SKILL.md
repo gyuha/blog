@@ -26,7 +26,7 @@ Do not use this skill for non-YouTube-only source sets.
    - `youtube_segment_topics`
    - `youtube_extract_entities`
    - `youtube_get_comments` only when audience reactions add useful context
-4. Build structured notes per key claim: `claim`, `transcript quote/time marker`, `video url`, `confidence`.
+4. Build structured notes per key claim: `claim`, `transcript quote/time marker`, `video url (timestamped)`, `confidence`.
 5. Build a fixed output outline first, then write section-by-section from notes, prioritizing explanation accuracy over aggressive compression.
 6. Generate exactly one post file under `content/post/YYYY/YYYY-MM-DD-slug.md` unless the user explicitly asks for multiple posts.
 7. Write the post in Korean by default unless the user explicitly requests another language.
@@ -65,6 +65,7 @@ Body requirements:
 - Add a concise intro.
 - Insert `<!--more-->` after the intro/excerpt area.
 - Add a `Sources` section immediately after `<!--more-->` with all input URLs in original order.
+- For every evidence-backed claim, use a timestamped YouTube URL in `video url` (preferred format: `https://youtu.be/<id>?t=<seconds>`).
 - Use this exact section order:
   1) Intro
   2) `<!--more-->`
@@ -87,6 +88,7 @@ Body requirements:
 - Resolve overlap or conflicts by prioritizing primary-source statements.
 - If uncertainty exists, state uncertainty explicitly instead of inventing details.
 - Ensure every non-trivial factual paragraph in the final post maps to at least one evidence-note entry.
+- When citing transcript-backed claims, include a timestamped YouTube URL (`&t=` or `?t=` seconds) so readers can jump directly to the referenced moment.
 
 ## Multi-URL Rule
 
@@ -103,7 +105,8 @@ Body requirements:
 6. Confirm Mermaid diagrams appear in at least 2 major technical sections.
 7. Confirm core sections explain key claims with concrete detail, not only high-level summaries.
 8. Confirm every non-trivial factual paragraph maps to evidence notes.
-9. Run `task build` and verify success.
+9. Confirm all `video url` values in evidence notes are timestamped YouTube links (for example `https://youtu.be/<id>?t=299`).
+10. Run `task build` and verify success.
 
 Checklist enforcement:
 - Mark each item as PASS/FAIL explicitly.

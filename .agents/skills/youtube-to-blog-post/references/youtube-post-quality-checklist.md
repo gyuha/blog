@@ -37,6 +37,7 @@ Required keys are present and valid:
 - Intro is concise and clear.
 - `<!--more-->` exists near the top excerpt boundary.
 - `Sources` section appears immediately after `<!--more-->` and lists all URLs in original order.
+- For transcript-backed claim citations, `video url` uses timestamped YouTube links (`&t=` or `?t=` seconds).
 - Section order is exact: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> Practical Takeaways -> Conclusion.
 - Main sections are derived from transcript segmentation and topic flow.
 - Content is synthesized, not copied transcript blocks.
@@ -55,6 +56,7 @@ Required keys are present and valid:
 - Conflicts across sources are resolved with primary-source priority.
 - Uncertainty is explicitly stated where evidence is weak.
 - Every non-trivial factual paragraph maps to at least one evidence note (`claim`, `transcript quote/time marker`, `video url`, `confidence`).
+- `video url` values in evidence notes are direct-jump links with time offset (recommended: `https://youtu.be/<id>?t=<seconds>`).
 
 ## Hugo and Repository Conventions
 
