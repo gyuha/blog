@@ -143,57 +143,40 @@ Required guidance:
 10. When applying color, keep visual noise low: limit palette size and use color intentionally for structure, not decoration.
 11. If Mermaid node labels or edge labels include special characters (for example `/`, `@`, `:`, `#`), wrap the label text in double quotes to avoid parser errors.
 12. For `sequenceDiagram`, use double quotes only when needed (for example when labels/messages contain special characters that may break parsing), and keep plain labels unquoted by default.
+13. In Mermaid labels, do not use `\n` for line breaks; use HTML `<br>` instead.
 - Practical expectation: for technical posts, include Mermaid frequently; if a section can be clearer with a chart, add one.
 
-## URL-Only Auto-Post Rule
-When the user prompt contains only URL lines (with no other explicit writing instructions), treat it as a request to generate a new blog post grounded in those URLs.
+## URL-Only Auto-Post Delegation Rule
+When the user prompt contains only URL lines (single or multiple, optional whitespace, no additional task text), delegate to skill workflows instead of handling inline.
 
-Required trigger conditions:
-1. Input contains only URL values (single-line or multi-line), with optional whitespace.
-2. No additional task text is required; URL-only input is sufficient.
-3. If multiple URLs are provided across multiple lines, treat them as one combined source set for one post.
-
-Required execution flow:
+Delegation routing contract:
 1. Parse all URLs from the prompt in order.
 2. Classify URL set type:
    - All URLs are YouTube (`youtube.com/watch`, `youtu.be`, `youtube.com/shorts`) -> delegate to `.agents/skills/youtube-to-blog-post/SKILL.md`.
    - Any non-YouTube URL is included (all non-YouTube or mixed) -> delegate to `.agents/skills/url-only-to-blog-post/SKILL.md`.
-3. Synthesize one cohesive post from all gathered sources.
-4. If multiple URLs are provided, do not generate multiple posts unless the user explicitly asks for that.
-5. Resolve overlap/conflicts across sources by prioritizing primary-source statements and clearly framing uncertainty.
-6. Create a new post under `content/post/YYYY/` using existing naming conventions (`YYYY-MM-DD-slug.md`).
-7. Write a Korean technical summary post by default unless the user explicitly requests another language.
-8. Include YAML frontmatter with at least:
-   - `title`
-   - `date`
-   - `draft: false`
-   - `categories` (plural)
-   - `tags`
-   - `description`
-9. Structure content with:
-   - concise intro
-   - `<!--more-->` excerpt split
-   - major topic sections derived from the URL sources
-   - frequent Mermaid diagrams for flows/architecture/timelines/comparisons
-   - practical takeaways and a short conclusion
-10. Add a `Sources` section near the top listing all input URLs for traceability.
-
-Quality requirements for URL-only requests:
-- Do not produce shallow copy/paste summaries; synthesize and reorganize by topic.
-- Keep claims grounded in source content; avoid invented details.
-- Prefer multiple small Mermaid diagrams over one large diagram.
-- Follow all existing markdown/frontmatter conventions in this file.
-- Run `task build` before handoff.
+3. Use the selected skill as the source of truth for execution workflow, quality gates, and output format.
+4. If multiple URLs are provided, produce one unified post by default unless the user explicitly requests multiple posts.
 
 ## YouTube URL Auto-Post Delegation Rule
-When the user prompt contains only YouTube URL(s), or the user explicitly asks for YouTube-to-post conversion, delegate to `.agents/skills/youtube-to-blog-post/SKILL.md`.
+When the user prompt contains only YouTube URL(s), or the user explicitly asks for YouTube-to-post conversion, delegate to `.agents/skills/youtube-to-blog-post/SKILL.md` as the source of truth.
+
+## Context File Hygiene Rule (CLAUDE.md / AGENTS.md)
+When maintaining global context files (`CLAUDE.md`, `AGENTS.md`), optimize for task relevance over document size.
+
+Required guidance:
+1. Keep global context files minimal and always-on only (core rules, safety constraints, stable repository conventions).
+2. Move task-specific procedures, long checklists, and domain-specific instructions into dedicated skills.
+3. Remove instructions that are not directly useful for most sessions; unrelated always-on guidance can increase tool-use and search cost.
+4. Prefer "global baseline + task-triggered skill injection" over monolithic context files.
+5. Periodically prune stale or duplicated rules after workflow changes.
 
 Delegation contract:
 1. Follow the skill workflow and quality checklist as the source of truth.
 2. Accept `youtube.com/watch`, `youtu.be`, and `youtube.com/shorts` formats.
 3. If multiple YouTube URLs are provided, keep input order and produce one unified post by default.
 4. Preserve core output guarantees: `content/post/YYYY/YYYY-MM-DD-slug.md`, required YAML frontmatter, `<!--more-->`, source URL(s) near top, and Mermaid-first structure.
-5. Enforce accuracy gates from the skill: no invented details, explicit uncertainty handling, and `task build` before handoff.
+5. Enforce timestamped evidence links for transcript-backed claims (`https://youtu.be/<id>?t=<seconds>`; `&t=` or `?t=` accepted).
+6. Enforce accuracy gates from the skill: no invented details, explicit uncertainty handling, and `task build` before handoff.
 
 ## Error Handling and Safety
 - Avoid silent failures.
