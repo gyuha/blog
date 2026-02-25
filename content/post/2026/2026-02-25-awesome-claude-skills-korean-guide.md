@@ -9,9 +9,10 @@ tags: [claude, skills, ecosystem, hooks, orchestrator, mermaid, trail-of-bits, c
 
 2026년 2월 현재, Claude Code의 Skills 생태계는 폭발적으로 성장했다. Anthropic 공식 17개 스킬, Microsoft의 129개 Azure SDK 스킬, Trail of Bits의 22개 보안 전문 스킬, OpenAI의 27개 크로스 플랫폼 스킬, 그리고 수백 개의 커뮤니티 스킬이 등장했다. 여기에 9개 이상의 오케스트레이터, 15개 훅 이벤트, 슬래시 커맨드, Status Line 확장까지 — 이제 Claude Code는 단순한 AI 코딩 도구를 넘어 하나의 **개발 플랫폼 생태계**로 진화하고 있다.
 
-이 글은 **"스킬을 어떻게 만드는가"**가 아니라 **"현재 어떤 스킬들이 존재하고, 누가 제공하며, 어떤 도구 생태계가 형성되어 있는가"**를 정리한 종합 카탈로그다. 스킬 제작 가이드가 필요하다면 [Anthropic 공식 Skills 완전 가이드](/post/2026/2026-02-21-anthropic-skills-complete-guide/) 포스트를 참고하자.
-
 <!--more-->
+
+이 글은 **"스킬을 어떻게 만드는가"** 가 아니라 **"현재 어떤 스킬들이 존재하고, 누가 제공하며, 어떤 도구 생태계가 형성되어 있는가"** 를 정리한 종합 카탈로그다. 스킬 제작 가이드가 필요하다면 [Anthropic 공식 Skills 완전 가이드](/post/2026/2026-02-21-anthropic-skills-complete-guide/) 포스트를 참고하자.
+
 
 ## 출처 및 참고 자료
 
@@ -128,7 +129,15 @@ Anthropic이 직접 제공하는 스킬은 4개 카테고리로 나뉜다.
 
 25개 이상의 기업 팀이 자사 제품에 특화된 Claude Code 스킬을 공식 제공하고 있다.
 
-대표 레포: [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills), [cloudflare/skills](https://github.com/cloudflare/skills), [supabase/agent-skills](https://github.com/supabase/agent-skills), [google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills), [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills), [huggingface/skills](https://github.com/huggingface/skills), [stripe/ai](https://github.com/stripe/ai/tree/main/skills), [callstackincubator/agent-skills](https://github.com/callstackincubator/agent-skills), [expo/skills](https://github.com/expo/skills), [getsentry/skills](https://github.com/getsentry/skills), [better-auth/skills](https://github.com/better-auth/skills), [tinybirdco/tinybird-agent-skills](https://github.com/tinybirdco/tinybird-agent-skills), [neondatabase/agent-skills](https://github.com/neondatabase/agent-skills), [ClickHouse/agent-skills](https://github.com/ClickHouse/agent-skills), [fal-ai-community/skills](https://github.com/fal-ai-community/skills), [hashicorp/agent-skills](https://github.com/hashicorp/agent-skills), [sanity-io/agent-toolkit](https://github.com/sanity-io/agent-toolkit), [remotion-dev/skills](https://github.com/remotion-dev/skills), [WordPress/agent-skills](https://github.com/WordPress/agent-skills), [transloadit/skills](https://github.com/transloadit/skills), [firecrawl/cli](https://github.com/firecrawl/cli/tree/main/skills), [openai/skills](https://github.com/openai/skills), [replicate/skills](https://github.com/replicate/skills), [typefully/agent-skills](https://github.com/typefully/agent-skills), [microsoft/skills](https://github.com/microsoft/skills/tree/main/.github/skills).
+대표 레포 (카테고리별):
+
+| 카테고리 | 개수 | 레포 |
+|----------|------|------|
+| 클라우드 인프라 | 6 | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)<br>[cloudflare/skills](https://github.com/cloudflare/skills)<br>[supabase/agent-skills](https://github.com/supabase/agent-skills)<br>[neondatabase/agent-skills](https://github.com/neondatabase/agent-skills)<br>[ClickHouse/agent-skills](https://github.com/ClickHouse/agent-skills)<br>[hashicorp/agent-skills](https://github.com/hashicorp/agent-skills) |
+| AI/ML 플랫폼 | 6 | [openai/skills](https://github.com/openai/skills)<br>[huggingface/skills](https://github.com/huggingface/skills)<br>[fal-ai-community/skills](https://github.com/fal-ai-community/skills)<br>[replicate/skills](https://github.com/replicate/skills)<br>[google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills)<br>[google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) |
+| 개발 도구 | 5 | [getsentry/skills](https://github.com/getsentry/skills)<br>[expo/skills](https://github.com/expo/skills)<br>[callstackincubator/agent-skills](https://github.com/callstackincubator/agent-skills)<br>[remotion-dev/skills](https://github.com/remotion-dev/skills)<br>[sanity-io/agent-toolkit](https://github.com/sanity-io/agent-toolkit) |
+| 대규모 SDK | 1 | [microsoft/skills](https://github.com/microsoft/skills/tree/main/.github/skills) |
+| 콘텐츠/마케팅 | 7 | [WordPress/agent-skills](https://github.com/WordPress/agent-skills)<br>[transloadit/skills](https://github.com/transloadit/skills)<br>[firecrawl/cli](https://github.com/firecrawl/cli/tree/main/skills)<br>[stripe/ai](https://github.com/stripe/ai/tree/main/skills)<br>[typefully/agent-skills](https://github.com/typefully/agent-skills)<br>[better-auth/skills](https://github.com/better-auth/skills)<br>[tinybirdco/tinybird-agent-skills](https://github.com/tinybirdco/tinybird-agent-skills) |
 
 ```mermaid
 flowchart TD

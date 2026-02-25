@@ -124,6 +124,7 @@ Prefer local patterns over global rewrites.
 - Preferred post metadata for new content: `categories` (plural), `tags`, optional `description`.
 - For charts/diagrams in posts, use Mermaid by default.
 - For line breaks in post content, use HTML `<br>` instead of `\n`.
+- When bolding Korean text, separate any trailing particle with a space (for example, `**스킬** 은`, `**훅** 을`) to avoid emphasis rendering issues.
 - Use `<!--more-->` for excerpt split in longer posts.
 - Legacy variance exists (`category` singular, occasional underscore filenames). Keep existing posts stable; use current dominant pattern for new posts.
 
