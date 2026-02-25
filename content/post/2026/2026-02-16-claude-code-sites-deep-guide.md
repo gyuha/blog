@@ -279,3 +279,4 @@ Claude Code를 명령 체계/전문화 에이전트/행동 모드로 확장하�
 - [Oh My ClaudeCode](https://github.com/Yeachan-Heo/oh-my-claudecode)
 - [Awesome Claude Code](https://github.com/hesreallyhim/awesome-claude-code)
 - [SuperClaude Framework](https://github.com/SuperClaude-Org/SuperClaude_Framework)
+- [Awesome Claude Skills 한국어 종합 가이드](https://github.com/johunsang/vive-md/blob/main/vibe-coding%2Fresources%2FAwesome-Claude-Skills-%ED%95%9C%EA%B5%AD%EC%96%B4-%EA%B0%80%EC%9D%B4%EB%93%9C.md)
