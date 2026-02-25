@@ -1,6 +1,6 @@
 ---
 title: "/init로 만든 AGENTS.md는 왜 성능을 깎을까: 최소 컨텍스트와 계층형 운영 전략"
-date: 2026-02-26T21:05:00+09:00
+date: 2026-02-26T00:05:00+09:00
 draft: false
 categories:
   - AI
