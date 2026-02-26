@@ -125,6 +125,7 @@ Prefer local patterns over global rewrites.
 - For charts/diagrams in posts, use Mermaid by default.
 - For line breaks in post content, use HTML `<br>` instead of `\n`.
 - When bolding Korean text, separate any trailing particle with a space (for example, `**스킬** 은`, `**훅** 을`) to avoid emphasis rendering issues.
+- When bolding quoted text, use `"**text**"` (quotes outside bold) not `**"text"**` (bold outside quotes) for proper rendering.
 - Use `<!--more-->` for excerpt split in longer posts.
 - Legacy variance exists (`category` singular, occasional underscore filenames). Keep existing posts stable; use current dominant pattern for new posts.
 
