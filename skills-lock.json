@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "threads-blog-post": {
+      "source": "gyuha/skills",
+      "sourceType": "github",
+      "computedHash": "d08aa79b341e4e37fd29e16aa6039a951c0ec90900284b50f7a6f8ab7e34ca71"
+    }
+  }
+}
