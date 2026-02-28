@@ -30,7 +30,7 @@ description: "NotebookLM을 Antigravity MCP와 연결해 자료 수집, 슬라�
 핵심은 "NotebookLM을 직접 확장"하는 것이 아니라, MCP를 지원하는 실행 환경(예: Antigravity, CLI 계열)에서 NotebookLM 작업을 프록시처럼 호출하는 운영 모델이라는 점입니다 ([t=248](https://youtu.be/geBad4VaEPI?t=248), [t=296](https://youtu.be/geBad4VaEPI?t=296)).
 
 ```mermaid
-flowchart LR
+flowchart TB
     A["사용자 명령"] --> B["Antigravity MCP 클라이언트"]
     B --> C["커뮤니티 NotebookLM MCP 서버"]
     C --> D["NotebookLM API/세션"]
