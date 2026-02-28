@@ -77,14 +77,14 @@ Body requirements:
   2) `<!--more-->`
   3) Sources
   4) Topic Sections (at least 3, based on transcript/topic segmentation)
-  5) Practical Takeaways
-  6) Conclusion
+  5) 실전 적용 포인트
+  6) 결론
 - Prioritize precise explanation of mechanisms, assumptions, and trade-offs over short summary-style writing.
 - For key technical points, explain `what`, `why`, and `how` concretely.
 - Use Mermaid diagrams aggressively for flows, architecture, timelines, and comparisons.
 - Require Mermaid in at least 2 major technical sections.
 - Prefer multiple small Mermaid diagrams over one oversized diagram.
-- Add practical takeaways and a short conclusion.
+- Add a `실전 적용 포인트` section and a short `결론` section.
 
 ## Synthesis Rules
 
@@ -106,7 +106,7 @@ Body requirements:
 1. Confirm file path follows `content/post/YYYY/YYYY-MM-DD-slug.md`.
 2. Confirm exactly one new post file was created for this request (unless user explicitly asked split output).
 3. Confirm frontmatter includes `title`, `date`, `draft: false`, `categories`, `tags`, `description`.
-4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> Practical Takeaways -> Conclusion.
+4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> 실전 적용 포인트 -> 결론.
 5. Confirm `Sources` includes all input URLs in original order.
 6. Confirm Mermaid diagrams appear in at least 2 major technical sections.
 7. Confirm core sections explain key claims with concrete detail, not only high-level summaries.

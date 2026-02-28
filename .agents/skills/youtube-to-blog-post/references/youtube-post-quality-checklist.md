@@ -38,7 +38,7 @@ Required keys are present and valid:
 - `<!--more-->` exists near the top excerpt boundary.
 - `Sources` section appears immediately after `<!--more-->` and lists all URLs in original order.
 - For transcript-backed claim citations, `video url` uses timestamped YouTube links (`&t=` or `?t=` seconds).
-- Section order is exact: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> Practical Takeaways -> Conclusion.
+- Section order is exact: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> 실전 적용 포인트 -> 결론.
 - Main sections are derived from transcript segmentation and topic flow.
 - Content is synthesized, not copied transcript blocks.
 

@@ -50,7 +50,7 @@ Required keys:
 - Concise intro is present.
 - `<!--more-->` exists near the top.
 - `Sources` section appears near the top and lists all URLs.
-- Section order is exact: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> Practical Takeaways -> Conclusion.
+- Section order is exact: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> 실전 적용 포인트 -> 결론.
 - Main sections are topic-driven and technically coherent.
 - Practical takeaways and short conclusion are included.
 
