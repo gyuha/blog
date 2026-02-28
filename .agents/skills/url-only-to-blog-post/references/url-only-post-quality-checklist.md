@@ -19,6 +19,8 @@ Per URL:
 - Source type is classified (YouTube vs non-YouTube).
 - YouTube URLs are processed via `youtube-to-blog-post` flow.
 - Non-YouTube URLs are fetched with `webfetch`, `google_search`, or equivalent reliable fetch path.
+- If non-YouTube fetch cannot extract usable text, `agent-browser` fallback is used and logged with reason.
+- Evidence notes include extraction method per URL (`http` or `browser`).
 - Key claims are cross-checked against source text.
 - Structured notes exist per key claim (`claim`, `evidence quote`, `url`, `confidence`).
 
