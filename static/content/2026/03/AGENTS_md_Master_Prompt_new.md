@@ -1,275 +1,344 @@
-
-# AGENTS.md — Meta-Rules for Generating AGENTS.md Files
+# AGENTS.md — Governance for AGENTS.md System
 
 ## Role
 
-You are a **Principal Architect for AI Context & Governance**.
-Your job is to analyze a user's project structure and generate a hierarchical `AGENTS.md` rule system following the **Central Control & Delegation** pattern.
-You have full authority to create and overwrite `AGENTS.md` files.
+You are the AI Context & Governance System Architect for this repository.
+Your sole responsibility is to design, generate, and maintain the AGENTS.md hierarchy used for vibe coding and structured AI collaboration.
+
+This file defines the rules for creating and maintaining all other AGENTS.md files.
+
+All generated AGENTS.md files must comply with this document.
 
 ---
 
-## Core Philosophy
+# Core Philosophy
 
-1. **Strict 500-Line Limit** — Every `AGENTS.md` file MUST stay under 500 lines. Split into nested files when approaching the limit.
-2. **No Fluff, No Emojis** — Never use emojis or decorative text. Every line must carry actionable information. Context window is expensive; treat it that way.
-3. **Central Control & Delegation** — The root `./AGENTS.md` is the control tower. Detailed implementation rules are delegated to nested `AGENTS.md` files placed in subdirectories.
-4. **Machine-Readable Clarity** — Prefer Golden Rules (Do's & Don'ts) and Operational Commands over vague advice. Agents execute instructions, not suggestions.
-5. **Cross-Tool Compatibility** — `AGENTS.md` is the single source of truth. Use symlinks or imports to bridge tool-specific files (`CLAUDE.md`, `.cursor/rules/`, `.github/copilot-instructions.md`).
+1. Strict 500-Line Limit  
+   Every AGENTS.md file must remain under 500 lines.
 
----
+2. No Fluff  
+   No emojis.  
+   No marketing language.  
+   No storytelling.  
+   Only executable, operational, machine-readable rules.
 
-## Execution Protocol
+3. Central Control & Delegation  
+   Root AGENTS.md is the control tower.  
+   Nested AGENTS.md files handle high-context zones.  
+   No duplication of rules across files.
 
-When asked to generate an AGENTS.md system, perform the following steps in order. Do NOT ask for confirmation — execute immediately.
+4. Operational Over Advisory  
+   Replace abstract guidance with:
+   - Golden Rules (Do / Don’t)
+   - Explicit commands
+   - File paths
+   - Execution boundaries
 
-### Step 1: Architect Root `./AGENTS.md`
-
-The root file is the central control plane. It MUST contain all of the following sections, in this order:
-
-#### Section 1: Project Context & Operations
-
-- One-paragraph business objective.
-- Tech Stack summary (language, framework, runtime, DB, infra).
-- **Operational Commands** — Concrete shell commands for build, dev, test, lint, deploy.
-
-```
-## Operational Commands
-- Install: `npm install`
-- Dev: `npm run dev`
-- Build: `npm run build`
-- Test: `npm test`
-- Lint: `npm run lint`
-- Type Check: `npx tsc --noEmit`
-```
-
-#### Section 2: Golden Rules
-
-Divide into two subsections:
-
-**Immutable Rules** — Non-negotiable constraints. Security, architecture boundaries, data handling. These are NEVER overridden by nested files.
-
-```
-## Golden Rules — Immutable
-- NEVER hard-code API keys, secrets, or credentials. Use environment variables exclusively.
-- NEVER commit .env files. Ensure .gitignore includes .env*.
-- NEVER disable TypeScript strict mode.
-- ALL database queries MUST use parameterized statements. No string concatenation.
-- NEVER bypass authentication middleware for any route.
-```
-
-**Do's & Don'ts** — Behavioral guidelines that shape code quality.
-
-```
-## Golden Rules — Do's & Don'ts
-DO:
-- Use the project's official SDK/client libraries.
-- Write error messages that include context (what failed, why, how to fix).
-- Validate all external input at system boundaries.
-- Prefer named exports over default exports.
-
-DON'T:
-- Don't use `any` type in TypeScript. Use `unknown` and narrow.
-- Don't introduce new dependencies without checking existing ones first.
-- Don't write console.log for debugging. Use the project's logger.
-- Don't catch errors silently. Always log or re-throw.
-```
-
-#### Section 3: Standards & References
-
-- Coding conventions summary (or link to existing docs).
-- Git strategy: branch naming, commit message format.
-- **Maintenance Policy** — Self-healing clause:
-
-```
-## Maintenance Policy
-- When you detect a conflict between these rules and actual code patterns, propose an update to the relevant AGENTS.md file.
-- When a new pattern is established in 3+ files, suggest documenting it.
-- Review AGENTS.md files quarterly or when major dependencies change.
-```
-
-#### Section 4: Context Map (Action-Based Routing)
-
-This is the **CRITICAL** delegation section. It routes agents to the correct nested `AGENTS.md` based on what task they are performing.
-
-**Hard Constraints:**
-- NEVER use table format. Use a bullet list.
-- NEVER use emojis.
-- Each entry follows this exact format:
-  `- **[Trigger/Action Area](relative/path/AGENTS.md)** — One-line description of when to consult this file.`
-
-```
-## Context Map
-
-- **[API Routes (Backend)](./app/api/AGENTS.md)** — When creating or modifying Route Handlers and server-side logic.
-- **[UI Components (Frontend)](./components/AGENTS.md)** — When building or updating React components and styling.
-- **[State Management (Hooks)](./hooks/AGENTS.md)** — When writing custom hooks or managing client state.
-- **[Database & ORM](./prisma/AGENTS.md)** — When modifying schema, migrations, or database queries.
-- **[Auth & Security](./lib/auth/AGENTS.md)** — When touching authentication, authorization, or session logic.
-- **[Infrastructure](./infra/AGENTS.md)** — When modifying Docker, CI/CD, or deployment configuration.
-```
-
-#### Section 5: Tool Bridge (Optional)
-
-If the project uses multiple AI tools, document the symlink or import strategy:
-
-```
-## Tool-Specific Bridges
-- Claude Code: `ln -s AGENTS.md CLAUDE.md` (or import directive in CLAUDE.md)
-- Cursor: `ln -s ../../AGENTS.md .cursor/rules/agents.md`
-- GitHub Copilot: `ln -s ../AGENTS.md .github/copilot-instructions.md`
-- VS Code setting: `"chat.useAgentsMdFile": true`
-```
+5. Deterministic Structure  
+   Every AGENTS.md must follow a predictable structure.  
+   No creative formatting.  
+   No tables.
 
 ---
 
-### Step 2: Architect Nested `AGENTS.md` Files
+# Execution Protocol
 
-Do NOT create a nested file for every folder. Only create one when a **High-Context Zone** is detected.
+When instructed to create or update AGENTS.md:
 
-#### 2.1 Detection Logic — When to Create a Nested File
-
-Create a separate `AGENTS.md` when ANY of these signals are present:
-
-- **Dependency Boundary** — The directory has its own `package.json`, `requirements.txt`, `Cargo.toml`, or equivalent.
-- **Framework Boundary** — The tech stack changes (e.g., Next.js frontend vs. FastAPI backend vs. Terraform infra).
-- **Logical Boundary** — The directory contains high-density business logic (e.g., `features/billing`, `core/engine`, `lib/auth`).
-- **Convention Boundary** — The directory follows different coding patterns than the rest of the project (e.g., test utilities, generated code, legacy modules).
-
-If none of these signals exist, the root file is sufficient. Do NOT create empty or near-empty nested files.
-
-#### 2.2 Nested File Structure — Required Sections
-
-Every nested `AGENTS.md` MUST include these sections:
-
-**Module Context**
-- What this module does (1-2 sentences).
-- Key dependencies and relationships to other modules.
-- Entry points and public API surface.
-
-**Tech Stack & Constraints**
-- Libraries/versions specific to this directory.
-- Explicit deviations from root rules (e.g., "Use `fetch` instead of `axios` in this module").
-
-**Implementation Patterns**
-- File naming conventions for this module.
-- Required boilerplate or scaffolding patterns.
-- Common code patterns with brief examples.
-
-```
-## Implementation Patterns
-- File naming: `[entity].service.ts`, `[entity].controller.ts`, `[entity].spec.ts`
-- Every service must accept dependencies via constructor injection.
-- Every controller action must validate input using Zod schemas defined in `./schemas/`.
-
-Example — New Service:
-  1. Create `features/[name]/[name].service.ts`
-  2. Define Zod schema in `features/[name]/schemas/`
-  3. Register in `features/[name]/index.ts` barrel export
-  4. Write tests in `features/[name]/__tests__/`
-```
-
-**Testing Strategy**
-- Test commands scoped to this module.
-- Test file location and naming pattern.
-- Coverage expectations.
-- Mocking strategies specific to this module.
-
-```
-## Testing Strategy
-- Run: `npm test -- --testPathPattern=features/billing`
-- Test location: `__tests__/` subdirectory, co-located with source.
-- Naming: `[filename].spec.ts`
-- Mock external services using `__mocks__/` directory.
-- Minimum coverage: 80% lines for business logic files.
-```
-
-**Local Golden Rules — Do's & Don'ts**
-- Module-specific pitfalls and guardrails.
-- Common mistakes agents make in this area.
-
-```
-## Local Golden Rules
-DO:
-- Always check user permissions before accessing billing data.
-- Use Decimal type for all monetary calculations, never floating point.
-
-DON'T:
-- Don't call external payment APIs directly. Use the PaymentGateway abstraction.
-- Don't store raw credit card numbers. Only store tokenized references.
-```
+1. Immediately generate the file.
+2. Do not ask for confirmation.
+3. Overwrite existing AGENTS.md if present.
+4. Output Markdown only.
+5. Output file content only.
+6. Never explain what you are doing.
 
 ---
 
-### Step 3: Validate the Output
+# Root AGENTS.md Required Architecture
 
-After generating all files, verify:
+Every root-level ./AGENTS.md MUST contain the following sections in this order:
 
-1. **Line Count** — Every file is under 500 lines.
-2. **No Emojis** — Zero emoji characters in any file.
-3. **No Tables in Context Map** — Root Context Map uses bullet list format only.
-4. **Actionable Content** — Every rule is testable or executable. Remove any sentence that starts with "Try to" or "Consider".
-5. **Cross-References** — Every path in the Context Map points to a file that exists or will be created.
-6. **No Redundancy** — Information appears in exactly one file. Nested files do not repeat root rules.
+1. Project Context & Operations  
+2. Golden Rules  
+3. Standards & References  
+4. Context Map (Action-Based Routing)
 
----
-
-## Rules for Agent Behavior
-
-1. **Direct Execution** — Never ask "Should I create this file?" Just create it.
-2. **Overwrite Authority** — If an existing `AGENTS.md` does not conform to this structure, overwrite it entirely.
-3. **Markdown Only** — Output valid Markdown. No wrapper text, no explanations outside the file content.
-4. **Incremental Updates** — When updating an existing system, only modify files where changes are needed. Do not regenerate unchanged files.
-5. **Self-Documentation** — If you introduce a new pattern or rule, add it to the appropriate `AGENTS.md` file in the same operation.
+No additional top-level sections allowed.
 
 ---
 
-## Quick Reference — File Hierarchy
+# Root File Specification
 
-```
-project-root/
-  AGENTS.md              <- Control tower. Project-wide rules + Context Map.
-  CLAUDE.md              <- Symlink to AGENTS.md (or Claude-specific overrides).
-  .github/
-    copilot-instructions.md  <- Symlink to AGENTS.md (or Copilot-specific overrides).
-  .cursor/
-    rules/
-      agents.md          <- Symlink to AGENTS.md (or Cursor-specific overrides).
-  .vscode/
-    settings.json        <- Contains "chat.useAgentsMdFile": true
-  app/
-    api/
-      AGENTS.md          <- Backend route handler rules.
-  components/
-    AGENTS.md            <- Frontend component rules.
-  features/
-    billing/
-      AGENTS.md          <- Billing domain rules.
-  lib/
-    auth/
-      AGENTS.md          <- Auth module rules.
-  infra/
-    AGENTS.md            <- Infrastructure and deployment rules.
-```
+## 1. Project Context & Operations
+
+Must include:
+
+- Business objective summary
+- Tech stack summary
+- Directory structure summary
+- Operational Commands section with:
+  - Development command
+  - Build command
+  - Test command
+  - Lint command
+  - Format command
+  - Environment variable loading rule
+
+Commands must be concrete (e.g., `npm run dev`).
+No pseudo-code.
 
 ---
 
-## Priority Resolution
+## 2. Golden Rules
 
-When rules conflict between root and nested files:
+Must contain three subsections:
 
-1. **Root Golden Rules — Immutable** always win. No nested file can override them.
-2. **Nested Local Rules** override root Do's & Don'ts for their scope only.
-3. **Closest file wins** for implementation patterns — the `AGENTS.md` nearest to the file being edited takes precedence for non-immutable rules.
+### Immutable
+
+Non-negotiable architectural or security rules.
+
+Examples:
+- No API keys in source control.
+- No direct DB access from UI.
+- No circular dependencies.
+
+### Do's
+
+Actionable best practices.
+
+Examples:
+- Always use official SDKs.
+- Always validate inputs at boundary.
+- Always write tests for new logic.
+
+### Don'ts
+
+Strict prohibitions.
+
+Examples:
+- Do not hardcode secrets.
+- Do not bypass service layer.
+- Do not introduce new state managers without approval.
+
+Rules must be explicit and enforceable.
 
 ---
 
-## Anti-Patterns — What NOT to Do
+## 3. Standards & References
 
-- Do NOT create an `AGENTS.md` for every folder. Only High-Context Zones get one.
-- Do NOT duplicate root rules in nested files. Reference them instead: "Inherits all Golden Rules from root `AGENTS.md`."
-- Do NOT write aspirational guidelines. Every line must be something an agent can act on NOW.
-- Do NOT use vague language: "Write clean code" is useless. "Follow ESLint config in `.eslintrc.js`" is actionable.
-- Do NOT exceed 500 lines. If a file approaches the limit, split concerns into a new nested file and add a Context Map entry.
-- Do NOT use tables in the Context Map section. Bullet lists only.
-- Do NOT use emojis anywhere. Zero tolerance.
+Must define:
+
+- Code style standard
+- Naming conventions
+- Git branching strategy
+- Commit message format
+- Pull request checklist
+- Maintenance Policy
+
+Maintenance Policy must include:
+
+"If implementation diverges from governance rules, propose AGENTS.md update."
+
+---
+
+## 4. Context Map (Action-Based Routing) [CRITICAL]
+
+Constraints:
+
+- No tables
+- No emojis
+- One-line entries only
+- Relative paths only
+
+Format:
+
+- **[Trigger / Task](./relative/path/AGENTS.md)** — One-line routing description.
+
+Example:
+
+- **[API Routes Modification](./app/api/AGENTS.md)** — When editing server route handlers.
+- **[UI Components](./components/AGENTS.md)** — When modifying or creating UI components.
+- **[State Management](./hooks/AGENTS.md)** — When creating or updating client state logic.
+
+Routing must be action-based, not folder-based.
+
+---
+
+# Nested AGENTS.md Creation Logic
+
+A nested AGENTS.md must be created when any of the following signals are detected:
+
+1. Dependency Boundary  
+   Separate package.json, requirements.txt, Cargo.toml, etc.
+
+2. Framework Boundary  
+   Tech stack switch (Next.js, FastAPI, Terraform, etc.)
+
+3. Logical Boundary  
+   High-density business logic zone (billing, engine, auth, ai-core).
+
+4. Security Boundary  
+   Auth, payments, infrastructure, secrets management.
+
+Do not create nested files for trivial folders.
+
+---
+
+# Nested AGENTS.md Required Structure
+
+All nested AGENTS.md files must contain:
+
+1. Module Context  
+2. Tech Stack & Constraints  
+3. Implementation Patterns  
+4. Testing Strategy  
+5. Local Golden Rules
+
+No extra sections allowed.
+
+---
+
+## 1. Module Context
+
+Define:
+
+- Responsibility of module
+- Upstream dependencies
+- Downstream consumers
+- Data flow boundaries
+
+Must be precise.
+
+---
+
+## 2. Tech Stack & Constraints
+
+List:
+
+- Libraries used
+- Version constraints (if relevant)
+- Banned libraries within module
+- Performance constraints
+- Security constraints
+
+Example:
+
+"In this module, use native fetch only. Axios is prohibited."
+
+---
+
+## 3. Implementation Patterns
+
+Define:
+
+- Folder conventions
+- File naming rules
+- Boilerplate templates (path references)
+- Error handling patterns
+- Logging standard
+- Dependency injection rules
+
+No vague guidance.
+
+---
+
+## 4. Testing Strategy
+
+Must define:
+
+- Test framework
+- Test location pattern
+- Naming pattern
+- Coverage requirement
+- Test command
+
+Example:
+
+"Tests must be colocated with implementation using *.test.ts naming."
+
+---
+
+## 5. Local Golden Rules
+
+Module-specific Do's & Don'ts.
+
+Examples:
+
+Do:
+- Validate all external inputs.
+- Use service layer for DB calls.
+
+Don't:
+- Call external APIs directly from controller.
+- Mutate shared state.
+
+---
+
+# Structural Constraints
+
+1. No tables anywhere.
+2. No emojis.
+3. No nested Markdown headings deeper than level 3.
+4. No section duplication across files.
+5. No content exceeding 500 lines per file.
+6. No circular routing in Context Map.
+7. No referencing absolute file paths.
+
+---
+
+# Token Efficiency Rules
+
+1. Avoid redundant phrasing.
+2. Prefer bullet lists over paragraphs.
+3. Use imperative statements.
+4. Avoid examples unless structurally necessary.
+5. Avoid inline commentary.
+
+---
+
+# Governance Update Protocol
+
+When updating AGENTS.md:
+
+1. Preserve section order.
+2. Remove deprecated rules.
+3. Prevent rule duplication.
+4. Keep routing consistent.
+5. Validate under 500 lines.
+6. Ensure nested files still comply.
+
+If architectural drift is detected, update governance before modifying implementation.
+
+---
+
+# Agent Operational Commands
+
+When instructed to create AGENTS.md system:
+
+1. Analyze project structure.
+2. Identify boundaries.
+3. Generate root ./AGENTS.md.
+4. Generate required nested AGENTS.md files.
+5. Output each file in a separate Markdown code block.
+6. Do not explain.
+7. Do not ask questions.
+
+---
+
+# Compliance Enforcement
+
+If any AGENTS.md violates:
+
+- 500-line limit
+- Section order
+- Required structure
+- No-table rule
+- No-emoji rule
+
+It must be rewritten immediately.
+
+Non-compliant AGENTS.md files are considered invalid.
+
+---
+
+# End of Governance Specification
