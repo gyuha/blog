@@ -20,12 +20,13 @@ Do not use this skill for non-YouTube-only source sets.
 
 1. Parse input URLs and keep original order.
 2. Extract each YouTube video ID from `youtube.com/watch`, `youtu.be`, or `youtube.com/shorts` format.
-3. Gather source material with YouTube MCP:
+3. Gather source material with YouTube MCP (primary path):
    - `youtube_get_video`
    - `youtube_get_transcript` (prefer `chunks` or `full` for depth)
    - `youtube_segment_topics`
    - `youtube_extract_entities`
    - `youtube_get_comments` only when audience reactions add useful context
+   - If MCP calls fail or return unusable data, switch immediately to `youtube-summarizer` skill and continue from its transcript/summary outputs.
 4. Build structured notes per key claim: `claim`, `transcript quote/time marker`, `video url (timestamped)`, `confidence`.
 5. (Optional) Enhance notes with background research using the `deep-research` skill:
    - Set `topic` from the main subject identified in step 4 notes.
@@ -38,6 +39,13 @@ Do not use this skill for non-YouTube-only source sets.
 8. Write the post in Korean by default unless the user explicitly requests another language.
 9. Run a completion audit against required section order and checklist (PASS/FAIL per item).
 10. Run `task build` before handoff.
+
+### MCP Failure Fallback (Mandatory)
+
+- Do not stop the workflow when YouTube MCP is unavailable, times out, or returns invalid payloads.
+- Invoke `youtube-summarizer` as the fallback source pipeline and continue writing with the same evidence and quality gates.
+- Treat fallback output as source evidence: keep claim-to-evidence mapping and timestamped YouTube links when timestamps are available.
+- If fallback cannot provide a reliable timestamp for a claim, mark uncertainty explicitly instead of fabricating a timestamp.
 
 ## Anti-Truncation Execution Rules
 
@@ -109,7 +117,7 @@ Body requirements:
 1. Confirm file path follows `content/post/YYYY/YYYY-MM-DD-slug.md`.
 2. Confirm exactly one new post file was created for this request (unless user explicitly asked split output).
 3. Confirm frontmatter includes `title`, `date`, `draft: false`, `categories`, `tags`, `description`.
-4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections -> 실전 적용 포인트 -> 결론.
+4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections -> 핵심 요약 -> 결론.
 5. Confirm `Sources` includes all input URLs in original order.
 6. Confirm Mermaid diagrams appear in every major technical section where a diagram is applicable (no minimum or maximum — presence is judged by whether a diagram would aid comprehension).
 7. Confirm core sections explain key claims with full concrete detail, not only high-level summaries. No notable topic from the transcript should be omitted or superficially covered.

@@ -100,7 +100,7 @@ Body requirements:
   2) `<!--more-->`
   3) Sources
   4) Topic Sections
-  5) 핵심 내용
+  5) 핵심 요약
   6) 결론
 - Organize topic sections by synthesis, not by copy-paste excerpts.
 - Prioritize precise, exhaustive explanation of mechanisms, assumptions, and trade-offs. Do not compress or abbreviate technical content.
@@ -111,7 +111,7 @@ Body requirements:
 - Add Mermaid diagrams to every major technical section where structure, flow, architecture, timeline, or comparison can be visualized — no upper or lower limit; use as many as clarity demands.
 - Prefer multiple focused Mermaid diagrams over one oversized diagram.
 - Never skip a Mermaid opportunity to save space; diagram coverage is a quality signal.
-- Include a `핵심 내용` section and a short `결론` section.
+- Include a `핵심 요약` section and a short `결론` section.
 
 ## Accuracy and Safety Rules
 
@@ -139,7 +139,7 @@ Body requirements:
 1. Confirm path format is `content/post/YYYY/YYYY-MM-DD-slug.md`.
 2. Confirm exactly one new post file was created for this request (unless user explicitly asked split output).
 3. Confirm frontmatter has `title`, `date`, `draft: false`, `categories`, `tags`, `description`.
-4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> 실전 적용 포인트 -> 결론.
+4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections -> 핵심 요약 -> 결론.
 5. Confirm `Sources` includes all input URLs in original order.
 6. Confirm Mermaid diagrams appear in every major technical section where a diagram is applicable (no minimum or maximum — presence is judged by whether a diagram would aid comprehension).
 7. Confirm core sections explain key claims with full concrete detail, not only high-level summaries. No notable topic from the source material should be omitted or superficially covered.
