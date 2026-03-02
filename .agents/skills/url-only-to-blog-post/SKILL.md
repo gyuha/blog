@@ -103,12 +103,15 @@ Body requirements:
   5) 핵심 내용
   6) 결론
 - Organize topic sections by synthesis, not by copy-paste excerpts.
-- Prioritize precise explanation of mechanisms, assumptions, and trade-offs over short summary-style writing.
-- For key concepts and architecture decisions, explain `what`, `why`, and `how` concretely.
+- Prioritize precise, exhaustive explanation of mechanisms, assumptions, and trade-offs. Do not compress or abbreviate technical content.
+- For key concepts and architecture decisions, explain `what`, `why`, and `how` concretely with as much detail as the sources support.
+- Do not impose any length limit on individual sections — write until the topic is fully and faithfully explained.
+- Cover every noteworthy point present in the source material; omission of covered content is a quality failure.
 - Use Mermaid diagrams aggressively in technical sections.
-- Require Mermaid in at least 2 major technical sections.
-- Prefer multiple small diagrams over one oversized diagram.
-- Include a `실전 적용 포인트` section and a short `결론` section.
+- Add Mermaid diagrams to every major technical section where structure, flow, architecture, timeline, or comparison can be visualized — no upper or lower limit; use as many as clarity demands.
+- Prefer multiple focused Mermaid diagrams over one oversized diagram.
+- Never skip a Mermaid opportunity to save space; diagram coverage is a quality signal.
+- Include a `핵심 내용` section and a short `결론` section.
 
 ## Accuracy and Safety Rules
 
@@ -138,8 +141,8 @@ Body requirements:
 3. Confirm frontmatter has `title`, `date`, `draft: false`, `categories`, `tags`, `description`.
 4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> 실전 적용 포인트 -> 결론.
 5. Confirm `Sources` includes all input URLs in original order.
-6. Confirm Mermaid diagrams appear in at least 2 major technical sections.
-7. Confirm core sections explain key claims with concrete detail, not only high-level summaries.
+6. Confirm Mermaid diagrams appear in every major technical section where a diagram is applicable (no minimum or maximum — presence is judged by whether a diagram would aid comprehension).
+7. Confirm core sections explain key claims with full concrete detail, not only high-level summaries. No notable topic from the source material should be omitted or superficially covered.
 8. Confirm every non-trivial factual paragraph maps to evidence notes.
 9. Confirm each URL notes extraction method (`http` or `browser`) and fallback reason when browser mode was used.
 10. Run `task build` and verify success.

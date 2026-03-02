@@ -76,15 +76,18 @@ Body requirements:
   1) Intro
   2) `<!--more-->`
   3) Sources
-  4) Topic Sections (at least 3, based on transcript/topic segmentation)
-  5) 실전 적용 포인트
+  4) Topic Sections (based on transcript/topic segmentation)
+  5) 핵심 요약
   6) 결론
-- Prioritize precise explanation of mechanisms, assumptions, and trade-offs over short summary-style writing.
-- For key technical points, explain `what`, `why`, and `how` concretely.
+- Prioritize precise, exhaustive explanation of mechanisms, assumptions, and trade-offs. Do not compress or abbreviate technical content.
+- For key technical points, explain `what`, `why`, and `how` concretely with as much detail as the transcript supports.
+- Do not impose any length limit on individual sections — write until the topic is fully and faithfully explained.
+- Cover every noteworthy point mentioned in the transcript; omission of covered content is a quality failure.
 - Use Mermaid diagrams aggressively for flows, architecture, timelines, and comparisons.
-- Require Mermaid in at least 2 major technical sections.
-- Prefer multiple small Mermaid diagrams over one oversized diagram.
-- Add a `실전 적용 포인트` section and a short `결론` section.
+- Add Mermaid diagrams to every major technical section where structure, flow, architecture, timeline, or comparison can be visualized — no upper or lower limit; use as many as clarity demands.
+- Prefer multiple focused Mermaid diagrams over one oversized diagram.
+- Never skip a Mermaid opportunity to save space; diagram coverage is a quality signal.
+- Add a `핵심 요약` section and a short `결론` section.
 
 ## Synthesis Rules
 
@@ -106,10 +109,10 @@ Body requirements:
 1. Confirm file path follows `content/post/YYYY/YYYY-MM-DD-slug.md`.
 2. Confirm exactly one new post file was created for this request (unless user explicitly asked split output).
 3. Confirm frontmatter includes `title`, `date`, `draft: false`, `categories`, `tags`, `description`.
-4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections(>=3) -> 실전 적용 포인트 -> 결론.
+4. Confirm section order is exactly: Intro -> `<!--more-->` -> Sources -> Topic Sections -> 실전 적용 포인트 -> 결론.
 5. Confirm `Sources` includes all input URLs in original order.
-6. Confirm Mermaid diagrams appear in at least 2 major technical sections.
-7. Confirm core sections explain key claims with concrete detail, not only high-level summaries.
+6. Confirm Mermaid diagrams appear in every major technical section where a diagram is applicable (no minimum or maximum — presence is judged by whether a diagram would aid comprehension).
+7. Confirm core sections explain key claims with full concrete detail, not only high-level summaries. No notable topic from the transcript should be omitted or superficially covered.
 8. Confirm every non-trivial factual paragraph maps to evidence notes.
 9. Confirm all `video url` values in evidence notes are timestamped YouTube links (for example `https://youtu.be/<id>?t=299`).
 10. Run `task build` and verify success.
