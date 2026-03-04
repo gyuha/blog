@@ -334,8 +334,9 @@ flowchart TD
 대상별로 추천되는 학습 경로를 정리합니다:
 
 ```mermaid
-flowchart TD
+flowchart LR
     subgraph 개발자
+        direction LR
         D1[Claude 101] --> D2[Claude Code in Action]
         D2 --> D3[Building with Claude API]
         D3 --> D4[Intro to MCP]
@@ -344,17 +345,20 @@ flowchart TD
     end
 
     subgraph 교육자
+        direction LR
         E1[Claude 101] --> E2[AI Fluency: Foundations]
         E2 --> E3[AI Fluency for Educators]
         E3 --> E4[Teaching AI Fluency]
     end
 
     subgraph 학생
+        direction LR
         S1[Claude 101] --> S2[AI Fluency: Foundations]
         S2 --> S3[AI Fluency for Students]
     end
 
     subgraph 클라우드_엔지니어
+        direction LR
         C1[Claude 101] --> C2[Building with Claude API]
         C2 --> C3A[Claude with Bedrock]
         C2 --> C3B[Claude with Vertex AI]
