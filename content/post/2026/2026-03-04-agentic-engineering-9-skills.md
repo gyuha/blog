@@ -115,7 +115,7 @@ mindmap
 
 에이전트에게 "회원가입 기능 만들어줘"라고 하면 뭔가 나오긴 나온다. 문제는 그게 내가 원하던 게 아닐 확률이 높다는 거다. 이메일 인증은 빠져 있고, 비밀번호 규칙은 내 기준과 다르고, UI는 상상도 못한 방향으로 가 있다.
 
-에이전트에게 일을 시키는 건 결국 **"무엇을 만들지"를 정하는 일**이다. 고객이 뭘 원하는지, 유저가 뭘 필요로 하는지, 우선순위가 뭔지 — 이건 내가 정확히 해야 한다. 에이전트가 대신해줄 수 없는 영역이다.
+에이전트에게 일을 시키는 건 결국 "**무엇을 만들지**"를 정하는 일이다. 고객이 뭘 원하는지, 유저가 뭘 필요로 하는지, 우선순위가 뭔지 — 이건 내가 정확히 해야 한다. 에이전트가 대신해줄 수 없는 영역이다.
 
 > "The key is to develop the intuition to decompose tasks appropriately, delegating to agents where they work well and providing human help where needed."
 >
@@ -242,7 +242,7 @@ flowchart LR
 
 ### 에이전트 친화적 코드베이스라는 발상
 
-Flask의 창시자 Armin Ronacher가 흥미로운 관점을 제시했다. 에이전트와의 협업에서 **프로그래밍 언어 선택** 자체가 컨텍스트 설계의 일부라고 말한다. 그의 결론은 예상 밖이었다 — **Go가 에이전트 친화적 언어**라는 거다.
+Flask의 창시자 Armin Ronacher가 흥미로운 관점을 제시했다. 에이전트와의 협업에서 **프로그래밍 언어 선택** 자체가 컨텍스트 설계의 일부라고 말한다. 그의 결론은 예상 밖이었다 — **Go가 에이전트 친화적 언어** 라는 거다.
 
 > "Go is sloppy: Rob Pike famously described Go as suitable for developers who aren't equipped to handle a complex language. Substitute 'developers' with 'agents.'"
 >

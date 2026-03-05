@@ -17,6 +17,7 @@ description: "토스페이먼츠의 'Harness' 개념을 통해 LLM 팀의 생산
 당신의 팀은 같은 LLM을 쓰고 있나요?
 
 "현재 많은 개발팀이 LLM을 도입하고 있지만, 냉정하게 들여다보면 그것은 '각자도생'에 가깝습니다."
+<!--more-->
 
 같은 모델, 같은 IDE를 쓰는데도 결과물의 차이는 극심합니다. 어떤 엔지니어는 **컨텍스트 엔지니어링**에 대한 높은 이해도로 LLM에게 정확한 역할을 부여해 10분 만에 복잡한 리팩토링을 끝냅니다. 반면, 어떤 엔지니어는 단순한 질문과 답변을 반복하며 할루시네이션과 씨름하느라 1시간을 허비하죠.
 
@@ -218,6 +219,10 @@ sequenceDiagram
     participant H as Hook Plugin
     participant G as Git
 
+    rect rgb(225, 245, 254)
+        note right of H: Hook Plugin
+    end
+
     D->>C: 커밋 요청
     C->>G: git commit 시도
     H->>H: 현재 브랜치 감지
@@ -225,8 +230,6 @@ sequenceDiagram
     C->>D: feature/ 브랜치 생성 제안
     D->>C: 승인
     C->>G: feature/ 브랜치 생성 및 커밋
-
-    style H fill:#e1f5fe
 ```
 
 ### Scenario 2: 피처 개발 자동화
