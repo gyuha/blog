@@ -8,11 +8,12 @@ description: "Claude Code 초보자 99%가 모르는 statusline 기능으로 대
 original_url: https://www.threads.com/@devdesign.kr/post/DVcgrtPkhxq
 ---
 
+
+
 ![Claude Code Statusline 스크린샷](/assets/images/threads/2026-03-04-claude-code-statusline.jpg)
 
-## 문제 상황
-
 Claude Code 를 사용하다 보면 대화가 길어질수록 **컨텍스트** 가 차오릅니다. 이 컨텍스트가 가득 차면 응답 품질이 눈에 띄게 떨어지는데, 많은 사용자가 적절한 타이밍에 새 세션을 열거나 `/clear` 를 해주어야 한다는 것을 알면서도 정확히 언제 해야 할지 감을 잡지 못합니다.
+<!--more-->
 
 ## 해결책: Statusline
 
@@ -23,7 +24,7 @@ flowchart LR
     A[대화 시작] --> B[컨텍스트 사용]
     B --> C{Statusline 확인}
     C -->|여유 있음| B
-    C -->|임계치 도달| D[/clear 또는 새 세션]
+    C -->|임계치 도달| D["/clear 또는 새 세션"]
     D --> A
 ```
 
