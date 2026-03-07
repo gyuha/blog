@@ -98,16 +98,19 @@ sequenceDiagram
 이 모든 것을 직접 구축하면 **시간과 비용이 많이 들고 유지보수가 어렵습니다**. 반면 NotebookLM은 이 모든 기능을 무료로 제공합니다 ([t=180](https://youtu.be/usTeU4Uh0iM?t=180)).
 
 ```mermaid
-flowchart TD
+flowchart LR
+    subgraph 새로운방식["Claude Code + NotebookLM"]
+        direction LR
+        A2["Claude Code"] --> B2["NotebookLM"]
+        B2 --> C2["🆓 무료 + 간단한 설정"]
+    end
+
     subgraph 기존방식["기존: 직접 구축"]
+        direction LR
         A1["스크래핑 시스템"] --> B1["RAG 구축"]
         B1 --> C1["분석 엔진"]
         C1 --> D1["시각화 도구"]
         D1 --> E1["💰 높은 비용 + 복잡한 유지보수"]
-    end
-    subgraph 새로운방식["Claude Code + NotebookLM"]
-        A2["Claude Code"] --> B2["NotebookLM"]
-        B2 --> C2["🆓 무료 + 간단한 설정"]
     end
 
     classDef old fill:#D96B6B,stroke:#B45252,color:#fff
