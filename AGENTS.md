@@ -146,6 +146,7 @@ Required guidance:
 11. If Mermaid node labels or edge labels include special characters (for example `/`, `@`, `:`, `#`), wrap the label text in double quotes to avoid parser errors.
 12. For `sequenceDiagram`, use double quotes only when needed (for example when labels/messages contain special characters that may break parsing), and keep plain labels unquoted by default.
 13. In Mermaid labels, do not use `\n` for line breaks; use HTML `<br>` instead.
+14. When a section requires two or more comparison diagrams (for example before/after, option A vs option B, old vs new architecture), stack them **vertically** (one diagram per code block, listed top-to-bottom) instead of placing them side by side. Side-by-side layout overflows on narrow screens and is difficult to read in the blog's single-column content area.
 - Practical expectation: for technical posts, include Mermaid frequently; if a section can be clearer with a chart, add one.
 
 ## URL-Only Auto-Post Delegation Rule
