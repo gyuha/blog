@@ -452,11 +452,13 @@ flowchart LR
     end
 
     subgraph Init["초기화"]
+        direction LR
         CD["cd /path/to/project"]
-        INIT["uipro init --ai <platform>"]
+        INIT["uipro init --ai (platform)"]
     end
 
     subgraph Platforms["지원 플랫폼"]
+        direction LR
         P1["claude"]
         P2["cursor"]
         P3["windsurf"]
@@ -616,7 +618,7 @@ design-system/
 
 ```mermaid
 flowchart TD
-    Start["특정 페이지 빌드 시작"] --> Check{"design-system/pages/<br/><page-name>.md 존재?"}
+    Start["특정 페이지 빌드 시작"] --> Check{"design-system/pages/(page-name).md 존재?"}
     Check -->|Yes| UsePage["페이지 파일 규칙 사용<br/>(Master 오버라이드)"]
     Check -->|No| UseMaster["MASTER.md 규칙만 사용"]
     UsePage --> Build["코드 생성"]
