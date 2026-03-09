@@ -38,7 +38,7 @@ description: "Elasticsearch, Pinecone, Redis, MongoDB, Kafka, InfluxDB를 Postgr
 ```mermaid
 flowchart TD
     subgraph House["🏠 PostgreSQL — 하나의 집"]
-        direction TB
+        direction LR
         A["🔍 검색<br>pg_textsearch"]
         B["🧠 벡터<br>pgvector + pgvectorscale"]
         C["⏱️ 시계열<br>TimescaleDB"]
@@ -49,8 +49,8 @@ flowchart TD
         H["⏰ 스케줄러<br>pg_cron"]
     end
 
-    classDef house fill:#336791,color:#fff,stroke:#fff
-    classDef room fill:#4a90d9,color:#fff,stroke:#336791
+    classDef house fill:#c5dcef,color:#333,stroke:#6a9fc0
+    classDef room fill:#d5e8f8,color:#333,stroke:#c5dcef
     class House house
     class A,B,C,D,E,F,G,H room
 ```
@@ -99,10 +99,10 @@ flowchart
 
     Sprawl --> Ops
 
-    classDef db fill:#e74c3c,color:#fff,stroke:#c0392b
-    classDef ops fill:#f39c12,color:#fff,stroke:#e67e22
+    classDef db fill:#ffc8c4,color:#333,stroke:#ef9a9a
+    classDef ops fill:#fde8c0,color:#333,stroke:#fddcb8
     class ES,PC,RD,MG,KF,IF db
-    class PG fill:#336791,color:#fff,stroke:#2c5f7c
+    class PG fill:#c5dcef,color:#333,stroke:#b0cfe0
     class O1,O2,O3,O4,O5 ops
 ```
 
@@ -147,8 +147,8 @@ flowchart LR
         B6 --> B7["7개 서비스 정리"]
     end
 
-    classDef good fill:#27ae60,color:#fff,stroke:#1e8449
-    classDef bad fill:#e74c3c,color:#fff,stroke:#c0392b
+    classDef good fill:#c0ecd3,color:#333,stroke:#90dbb0
+    classDef bad fill:#ffc8c4,color:#333,stroke:#ef9a9a
     class A1,A2,A3 good
     class B1,B2,B3,B4,B5,B6,B7 bad
 ```
@@ -215,9 +215,9 @@ flowchart LR
     D --- MG2
     D --- JB
 
-    classDef algo fill:#9b59b6,color:#fff,stroke:#8e44ad
-    classDef special fill:#e74c3c,color:#fff,stroke:#c0392b
-    classDef pg fill:#27ae60,color:#fff,stroke:#1e8449
+    classDef algo fill:#e0c8ef,color:#333,stroke:#d4aee8
+    classDef special fill:#ffc8c4,color:#333,stroke:#ef9a9a
+    classDef pg fill:#c0ecd3,color:#333,stroke:#90dbb0
     class A,B,C,D algo
     class ES2,PC2,IF2,MG2 special
     class PT,PV,TS,JB pg
@@ -262,9 +262,9 @@ flowchart LR
         R --> D["연간 다운타임<br><b>26시간</b><br>(단일 시스템: 8.7시간)"]
     end
 
-    classDef sys fill:#3498db,color:#fff,stroke:#2980b9
-    classDef result fill:#e74c3c,color:#fff,stroke:#c0392b
-    classDef down fill:#c0392b,color:#fff,stroke:#922b21
+    classDef sys fill:#c8dff8,color:#333,stroke:#90c4e8
+    classDef result fill:#ffc8c4,color:#333,stroke:#ef9a9a
+    classDef down fill:#ffb8b4,color:#333,stroke:#ef9a9a
     class S1,S2,S3 sys
     class R result
     class D down
@@ -334,10 +334,10 @@ flowchart LR
         PG2["PostgreSQL<br>+ pgvector<br>+ pg_textsearch<br>+ pgai"] --> APP2["RAG 앱"]
     end
 
-    classDef old fill:#e74c3c,color:#fff,stroke:#c0392b
-    classDef glue fill:#f39c12,color:#fff,stroke:#e67e22
-    classDef new fill:#27ae60,color:#fff,stroke:#1e8449
-    classDef app fill:#3498db,color:#fff,stroke:#2980b9
+    classDef old fill:#ffc8c4,color:#333,stroke:#ef9a9a
+    classDef glue fill:#fde8c0,color:#333,stroke:#fddcb8
+    classDef new fill:#c0ecd3,color:#333,stroke:#90dbb0
+    classDef app fill:#c8dff8,color:#333,stroke:#90c4e8
     class P1,PC3,ES3 old
     class GL glue
     class PG2 new
@@ -740,12 +740,12 @@ flowchart TD
     PG --> Data
     PG --> Ops
 
-    classDef core fill:#336791,color:#fff,stroke:#2c5f7c
-    classDef search fill:#e67e22,color:#fff,stroke:#d35400
-    classDef ai fill:#9b59b6,color:#fff,stroke:#8e44ad
-    classDef ts fill:#27ae60,color:#fff,stroke:#1e8449
-    classDef data fill:#3498db,color:#fff,stroke:#2980b9
-    classDef ops fill:#f39c12,color:#fff,stroke:#e67e22
+    classDef core fill:#c5dcef,color:#333,stroke:#b0cfe0
+    classDef search fill:#fddcb8,color:#333,stroke:#e8b888
+    classDef ai fill:#e0c8ef,color:#333,stroke:#d4aee8
+    classDef ts fill:#c0ecd3,color:#333,stroke:#90dbb0
+    classDef data fill:#c8dff8,color:#333,stroke:#90c4e8
+    classDef ops fill:#fde8c0,color:#333,stroke:#fddcb8
     class PG core
     class FTS,TRG search
     class VEC,VCS,PAI ai

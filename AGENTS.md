@@ -141,7 +141,7 @@ Required guidance:
 6. Use color actively in Mermaid flowcharts to improve grouping and emphasis; do not leave all nodes in default style when color can improve clarity.
 7. Prefer semantic color grouping by role (for example: input, processing, validation, output) and keep one consistent palette within a diagram.
 8. Use Mermaid styling primitives (`classDef`, `class`, `style`, and link styling when needed) to apply node and path colors explicitly.
-9. Maintain readability and accessibility: keep strong contrast between text and fill colors, and avoid overly saturated combinations that reduce legibility.
+9. Maintain readability and accessibility: use **pastel / light fill colors** for node backgrounds (for example `#c5dcef`, `#c0ecd3`, `#ffc8c4`, `#fde8c0`, `#e0c8ef`) and set text color to `#333` (not `#fff`) so labels remain legible on light backgrounds. Avoid deeply saturated fills that make text hard to read.
 10. When applying color, keep visual noise low: limit palette size and use color intentionally for structure, not decoration.
 11. If Mermaid node labels or edge labels include special characters (for example `/`, `@`, `:`, `#`), wrap the label text in double quotes to avoid parser errors.
 12. For `sequenceDiagram`, use double quotes only when needed (for example when labels/messages contain special characters that may break parsing), and keep plain labels unquoted by default.
