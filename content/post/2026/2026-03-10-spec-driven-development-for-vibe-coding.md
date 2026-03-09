@@ -1,6 +1,6 @@
 ---
 title: "Vibe Coding 시대의 스펙 주도 개발: AI 코딩을 감각이 아니라 명세로 통제하는 방법"
-date: 2026-03-10T06:55:00+09:00
+date: 2026-03-10T00:00:00+09:00
 draft: false
 categories:
   - AI
