@@ -138,7 +138,7 @@ Auto memory는 사용자가 직접 작성하는 파일이 아니라 Claude가 �
 
 ```mermaid
 flowchart TD
-    A["~/.claude/projects/<project>/memory/"] --> B["MEMORY.md<br>진입점 인덱스"]
+    A["~/.claude/projects/{project}/memory/"] --> B["MEMORY.md<br>진입점 인덱스"]
     A --> C["debugging.md"]
     A --> D["api-conventions.md"]
     A --> E["기타 토픽 파일"]
