@@ -28,7 +28,9 @@ Do not use this skill when the user asks for non-post tasks (for example, code c
    - Non-YouTube URL: fetch source text using `webfetch`, `google_search`, or equivalent reliable tools.
    - If non-YouTube fetch does not produce usable source text (empty body, JS-only shell, access block, or repeated failures), delegate to `agent-browser` for browser automation extraction.
    - Use this browser fallback sequence: `agent-browser open <url>` -> `agent-browser wait --load networkidle` -> `agent-browser snapshot -i` -> `agent-browser get text body`.
-   - Record extraction method per URL as `http` or `browser` in evidence notes.
+   - If `agent-browser` also fails (extension not connected, browser not started, or extraction error), fall back to `playwright-cli` for headless browser extraction.
+   - Use this playwright-cli fallback sequence: `playwright-cli open <url>` -> wait for page load -> `playwright-cli eval "document.body.innerText"` -> `playwright-cli close`.
+   - Record extraction method per URL as `http`, `browser`, or `playwright` in evidence notes.
 5. Build structured notes per claim: `claim`, `evidence quote`, `url`, `confidence`.
 6. Research and cross-check key claims across sources.
 7. (Optional) Enhance notes with background research using the `deep-research` skill:
@@ -144,7 +146,7 @@ Body requirements:
 6. Confirm Mermaid diagrams appear in every major technical section where a diagram is applicable (no minimum or maximum — presence is judged by whether a diagram would aid comprehension).
 7. Confirm core sections explain key claims with full concrete detail, not only high-level summaries. No notable topic from the source material should be omitted or superficially covered.
 8. Confirm every non-trivial factual paragraph maps to evidence notes.
-9. Confirm each URL notes extraction method (`http` or `browser`) and fallback reason when browser mode was used.
+9. Confirm each URL notes extraction method (`http`, `browser`, or `playwright`) and fallback reason when browser/playwright mode was used.
 10. Run `task build` and verify success.
 
 Checklist enforcement:
