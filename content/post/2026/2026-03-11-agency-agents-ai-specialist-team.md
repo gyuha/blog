@@ -57,24 +57,40 @@ flowchart TD
 AI 코딩 어시스턴트를 사용할 때 흔히 "개발자처럼 행동해" 같은 일반적인 프롬프트를 작성한다. 하지만 이런 범용 프롬프트는 **도메인 깊이가 부족** 하고, 일관된 품질을 보장하지 못한다. Agency Agents는 이 문제에 대한 근본적인 해법을 제시한다.
 
 ```mermaid
-flowchart TD
-    A["일반 프롬프트<br>'개발자처럼 행동해'"]
-    B["전문 에이전트 시스템<br>Agency Agents"]
+flowchart LR
+    TitleBad["일반 프롬프트<br>'개발자처럼 행동해'"]
+    TitleGood["전문 에이전트 시스템<br>Agency Agents"]
 
-    A --> A1["도메인 전문성 부족"]
-    A --> A2["일관성 없는 출력"]
-    A --> A3["측정 불가능한 품질"]
-    A --> A4["워크플로우 없음"]
+    subgraph BadGroup[" "]
+        A["도메인 전문성 부족"]
+        B["일관성 없는 출력"]
+        C["측정 불가능한 품질"]
+        D["워크플로우 없음"]
+    end
 
-    B --> B1["깊은 도메인 전문성"]
-    B --> B2["고유 성격과 커뮤니케이션 스타일"]
-    B --> B3["측정 가능한 성공 지표"]
-    B --> B4["검증된 워크플로우"]
+    subgraph GoodGroup[" "]
+        E["깊은 도메인 전문성"]
+        F["고유 성격과 커뮤니케이션 스타일"]
+        G["측정 가능한 성공 지표"]
+        H["검증된 워크플로우"]
+    end
 
+    TitleBad --> A
+    TitleBad --> B
+    TitleBad --> C
+    TitleBad --> D
+
+    TitleGood --> E
+    TitleGood --> F
+    TitleGood --> G
+    TitleGood --> H
+
+    classDef title fill:#fff,stroke:none,color:#333,font-size:14px
     classDef bad fill:#ffc8c4,stroke:#d44,color:#333
     classDef good fill:#c0ecd3,stroke:#3a3,color:#333
-    class A,A1,A2,A3,A4 bad
-    class B,B1,B2,B3,B4 good
+    class TitleBad,TitleGood title
+    class A,B,C,D bad
+    class E,F,G,H good
 ```
 
 Agency Agents의 핵심 차별점은 다음 네 가지 설계 원칙에 있다:
@@ -108,7 +124,7 @@ Agency Agents는 `msitarzewski/agency-agents` GitHub 저장소로 관리되며, 
 Agency Agents의 가장 두드러지는 특징은 실제 에이전시 조직처럼 **디비전(부서) 단위** 로 에이전트를 구성한다는 점이다. 각 디비전은 명확한 역할 경계를 가지며, 실제 프로젝트에서 팀을 조립하듯 필요한 에이전트를 골라 쓸 수 있다.
 
 ```mermaid
-flowchart TD
+flowchart LR
     Agency["Agency Agents<br>112+ 전문 에이전트"]
 
     Agency --> Eng["Engineering<br>8 에이전트"]
@@ -174,7 +190,7 @@ UI/UX 전문가 7명이 포진해 있다. 특히 **Whimsy Injector** 는 마이�
 가장 세분화된 디비전으로, 엔진별로 특화된 에이전트를 제공한다:
 
 ```mermaid
-flowchart TD
+flowchart LR
     GD["Game Development Division"]
 
     GD --> Cross["Cross-Engine<br>(엔진 무관)"]
@@ -238,7 +254,7 @@ Unity Architect는 ScriptableObjects와 DOTS/ECS를, Unreal Systems Engineer는 
 각 에이전트 파일은 단순한 프롬프트가 아니라, 아래 5가지 요소를 모두 갖춘 **완전한 에이전트 시스템** 이다:
 
 ```mermaid
-flowchart TD
+flowchart LR
     Agent["에이전트 파일 구조"]
 
     Agent --> P["Strong Personality<br>고유한 성격과 음성"]
@@ -284,7 +300,7 @@ flowchart TD
 Agency Agents의 또 다른 강점은 **단일 소스에서 다수의 도구로 변환** 할 수 있다는 점이다. 한 번 에이전트를 작성하면, 변환 스크립트를 통해 모든 주요 에이전틱 코딩 도구에서 사용할 수 있다.
 
 ```mermaid
-flowchart TD
+flowchart LR
     Source["에이전트 소스 파일<br>(.md)"]
 
     Source --> CC["Claude Code<br>~/.claude/agents/"]
