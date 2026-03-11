@@ -35,9 +35,10 @@ tasks:
     desc: Build and deploy to GitHub
     cmds:
       - 'echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"'
+      - 'git pull origin master || true'
+      - 'git add . && git diff --staged --quiet || git commit -m "update blog source"'
+      - 'git push'
       - "{{.HUGO}} -D"
       - 'cd ./public && git checkout master'
       - 'cd ./public && git add . && git diff --staged --quiet || git commit -m "build: rebuild site $(date +%Y-%m-%d\ %H:%M:%S)"'
       - 'cd ./public && git push'
-      - 'git add . && git diff --staged --quiet || git commit -m "update blog source"'
-      - 'git push'
