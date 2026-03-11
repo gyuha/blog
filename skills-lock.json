@@ -11,6 +11,11 @@
       "sourceType": "github",
       "computedHash": "cfbc539377088ca7e44a813b30c306327385bbd973cd7a721e1743f60837dd62"
     },
+    "scrapling-official": {
+      "source": "d4vinci/scrapling",
+      "sourceType": "github",
+      "computedHash": "306f06137f56e6524c7aa9cf29ce154c8e0d9f74fa2338d62132bfdd25a80c37"
+    },
     "threads-blog-post": {
       "source": "gyuha/skills",
       "sourceType": "github",
