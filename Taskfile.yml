@@ -35,7 +35,7 @@ tasks:
     desc: Build and deploy to GitHub
     cmds:
       - 'echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"'
-      - 'git pull origin master || true'
+      - 'git pull origin master --no-rebase'
       - 'git add . && git diff --staged --quiet || git commit -m "update blog source"'
       - 'git push'
       - "{{.HUGO}} -D"

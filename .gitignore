@@ -1,12 +1,10 @@
-.vscode
-content/post/.obsidian
+# Hugo build output
+/public/
+
+# OS files
 .DS_Store
-docs
+Thumbs.db
 .mcp-youtube-intelligence
 .omc
 .omx
 .sisyphus
-.claude/evidence-notes-*.md
-.claude/outline-*.md
-.claude/validation-checklist-*.md
-themes/hago/.omc
