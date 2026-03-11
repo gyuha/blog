@@ -64,7 +64,7 @@ flowchart TD
 PM Skills Marketplace는 PM 업무를 8개의 도메인으로 분류하고, 각각을 독립적인 플러그인으로 패키징했습니다.
 
 ```mermaid
-flowchart TD
+flowchart LR
     classDef discovery fill:#c5dcef,stroke:#5b8db8,color:#333
     classDef strategy fill:#fde8c0,stroke:#d6a84f,color:#333
     classDef execution fill:#c0ecd3,stroke:#63a87c,color:#333
@@ -204,7 +204,7 @@ flowchart TD
 PM Skills Marketplace의 가장 중요한 특징은 **프레임워크 인코딩** 입니다. 단순히 "PRD를 써줘"가 아니라, 검증된 PM 방법론의 구조와 판단 기준을 스킬 명세에 직접 심어 놓은 것입니다.
 
 ```mermaid
-flowchart TD
+flowchart LR
     classDef discovery fill:#c5dcef,stroke:#5b8db8,color:#333
     classDef strategy fill:#fde8c0,stroke:#d6a84f,color:#333
     classDef execution fill:#c0ecd3,stroke:#63a87c,color:#333
@@ -293,10 +293,14 @@ cp -r pm-skills/skills/pm-product-discovery/ .claude/skills/
 ```mermaid
 flowchart TD
     classDef full fill:#c0ecd3,stroke:#63a87c,color:#333
-    classDef partial fill:#fde8c0,stroke:#d6a84f,color:#333
 
     CC["Claude Code"]:::full --> |"Skills + Commands + Plugins"| FULL["전체 기능 사용 가능"]
     CW["Claude Cowork"]:::full --> |"Skills + Commands + Plugins"| FULL
+```
+
+```mermaid
+flowchart TD
+    classDef partial fill:#fde8c0,stroke:#d6a84f,color:#333
 
     GEM["Gemini CLI"]:::partial --> |"Skills Only"| PART["스킬만 사용 가능"]
     OC["OpenCode"]:::partial --> |"Skills Only"| PART
