@@ -129,6 +129,15 @@ Prefer local patterns over global rewrites.
 - Use `<!--more-->` for excerpt split in longer posts.
 - Legacy variance exists (`category` singular, occasional underscore filenames). Keep existing posts stable; use current dominant pattern for new posts.
 
+## Comparison Diagram Vertical Stacking Rule
+When a blog post section includes comparison diagrams (before/after, option A vs option B, old vs new architecture, generic vs specialized, etc.), **always stack them vertically**.
+
+Required guidance:
+1. **Never place comparison diagrams side by side** in a single mermaid code block.
+2. Split each comparison into a separate mermaid code block.
+3. List diagrams vertically (top-to-bottom, one per code block).
+4. Rationale: The blog content area is narrow. Side-by-side layout overflows on narrow screens, requires horizontal scrolling, and makes text labels hard to read.
+
 ## Mermaid-First Blog Writing Rule
 When writing or updating blog posts, prioritize Mermaid diagrams aggressively.
 
@@ -146,8 +155,7 @@ Required guidance:
 11. If Mermaid node labels or edge labels include special characters (for example `/`, `@`, `:`, `#`), wrap the label text in double quotes to avoid parser errors.
 12. For `sequenceDiagram`, use double quotes only when needed (for example when labels/messages contain special characters that may break parsing), and keep plain labels unquoted by default.
 13. In Mermaid labels, do not use `\n` for line breaks; use HTML `<br>` instead.
-14. When a section requires two or more comparison diagrams (for example before/after, option A vs option B, old vs new architecture), stack them **vertically** (one diagram per code block, listed top-to-bottom) instead of placing them side by side. Side-by-side layout overflows on narrow screens and is difficult to read in the blog's single-column content area.
-15. Prefer top-to-bottom (`TD`) flow direction over left-to-right (`LR`) for Mermaid flowcharts and graphs. The blog content area is narrow, so wide `LR` diagrams often overflow or require horizontal scrolling. Use `LR` only when the diagram has very few nodes (3 or fewer columns) and clearly fits within the content width.
+14. Prefer top-to-bottom (`TD`) flow direction over left-to-right (`LR`) for Mermaid flowcharts and graphs. The blog content area is narrow, so wide `LR` diagrams often overflow or require horizontal scrolling. Use `LR` only when the diagram has very few nodes (3 or fewer columns) and clearly fits within the content width.
 - Practical expectation: for technical posts, include Mermaid frequently; if a section can be clearer with a chart, add one.
 
 ## URL-Only Auto-Post Delegation Rule

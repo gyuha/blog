@@ -57,9 +57,8 @@ flowchart TD
 AI 코딩 어시스턴트를 사용할 때 흔히 "개발자처럼 행동해" 같은 일반적인 프롬프트를 작성한다. 하지만 이런 범용 프롬프트는 **도메인 깊이가 부족** 하고, 일관된 품질을 보장하지 못한다. Agency Agents는 이 문제에 대한 근본적인 해법을 제시한다.
 
 ```mermaid
-flowchart LR
+flowchart TD
     TitleBad["일반 프롬프트<br>'개발자처럼 행동해'"]
-    TitleGood["전문 에이전트 시스템<br>Agency Agents"]
 
     subgraph BadGroup[" "]
         A["도메인 전문성 부족"]
@@ -68,6 +67,21 @@ flowchart LR
         D["워크플로우 없음"]
     end
 
+    TitleBad --> A
+    TitleBad --> B
+    TitleBad --> C
+    TitleBad --> D
+
+    classDef title fill:#fff,stroke:none,color:#333,font-size:14px
+    classDef bad fill:#ffc8c4,stroke:#d44,color:#333
+    class TitleBad title
+    class A,B,C,D bad
+```
+
+```mermaid
+flowchart TD
+    TitleGood["전문 에이전트 시스템<br>Agency Agents"]
+
     subgraph GoodGroup[" "]
         E["깊은 도메인 전문성"]
         F["고유 성격과 커뮤니케이션 스타일"]
@@ -75,21 +89,14 @@ flowchart LR
         H["검증된 워크플로우"]
     end
 
-    TitleBad --> A
-    TitleBad --> B
-    TitleBad --> C
-    TitleBad --> D
-
     TitleGood --> E
     TitleGood --> F
     TitleGood --> G
     TitleGood --> H
 
     classDef title fill:#fff,stroke:none,color:#333,font-size:14px
-    classDef bad fill:#ffc8c4,stroke:#d44,color:#333
     classDef good fill:#c0ecd3,stroke:#3a3,color:#333
-    class TitleBad,TitleGood title
-    class A,B,C,D bad
+    class TitleGood title
     class E,F,G,H good
 ```
 
