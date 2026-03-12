@@ -163,20 +163,15 @@ flowchart TD
     A --> C["Flask + Vue 기반 실제 구현"]
     A --> D["GraphRAG/시뮬레이션/리포트의 연결"]
 
+    E["공개 저장소만으로 모르는 것"] --> F["예측 정확도 검증치"]
+    E --> G["대규모 에이전트 운용 한계"]
+    E --> H["실제 운영 비용 곡선"]
+
     classDef yes fill:#c0ecd3,stroke:#67a97c,color:#333
-
-    class A,B,C,D yes
-```
-
-```mermaid
-flowchart TD
-    A["공개 저장소만으로 모르는 것"] --> B["예측 정확도 검증치"]
-    A --> C["대규모 에이전트 운용 한계"]
-    A --> D["실제 운영 비용 곡선"]
-
     classDef no fill:#ffc8c4,stroke:#d97c73,color:#333
 
-    class A,B,C,D no
+    class A,B,C,D yes
+    class E,F,G,H no
 ```
 
 ## 실전 적용 포인트
