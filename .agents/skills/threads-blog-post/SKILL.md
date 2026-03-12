@@ -42,6 +42,7 @@ author: threads-glm
 **담당**: Threads URL에서 원본 콘텐츠 추출
 
 - **agent-browser** 스킬을 사용하여 브라우저 자동화로 페이지 접근
+- 실패 시 **playwright-cli**로 대체 시도
 - Threads.net 페이지를 크롤링하여 포스트 내용 수집
 - 텍스트, 이미지, 작성자 정보, 작성일 추출
 - Open Graph 메타데이터 및 JSON-LD 데이터 추출
