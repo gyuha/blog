@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "57bfa07d34f966bccf791d49c9b6ce507fbba08f7dbf9e2ad15809e2dd29041e"
     },
+    "firecrawl": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "computedHash": "f79f957689cc705613a2731f2f35360192fc9a6a28bc3de73484c973621df5ed"
+    },
     "pdf": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -15,6 +20,11 @@
       "source": "d4vinci/scrapling",
       "sourceType": "github",
       "computedHash": "306f06137f56e6524c7aa9cf29ce154c8e0d9f74fa2338d62132bfdd25a80c37"
+    },
+    "skill-creator": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "b122f4d1e91aa1d83027e050b5b37c3156203ee85458d7b1360bc48167c9e02a"
     },
     "threads-blog-post": {
       "source": "gyuha/skills",
