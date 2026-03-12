@@ -2,6 +2,7 @@ version: "3"
 
 vars:
   HUGO: hugo
+  PUBLIC_DIR: public
 
 tasks:
   run:
@@ -36,9 +37,10 @@ tasks:
     cmds:
       - 'echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"'
       - 'git pull origin master --no-rebase'
+      - 'cd {{.PUBLIC_DIR}} && git reset --hard && git clean -fdx'
+      - 'cd {{.PUBLIC_DIR}} && git checkout master && git pull'
+      - "{{.HUGO}} -D"
+      - 'cd {{.PUBLIC_DIR}} && git add . && git diff --staged --quiet || git commit -m "build: rebuild site $(date +%Y-%m-%d\ %H:%M:%S)"'
+      - 'cd {{.PUBLIC_DIR}} && git push'
       - 'git add . && git diff --staged --quiet || git commit -m "update blog source"'
       - 'git push'
-      - 'cd ./public && git checkout master && git pull'
-      - "{{.HUGO}} -D"
-      - 'cd ./public && git add . && git diff --staged --quiet || git commit -m "build: rebuild site $(date +%Y-%m-%d\ %H:%M:%S)"'
-      - 'cd ./public && git push'
