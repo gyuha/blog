@@ -340,7 +340,7 @@ CapCut의 자동 캡션 기능을 쓰면 1분 만에 자막이 달립니다. 폰
 [^34]: [https://youtu.be/BLTdSwwJPNc?t=5](https://youtu.be/BLTdSwwJPNc?t=5)
 
 ```mermaid
-flowchart LR
+flowchart 
     A["대본 입력"] --> B["화면 비율 선택"]
     B --> C["비주얼 테마 선택"]
     C --> D["참고 이미지 첨부"]

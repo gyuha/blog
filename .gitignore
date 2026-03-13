@@ -8,5 +8,6 @@ Thumbs.db
 .omc
 .omx
 .sisyphus
+.playwright-cli
 public/.omc
 themes/.omc
