@@ -11,3 +11,4 @@ Thumbs.db
 .playwright-cli
 public/.omc
 themes/.omc
+temp/
