@@ -121,6 +121,7 @@ Prefer local patterns over global rewrites.
   - `title`
   - `date`
   - `draft`
+- For new posts, set `date` to the actual writing/publishing time (current local time), not a future timestamp, to avoid posts being hidden from list pages.
 - Preferred post metadata for new content: `categories` (plural), `tags`, optional `description`.
 - For charts/diagrams in posts, use Mermaid by default.
 - For line breaks in post content, use HTML `<br>` instead of `\n`.
@@ -155,6 +156,7 @@ Required guidance:
 11. If Mermaid node labels or edge labels include special characters (for example `/`, `@`, `:`, `#`), wrap the label text in double quotes to avoid parser errors.
 12. For `sequenceDiagram`, use double quotes only when needed (for example when labels/messages contain special characters that may break parsing), and keep plain labels unquoted by default.
 13. In Mermaid labels, do not use `\n` for line breaks; use HTML `<br>` instead.
+14. Never use Mermaid reserved words as `classDef` names. Forbidden names include `end`, `default`, `start`, `stop`, and other Mermaid keywords. Use descriptive alternatives such as `terminal`, `done`, `finish`, or `result` instead.
 14. Prefer top-to-bottom (`TD`) flow direction over left-to-right (`LR`) for Mermaid flowcharts and graphs. The blog content area is narrow, so wide `LR` diagrams often overflow or require horizontal scrolling. Use `LR` only when the diagram has very few nodes (3 or fewer columns) and clearly fits within the content width.
 - Practical expectation: for technical posts, include Mermaid frequently; if a section can be clearer with a chart, add one.
 
