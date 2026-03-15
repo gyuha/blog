@@ -1,5 +1,5 @@
 ---
-title: "Claude Code 모든 기능 활용 가이드"
+title: "Claude Code 핵심 기능 활용 가이드"
 date: 2026-03-06T10:00:00+09:00
 draft: false
 categories:
@@ -10,16 +10,23 @@ tags:
   - ai-coding
   - agent
   - development-tools
-description: "Claude Code의 모든 핵심 기능을 실무에서 어떻게 활용하는지에 대한 종합 가이드입니다. CLAUDE.md 파일 관리부터 컨텍스트 최적화, Hooks, Skills, MCP, SDK, GitHub Actions까지 모든 것을 다룹니다."
+  - skills
+  - slash-commands
+  - plugins
+description: "Claude Code의 핵심 기능을 실무에서 어떻게 활용하는지에 대한 종합 가이드입니다. CLAUDE.md, slash commands, agents, skills, hooks, plugins, MCP, SDK, GitHub Actions까지 한 흐름으로 정리합니다."
 ---
 
-Claude Code는 Anthropic에서 개발한 강력한 AI 코딩 에이전트입니다. 단순한 코드 자동완성을 넘어, 전체 개발 워크플로우를 자율적으로 수행할 수 있는 도구입니다. 이 글에서는 Claude Code의 모든 기능을 실무에서 어떻게 효과적으로 활용하는지 자세히 살펴보겠습니다.
+Claude Code는 Anthropic에서 개발한 강력한 AI 코딩 에이전트입니다. 단순한 코드 자동완성을 넘어, 전체 개발 워크플로우를 자율적으로 수행할 수 있는 도구입니다. 이 글에서는 Claude Code의 핵심 building block을 실무에서 어떻게 조합해 쓰는지 큰 그림부터 자세히 살펴보겠습니다.
+
+특히 최근 공식 문서 기준으로는 custom slash commands를 skills와 분리해서만 보면 오해가 생길 수 있습니다. 전체 기능 지도를 먼저 이 글에서 보고, slash commands와 skills의 최신 관계만 집중해서 읽고 싶다면 [Claude Code에서 Slash Commands와 Skills는 이제 어떻게 봐야 할까](/post/2026/2026-03-15-claude-code-features-skills-guide/)를 함께 보는 것을 권장합니다.
 
 <!--more-->
 
 ## Sources
 
 - [How I Use Every Claude Code Feature](https://blog.sshh.io/p/how-i-use-every-claude-code-feature)
+- https://www.producttalk.org/how-to-use-claude-code-features/
+- https://code.claude.com/docs/en/slash-commands
 
 ## CLAUDE.md: 에이전트의 헌법
 
@@ -146,6 +153,39 @@ flowchart TD
 
 - **`/catchup`**: 앞서 언급한 명령어입니다. 현재 git 브랜치에서 변경된 모든 파일을 읽도록 Claude에 프롬프트합니다.
 - **`/pr`**: 코드를 정리하고, 스테이징하고, 풀 리퀘스트를 준비하는 간단한 도우미입니다.
+
+### 최신 공식 문서 기준으로 다시 보면
+
+여기서 한 가지 중요한 업데이트가 있습니다. ProductTalk처럼 많은 글이 slash commands를 독립 기능으로 설명하지만, Anthropic의 최신 공식 문서는 **"Custom commands have been merged into skills"** 라고 명시합니다.<br>즉 예전 `.claude/commands/*.md` 기반 커맨드 파일은 계속 동작하지만, 앞으로 확장 모델의 중심은 `SKILL.md` 기반 skills 쪽에 더 가깝습니다.
+
+다만 이 문장을 "모든 `/` 명령이 skill이 됐다"로 읽으면 안 됩니다.<br>공식 문서는 `/help`, `/compact` 같은 built-in commands를 여전히 별도 계층으로 다룹니다.<br>실무적으로는 아래처럼 이해하면 가장 덜 헷갈립니다.
+
+- built-in commands: Claude Code 자체가 제공하는 고정 기능
+- custom slash workflow: 여전히 `/name` 으로 호출하지만, 최신 문서에서는 skill 패키지 쪽 설명이 더 강조됨
+- skill: supporting files, frontmatter, 자동 호출, subagent 실행까지 포함하는 더 넓은 실행 단위
+
+```mermaid
+flowchart TD
+    A["/ 로 시작하는 입력"] --> B{"어떤 층인가?"}
+    B --> C["built-in commands<br>/help /compact"]
+    B --> D["legacy custom command files<br>.claude/commands/*.md"]
+    B --> E["skill packages<br>.claude/skills/*/SKILL.md"]
+    D --> F["기존 방식 계속 동작"]
+    E --> G["supporting files + frontmatter + auto load"]
+    F --> H["사용자는 /name 실행"]
+    G --> H
+
+    classDef input fill:#c5dcef,stroke:#6b9ac4,color:#333
+    classDef decision fill:#fde8c0,stroke:#d9a441,color:#333
+    classDef builtin fill:#ffc8c4,stroke:#d47a75,color:#333
+    classDef modern fill:#c0ecd3,stroke:#67a97c,color:#333
+    class A input
+    class B decision
+    class C builtin
+    class D,E,F,G,H modern
+```
+
+즉 slash command를 앞으로도 사용자 입장에서는 "내가 직접 부르는 명시적 workflow"로 이해할 수 있지만, 구현 관점에서는 **이 workflow를 command file로 둘지 skill package로 옮길지** 함께 고민하는 편이 현재 Claude Code 모델에 더 맞습니다.
 
 ### 안티패턴 경고
 
@@ -360,7 +400,70 @@ flowchart LR
 
 MCP보다 CLI를 선호해왔다면, 이미 암묵적으로 Skills의 이점을 누려왔습니다. `SKILL.md` 파일은 이러한 CLI와 스크립트를 문서화하고 에이전트에게 노출하는 더 조직적이고 공유 가능하며 발견 가능한 방법일 뿐입니다.
 
+최신 공식 문서는 Skills를 단순한 md 파일이 아니라 **디렉터리 단위 패키지** 로 설명합니다. 엔트리포인트는 `SKILL.md` 이지만, 같은 폴더 안에 supporting files, examples, scripts, reference docs를 함께 둘 수 있습니다. 이 점이 legacy command file과 가장 크게 다른 부분입니다.
+
+또한 frontmatter가 중요합니다. 공식 문서 기준으로 Skills는 다음 같은 제어 필드를 가질 수 있습니다.
+
+- `disable-model-invocation`: Claude가 자동으로 이 skill을 호출하지 못하게 함
+- `user-invocable`: `/` 메뉴 노출 여부 제어
+- `allowed-tools`: 사용할 도구 범위 제한
+- `context: fork`: 별도 subagent 컨텍스트에서 실행
+- `agent`: 어떤 agent 타입을 사용할지 지정
+
+즉 Skills는 단순한 지침 파일이 아니라, **호출 정책 + 실행 정책 + supporting files** 를 갖춘 workflow package라고 보는 편이 더 정확합니다.
+
+```mermaid
+flowchart TD
+    A[skill directory] --> B[SKILL.md]
+    A --> C["scripts/"]
+    A --> D["examples/"]
+    A --> E["reference docs/"]
+    B --> F[frontmatter로 호출 방식 제어]
+    C --> G[deterministic code]
+    D --> H[출력 예시]
+    E --> I[필요 시 세부 지식 로드]
+    F --> J[사용자 또는 Claude가 실행]
+    G --> J
+    H --> J
+    I --> J
+
+    classDef input fill:#c5dcef,stroke:#6b9ac4,color:#333
+    classDef process fill:#c0ecd3,stroke:#67a97c,color:#333
+    classDef detail fill:#fde8c0,stroke:#d9a441,color:#333
+    class A input
+    class B,F,J process
+    class C,D,E,G,H,I detail
+```
+
+이 차이는 실무에서도 중요합니다. ProductTalk가 지적하듯 slash command는 내가 직접 시점을 통제하는 데 강하고, skill은 재사용 패키지와 공유성, 그리고 자동 호출 가능성에서 강합니다. 즉 두 개념은 경쟁 관계라기보다, 같은 workflow를 서로 다른 강도로 구조화하는 단계라고 보는 편이 좋습니다.
+
 **핵심 교훈**: Skills는 올바른 추상화입니다. MCP가 나타내는 엄격하고 API와 같은 모델보다 더 강력하고 유연한 "스크립팅" 기반 에이전트 모델을 공식화합니다.
+
+## Plugins: 워크플로우를 배포 가능한 묶음으로 만드는 레이어
+
+Plugins는 Claude Code의 다른 building block을 다른 사람과 공유하기 위한 배포 포맷입니다. slash commands, agents, skills, hooks 같은 요소를 하나의 묶음으로 만들고, 이를 marketplace를 통해 탐색하고 설치할 수 있게 합니다.
+
+ProductTalk의 설명을 빌리면, plugin은 기능 하나가 아니라 **workflow bundle** 에 가깝습니다. marketplace는 그 bundle들을 모아 둔 출처이고, Claude Code는 `/plugin` 인터페이스를 통해 marketplace를 추가하고 discover 탭에서 각 plugin을 살펴보게 해 줍니다.
+
+```mermaid
+flowchart TD
+    A[slash commands] --> E[plugin]
+    B[agents] --> E
+    C[skills] --> E
+    D[hooks] --> E
+    E --> F[marketplace]
+    F --> G["/plugin 으로 탐색 / 설치"]
+    G --> H[팀과 workflow 공유]
+
+    classDef input fill:#c5dcef,stroke:#6b9ac4,color:#333
+    classDef package fill:#c0ecd3,stroke:#67a97c,color:#333
+    classDef dist fill:#fde8c0,stroke:#d9a441,color:#333
+    class A,B,C,D input
+    class E package
+    class F,G,H dist
+```
+
+다만 plugin은 편리함만 있는 기능이 아닙니다. skills와 hooks를 통해 code가 함께 배포될 수 있으므로, 설치 전에 내용을 검토하는 습관이 필요합니다. 공유성과 안전성은 늘 같이 다뤄야 합니다.
 
 ## MCP의 새로운 역할
 
@@ -555,8 +658,20 @@ $ query-claude-gha-logs --since 5d | claude -p "see what the other claudes were 
 
 - **Hooks로 검증**: 커밋 시점에 상태 검증 (block-at-submit)
 - **플래닝 필수**: 복잡한 변경 전 계획 정렬
+- **Plugins로 배포**: slash commands, skills, hooks를 팀 단위로 공유
 - **GitHub Actions**: 감사 가능하고 자체 개선되는 시스템 구축
 - **데이터 기반 개선**: 로그 분석으로 CLAUDE.md/CLI 개선
+
+### 언제 무엇을 쓸까
+
+| building block | 언제 쓰면 좋은가 | 핵심 장점 | 주의할 점 |
+| --- | --- | --- | --- |
+| Markdown files | 프로젝트 맥락과 규칙을 오래 유지하고 싶을 때 | 매번 설명하는 비용 감소 | CLAUDE.md 과적재 금지 |
+| Slash commands | 내가 직접 반복 workflow를 실행하고 싶을 때 | 예측 가능성, 명시적 통제 | 이제는 Skill 모델과 함께 봐야 함 |
+| Agents | 탐색량이 많거나 병렬화가 필요할 때 | context 보호, 속도 향상 | 토큰/사용량 증가 |
+| Skills | prompt + context + code를 패키지로 공유하고 싶을 때 | 휴대성, 자동 호출 가능성, 스크립트 번들 | 자동 발동 품질은 아직 운영이 필요 |
+| Hooks | 반드시 같은 시점에 동일하게 실행돼야 할 일이 있을 때 | deterministic automation | 잘못 걸면 전역 부작용 |
+| Plugins | workflow 묶음을 다른 사람과 공유할 때 | 설치/배포 단위 | 포함 코드 리뷰 필요 |
 
 ## 결론
 
@@ -568,6 +683,6 @@ Claude Code는 단순한 코딩 도구가 아니라, 전체 개발 워크플로�
 
 **운영화를 고려하세요**. Hooks로 검증하고, GitHub Actions로 감사 가능한 시스템을 구축하며, 데이터 기반으로 지속적으로 개선하세요.
 
-**Skills와 SDK가 미래입니다**. MCP의 엄격한 API 모델보다는 유연한 스크립팅 기반 접근이 더 효과적입니다.
+**Skills와 SDK가 앞으로 더 중요한 축입니다**. 다만 slash commands는 사라진 개념이 아니라, built-in commands와 custom workflow 호출 표면을 함께 포함하는 사용자 인터페이스로 이해하는 편이 더 정확합니다.
 
 이 가이드가 Claude Code를 더 효과적으로 활용하는 데 도움이 되기를 바랍니다. CLI 기반 에이전트를 아직 사용하지 않고 있다면, 지금 시작할 때입니다. 이러한 고급 기능에 대한 좋은 가이드가 거의 없으므로, 배우는 유일한 방법은 직접 뛰어드는 것입니다.
